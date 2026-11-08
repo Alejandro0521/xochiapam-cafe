@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Fredoka";
+  src: url("../assets/fonts/Fredoka-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand Colors */
+  --color-terracota: #B54325;
+  --color-terracota-hover: #98341b;
+  --color-crema: #F3E3CA;
+  --color-crema-light: #fbf5eb;
+  --color-cacao: #4A2113;
+  --color-cacao-soft: #63301f;
+  --color-marfil: #FFFAF3;
+  --color-marfil-card: #FFFFFF;
+
+  /* Typography */
+  --font-heading: "Fredoka", system-ui, -apple-system, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, sans-serif;
+
+  /* Fluid Spacing Scale */
+  --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1vw, 0.75rem);
+  --space-md: clamp(1rem, 2vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --space-xl: clamp(2.5rem, 5vw, 4.5rem);
+  --space-2xl: clamp(4rem, 8vw, 7rem);
+
+  /* Radius & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --shadow-warm: 0 10px 30px -10px rgba(74, 33, 19, 0.08);
+  --shadow-elevation: 0 20px 40px -15px rgba(74, 33, 19, 0.15);
+
+  /* Layout Max Width */
+  --container-max: 1200px;
+}
+
+/* Global Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color: var(--color-cacao);
+  background-color: var(--color-marfil);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-cacao);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
