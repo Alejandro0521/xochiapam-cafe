@@ -43,3 +43,4 @@ test('showPurchaseToast updates toast description and displays element', () => {
   assert.ok(mockToast.classList.contains('is-visible'));
   assert.strictEqual(mockDesc.textContent, '2x Xochiapam 250 g (Molido Medio)');
 });
+

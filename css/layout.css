@@ -369,6 +369,67 @@
 }
 
 /* ==========================================================================
+   CINTA TIPOGRÁFICA DE TALLER (MARQUEE DE MANIFIESTO CONTINUO)
+   ========================================================================== */
+.marquee-ribbon {
+  background-color: var(--color-crema);
+  border-top: 1px solid var(--color-cacao);
+  border-bottom: 1px solid var(--color-cacao);
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeContinuous 34s linear infinite;
+}
+
+.marquee-ribbon:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: var(--font-heading);
+  font-size: 0.94rem;
+  letter-spacing: 0.02em;
+  color: var(--color-cacao);
+  padding-right: 2rem;
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-terracota);
+  display: inline-block;
+  margin: 0 1.25rem;
+  flex-shrink: 0;
+}
+
+@keyframes marqueeContinuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
    SECCIÓN DE ORIGEN Y VOZ DE MARCA (#origen)
    Composición arquitectónica de revista impresa (Sin listas 01/02/03 falsas)
    ========================================================================== */
@@ -512,6 +573,63 @@
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--color-cacao-muted);
+}
+
+/* Placa Georreferenciada y Grabado Botánico de Origen */
+.origin-passport-bar {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  background-color: var(--color-crema);
+  border-top: 1px solid var(--color-cacao);
+}
+
+.passport-botanical-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid var(--color-cacao-rule);
+  background-color: var(--color-marfil);
+}
+
+.botanical-branch-svg {
+  width: 100%;
+  height: auto;
+  max-width: 110px;
+  display: block;
+}
+
+.passport-data-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.passport-cell {
+  padding: 1.25rem clamp(1rem, 2.5vw, 2rem);
+  border-right: 1px solid var(--color-cacao-rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.passport-cell:last-child {
+  border-right: none;
+}
+
+.passport-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-cacao-muted);
+}
+
+.passport-val {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-cacao);
+  line-height: 1.2;
 }
 
 /* ==========================================================================
@@ -911,6 +1029,29 @@
     border-bottom: 1px solid var(--color-cacao-rule);
   }
 
+  .origin-passport-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .passport-botanical-graphic {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao-rule);
+    padding: 1.25rem;
+  }
+
+  .passport-data-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .passport-cell:nth-child(2) {
+    border-right: none;
+  }
+
+  .passport-cell:nth-child(1),
+  .passport-cell:nth-child(2) {
+    border-bottom: 1px solid var(--color-cacao-rule);
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -986,6 +1127,19 @@
   .hero-cta-group .btn-secondary {
     width: 100%;
     text-align: center;
+  }
+
+  .passport-data-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .passport-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao-rule);
+  }
+
+  .passport-cell:last-child {
+    border-bottom: none;
   }
 }
 
