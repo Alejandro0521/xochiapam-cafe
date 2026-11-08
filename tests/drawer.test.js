@@ -115,3 +115,36 @@ test('copyOrderToClipboard returns text and handles clipboard copy', async () =>
   assert.ok(copiedText.includes('Café Xochiapam Casa 250 g'));
   assert.ok(copiedText.includes('Lucia'));
 });
+
+test('CartDrawer open guards against InvalidStateError when dialog is already open', () => {
+  const mockStorage = { store: {}, getItem() { return null; }, setItem() {} };
+  const cart = new Cart(mockStorage);
+
+  let showModalCallCount = 0;
+  const mockDialog = {
+    classList: {
+      classes: new Set(),
+      add(c) { this.classes.add(c); },
+      remove(c) { this.classes.delete(c); },
+      contains(c) { return this.classes.has(c); }
+    },
+    open: true, // already open!
+    showModal() {
+      showModalCallCount++;
+      throw new Error('InvalidStateError: already open');
+    },
+    close() { this.open = false; },
+    addEventListener() {},
+    removeEventListener() {},
+    querySelector() { return null; }
+  };
+
+  const drawer = new CartDrawer({ cart, dialogEl: mockDialog });
+  // Calling open when dialog is already open should not throw showModal error
+  assert.doesNotThrow(() => {
+    drawer.open();
+  });
+  assert.strictEqual(showModalCallCount, 0, 'showModal must not be called when dialog.open is true');
+  assert.strictEqual(mockDialog.classList.contains('is-open'), true);
+  assert.strictEqual(drawer.isOpen, true);
+});

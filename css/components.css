@@ -508,6 +508,13 @@
   box-shadow: var(--shadow-elevation);
 }
 
+.boutique-card.is-highlighted {
+  box-shadow: 0 0 0 3px var(--color-terracota), 0 20px 40px -10px rgba(181, 67, 37, 0.25);
+  transform: translateY(-6px);
+  border-color: var(--color-terracota);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
 .boutique-card.card-featured {
   border: 2px solid var(--color-terracota);
   background: linear-gradient(180deg, rgba(243, 227, 202, 0.22) 0%, #FFFFFF 24%);

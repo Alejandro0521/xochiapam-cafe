@@ -73,3 +73,46 @@ test('updateCartBadge updates counter element text and classes', () => {
   assert.strictEqual(badgeEl.textContent, '4');
   assert.strictEqual(badgeEl.classList.classes.has('has-items'), true);
 });
+
+test('setupBoutique preserves original button text on repeated clicks', (t) => {
+  const mockStorage = { store: {}, getItem() { return null; }, setItem() {} };
+  const cart = new Cart(mockStorage);
+  const mockDrawer = { open: () => {} };
+
+  const listeners = {};
+  const mockBtn = {
+    dataset: { productId: 'xochiapam-250' },
+    addEventListener(evt, fn) { listeners[evt] = fn; },
+    innerHTML: '<span>Comprar 250g</span>'
+  };
+
+  const mockRadio = { value: 'medio' };
+  const mockInput = { value: '1' };
+  const mockCard = {
+    querySelector(sel) {
+      if (sel === 'input[type="radio"]:checked') return mockRadio;
+      if (sel === '.qty-input') return mockInput;
+      if (sel === '.btn-add-to-cart') return mockBtn;
+      return null;
+    },
+    querySelectorAll() { return []; }
+  };
+  const mockContainer = {
+    querySelectorAll(sel) {
+      if (sel === '.boutique-card') return [mockCard];
+      return [];
+    }
+  };
+
+  setupBoutique(cart, mockDrawer, mockContainer);
+
+  // 1st click
+  listeners['click']({ preventDefault() {} });
+  assert.strictEqual(mockBtn.dataset.originalText, '<span>Comprar 250g</span>');
+  assert.ok(mockBtn.innerHTML.includes('¡Agregado!'));
+
+  // 2nd rapid click
+  listeners['click']({ preventDefault() {} });
+  // originalText must remain the original HTML, not '¡Agregado!'
+  assert.strictEqual(mockBtn.dataset.originalText, '<span>Comprar 250g</span>');
+});

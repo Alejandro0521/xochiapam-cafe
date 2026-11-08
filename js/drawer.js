@@ -55,6 +55,7 @@ export class CartDrawer {
     this.phone = phone;
     this.isOpen = false;
     this.toastTimeout = null;
+    this.closeTimeout = null;
 
     this.customerData = {
       name: '',
@@ -85,7 +86,20 @@ export class CartDrawer {
   }
 
   open() {
-    if (!this.dialog || this.isOpen) return;
+    if (!this.dialog) return;
+
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+      this.closeTimeout = null;
+    }
+
+    if (this.dialog.open) {
+      this.isOpen = true;
+      this.dialog.classList.add('is-open');
+      return;
+    }
+
+    if (this.isOpen) return;
 
     this.isOpen = true;
     if (typeof this.dialog.showModal === 'function') {
@@ -113,7 +127,12 @@ export class CartDrawer {
     this.isOpen = false;
     this.dialog.classList.remove('is-open');
 
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+    }
+
     const handleClose = () => {
+      this.closeTimeout = null;
       if (!this.isOpen && this.dialog.open && typeof this.dialog.close === 'function') {
         this.dialog.close();
       } else if (!this.isOpen) {
@@ -125,7 +144,7 @@ export class CartDrawer {
     };
 
     // Wait for the slide-out transition to complete (300ms)
-    setTimeout(handleClose, 280);
+    this.closeTimeout = setTimeout(handleClose, 280);
   }
 
   showToast(message, duration = 3000) {

@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
+  <!-- Enlace accesible de salto al contenido -->
+  <a href="#hero" class="skip-link">Saltar al contenido principal</a>
+
   <!-- Header Sticky con Glassmorphism Cálido -->
   <header class="site-header">
     <div class="container header-inner">
@@ -24,7 +27,7 @@
           <li><a href="#comparativa">Guía y Comparativa</a></li>
           <li><a href="#tienda">Boutique</a></li>
         </ul>
-        <button type="button" class="cart-button-trigger" id="cart-open-btn" aria-label="Abrir bolsa de compra" aria-haspopup="dialog">
+        <button type="button" class="cart-button-trigger" id="cart-open-btn" aria-label="Abrir bolsa de compra" aria-haspopup="dialog" aria-controls="cart-drawer">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -454,6 +457,97 @@
       </div>
     </section>
   </main>
+
+  <!-- 5. Footer Institucional -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <!-- Columna 1: Marca, Lema y Filosofía -->
+        <div class="footer-col footer-col-brand">
+          <a href="#hero" class="footer-brand" aria-label="Volver al inicio - Café Xochiapam Casa">
+            <span class="footer-brand-logo-frame">
+              <img src="assets/logos/simbolo-color.svg" alt="Símbolo oficial Café Xochiapam Casa" class="footer-logo-img" width="48" height="42" loading="lazy">
+            </span>
+            <span class="footer-brand-titles">
+              <span class="footer-brand-title">Café Xochiapam</span>
+              <span class="footer-brand-sub">Casa</span>
+            </span>
+          </a>
+          <p class="footer-motto">"Tu café de cada día"</p>
+          <p class="footer-submotto">De Oaxaca a tu taza</p>
+          <p class="footer-bio">
+            Café de estricta altura 100% arábica, cultivado bajo sombra de niebla por familias productoras en la Sierra de Oaxaca. Cosecha selectiva grano a grano y tueste medio balanceado.
+          </p>
+        </div>
+
+        <!-- Columna 2: Ficha Técnica y Trazabilidad -->
+        <div class="footer-col footer-col-traceability">
+          <h3 class="footer-heading">Trazabilidad de Origen</h3>
+          <ul class="footer-traceability-list">
+            <li>
+              <span class="trace-label">Municipio:</span>
+              <span class="trace-val">San Pedro Sochiapam, Sierra de Oaxaca, México</span>
+            </li>
+            <li>
+              <span class="trace-label">Región:</span>
+              <span class="trace-val">Sierra de Flores Magón (Cañada Alta)</span>
+            </li>
+            <li>
+              <span class="trace-label">Altitud:</span>
+              <span class="trace-val">1,400 a 1,850 metros sobre el nivel del mar</span>
+            </li>
+            <li>
+              <span class="trace-label">Variedades:</span>
+              <span class="trace-val">Typica, Bourbon & Mundo Novo</span>
+            </li>
+            <li>
+              <span class="trace-label">Proceso:</span>
+              <span class="trace-val">Lavado artesanal con secado lento en zarandas</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Enlaces Rápidos -->
+        <nav class="footer-col footer-col-nav" aria-label="Navegación del pie de página">
+          <h3 class="footer-heading">Navegación Rápida</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#hero" class="footer-nav-link">Inicio</a></li>
+            <li><a href="#origen" class="footer-nav-link">Origen e Historia</a></li>
+            <li><a href="#comparativa" class="footer-nav-link">Guía y Comparativa</a></li>
+            <li><a href="#tienda" class="footer-nav-link">Boutique de Café</a></li>
+          </ul>
+        </nav>
+
+        <!-- Columna 4: Pedidos WhatsApp y Servicio -->
+        <div class="footer-col footer-col-contact">
+          <h3 class="footer-heading">Atención y Pedidos</h3>
+          <p class="footer-contact-intro">
+            Atención directa por WhatsApp para confirmar pedidos, resolver dudas o coordinar entregas personalizadas.
+          </p>
+          <a href="https://wa.me/5219511234567?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Caf%C3%A9%20Xochiapam%20Casa" class="footer-whatsapp-cta" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp al +52 (951) 123-4567">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>Pedir por WhatsApp: +52 (951) 123-4567</span>
+          </a>
+          <div class="footer-chips">
+            <span class="footer-chip">🚚 Envíos a todo México</span>
+            <span class="footer-chip">☕ Tueste siempre fresco</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra Inferior: Copyright y Reconocimiento -->
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">
+          &copy; <span id="current-year">2026</span> Café Xochiapam Casa. Todos los derechos reservados. San Pedro Sochiapam, Sierra de Oaxaca, México.
+        </p>
+        <p class="footer-tagline">
+          Cultivado con respeto a la tierra · 100% Comercio Justo Comunitario
+        </p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Drawer Modal Nativo <dialog> -->
   <dialog id="cart-drawer" class="cart-drawer" aria-labelledby="drawer-title" aria-describedby="drawer-desc">
