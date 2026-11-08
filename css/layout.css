@@ -1,0 +1,330 @@
+/* Container Helper */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* 1. Header Fijo con Glassmorphism Cálido */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 250, 243, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(74, 33, 19, 0.08);
+  transition: all 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-cacao);
+  position: relative;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-terracota);
+}
+
+.cart-button-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-terracota);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(181, 67, 37, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cart-button-trigger:hover {
+  background-color: var(--color-terracota-hover);
+  transform: translateY(-1px);
+}
+
+.cart-badge {
+  background-color: #FFFFFF;
+  color: var(--color-terracota);
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* 2. Hero Editorial */
+.hero-section {
+  position: relative;
+  background-color: var(--color-marfil);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-crema);
+  color: var(--color-cacao);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--color-cacao);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+}
+
+.hero-title span {
+  color: var(--color-terracota);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--color-cacao-soft);
+  margin-bottom: var(--space-lg);
+  max-width: 540px;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-crema);
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-cacao);
+  box-shadow: var(--shadow-warm);
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-terracota);
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 8px 20px rgba(181, 67, 37, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-terracota-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-crema);
+  color: var(--color-cacao);
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #e5d1b3;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: radial-gradient(circle, var(--color-crema) 0%, rgba(243, 227, 202, 0.2) 70%);
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(74, 33, 19, 0.15));
+  transition: transform 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
+}
+
+/* Divisor de Onda Orgánica */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateZ(0);
+  background-color: var(--color-marfil);
+}
+
+.wave-divider svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+/* 3. Sección Orígenes e Historia */
+.section-origins {
+  background-color: var(--color-crema-light);
+  padding-block: var(--space-2xl);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+}
+
+.section-tag {
+  color: var(--color-terracota);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  margin-bottom: var(--space-sm);
+}
+
+.section-desc {
+  color: var(--color-cacao-soft);
+  font-size: 1.1rem;
+}
+
+.origins-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.origin-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-warm);
+  border: 1px solid rgba(74, 33, 19, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.origin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevation);
+}
+
+.origin-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-terracota);
+}
+
+.origin-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: var(--space-xs);
+}
+
+.origin-card p {
+  color: var(--color-cacao-soft);
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-subtitle {
+    margin-inline: auto;
+  }
+  .hero-badges, .hero-ctas {
+    justify-content: center;
+  }
+  .nav-links {
+    display: none; /* Mobile navigation simplified */
+  }
+}
