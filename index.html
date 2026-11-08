@@ -33,6 +33,7 @@
         <a href="#comparativa" class="nav-link">250 g y 500 g</a>
         <a href="#mesa" class="nav-link">En tu Mesa</a>
         <a href="#tienda" class="nav-link">Pedir Café</a>
+        <a href="#faq" class="nav-link">Preguntas</a>
       </nav>
 
       <div class="header-actions">
@@ -744,7 +745,110 @@
       </div>
     </section>
 
+    <!-- ====================================================================
+         PREGUNTAS HABITUALES ANTES DE PEDIR (#faq)
+         Acordeón editorial exclusivo (<details name="faq-group">)
+         ==================================================================== -->
+    <section id="faq" class="section-faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-header-bar">
+          <span class="faq-badge">Dudas y respuestas claras</span>
+          <h2 id="faq-heading" class="faq-title">
+            Preguntas habituales antes de pedir
+          </h2>
+          <p class="faq-subtitle">
+            Queremos que pedir café para tu casa sea tan claro y cercano como la taza que tomas en la mañana.
+          </p>
+        </div>
+
+        <div class="faq-accordion-container">
+          <details class="faq-item" name="faq-group" open>
+            <summary class="faq-summary">
+              <span class="faq-question">¿Hacen envíos a toda la República Mexicana y cuánto tardan?</span>
+              <svg class="faq-toggle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Sí, enviamos a cualquier ciudad de México por paquetería express. Al coordinar tu pedido por WhatsApp, despachamos tu paquete en un plazo de 24 a 48 horas hábiles para asegurarte un lote fresco y bien protegido.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-summary">
+              <span class="faq-question">¿Cuánto tiempo conserva su frescura una vez abierta la bolsa?</span>
+              <svg class="faq-toggle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Nuestras bolsas cuentan con válvula desgasificadora unidireccional y cierre tipo zip hermético, además del adhesivo circular incluido de regalo. Conservando la bolsa en tu alacena (lejos de calor y luz directa), mantiene su aroma y aceites óptimos de 4 a 6 semanas.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-summary">
+              <span class="faq-question">¿Qué métodos de pago aceptan al coordinar por WhatsApp?</span>
+              <svg class="faq-toggle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Aceptamos transferencia electrónica inmediata (SPEI sin comisión adicional), pago con tarjeta de crédito o débito mediante enlace bancario protegido y depósitos en tiendas de conveniencia. Al enviar tu pedido te proporcionamos los datos al instante.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq-group">
+            <summary class="faq-summary">
+              <span class="faq-question">¿Por qué recomiendan pedir en grano entero si tengo molino?</span>
+              <svg class="faq-toggle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Moler el café en el minuto previo a la infusión resguarda los compuestos aromáticos más sutiles. Si no tienes molino, no te preocupes: nuestra molienda media llega lista y calibrada para cafetera eléctrica o prensa francesa con excelente rendimiento.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- ======================================================================
+       AVISO TÁCTIL FLOTANTE DE PEDIDO (#purchase-toast)
+       ====================================================================== -->
+  <aside id="purchase-toast" class="purchase-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <div class="toast-inner">
+      <div class="toast-symbol-box" aria-hidden="true">
+        <img src="assets/logos/simbolo-color.svg" alt="" width="24" height="24">
+      </div>
+      <div class="toast-info">
+        <strong class="toast-title">Agregado a tu pedido</strong>
+        <p class="toast-item-desc" id="toast-desc">Xochiapam 250 g (Molido Medio)</p>
+      </div>
+      <div class="toast-actions">
+        <button type="button" id="toast-view-btn" class="btn-toast-view">
+          <span>Ver bolsa</span>
+        </button>
+        <button type="button" id="toast-close-btn" class="btn-toast-close" aria-label="Cerrar notificación">
+          &times;
+        </button>
+      </div>
+    </div>
+  </aside>
 
   <!-- ======================================================================
        CAJÓN LATERAL NATIVO DE PEDIDO (<dialog id="cart-drawer">)
@@ -851,6 +955,7 @@
             <li><a href="#comparativa">250 g y 500 g</a></li>
             <li><a href="#mesa">En tu Mesa</a></li>
             <li><a href="#tienda">Pedir Café</a></li>
+            <li><a href="#faq">Preguntas</a></li>
           </ul>
         </div>
 

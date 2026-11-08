@@ -94,6 +94,13 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
 
         cart.addItem(product, grindId, qty);
 
+        const grindLabels = {
+          medio: 'Molido Medio',
+          fino: 'Molido Fino',
+          grano: 'En Grano'
+        };
+        showPurchaseToast(product, grindLabels[grindId] || 'Molido Medio', qty, container);
+
         // Feedback animation on button with cached original text
         if (!addBtn.dataset.originalText) {
           addBtn.dataset.originalText = addBtn.innerHTML || addBtn.textContent || '';
@@ -137,6 +144,40 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
       }
     });
   });
+}
+
+/**
+ * Shows the purchase toast with product and grind information.
+ * @param {object} product
+ * @param {string} grindName
+ * @param {number} qty
+ * @param {ParentNode} [container=document]
+ */
+export function showPurchaseToast(product, grindName, qty, container = (typeof document !== 'undefined' ? document : null)) {
+  if (!container || !product || typeof container.querySelector !== 'function') return;
+  const toast = container.querySelector('#purchase-toast');
+  if (!toast) return;
+
+  const descEl = toast.querySelector('#toast-desc');
+  if (descEl) {
+    const qtyPrefix = qty > 1 ? `${qty}x ` : '';
+    descEl.textContent = `${qtyPrefix}${product.name} (${grindName})`;
+  }
+
+  toast.hidden = false;
+  if (typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(() => toast.classList.add('is-visible'));
+  } else {
+    toast.classList.add('is-visible');
+  }
+
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.classList.remove('is-visible');
+    setTimeout(() => {
+      toast.hidden = true;
+    }, 320);
+  }, 4000);
 }
 
 /**
@@ -208,6 +249,28 @@ export function initApp(container = (typeof document !== 'undefined' ? document 
 
   // Setup 3D Flip Card in Mesa section
   setupFlipCard(container);
+
+  // Wire purchase toast action buttons
+  const toastEl = container.querySelector('#purchase-toast');
+  if (toastEl) {
+    const viewBtn = toastEl.querySelector('#toast-view-btn');
+    const closeBtn = toastEl.querySelector('#toast-close-btn');
+
+    if (viewBtn) {
+      viewBtn.addEventListener('click', () => {
+        toastEl.classList.remove('is-visible');
+        toastEl.hidden = true;
+        if (drawer) drawer.open();
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        toastEl.classList.remove('is-visible');
+        toastEl.hidden = true;
+      });
+    }
+  }
 
   // Set current year in footer
   const yearEl = container.querySelector('#current-year');

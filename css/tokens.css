@@ -23,6 +23,9 @@
 }
 
 :root {
+  /* Interpolación nativa para aperturas fluidas de acordeones e intrínsecos */
+  interpolate-size: allow-keywords;
+
   /* Paleta Oficial Xochiapam (Edición 01 · Guía de Marca)
      Cero blancos clínicos (#FFF), cero sombras artificiales, cero degradados. */
   --color-terracota: #B54325;
