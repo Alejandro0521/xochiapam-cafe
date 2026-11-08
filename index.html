@@ -9,6 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/logos/simbolo-color.svg">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
   <!-- Header Sticky con Glassmorphism Cálido -->
@@ -115,6 +116,183 @@
         </div>
       </div>
     </section>
+
+    <!-- Sección Guía y Tabla Comparativa Interactiva -->
+    <section id="comparativa" class="section-comparison" aria-labelledby="comparativa-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Guía y Comparativa</span>
+          <h2 id="comparativa-heading" class="section-title">Elige tu experiencia de café</h2>
+          <p class="section-desc">
+            Compara nuestras presentaciones artesanales y descubre la molienda ideal para tu método de preparación favorito.
+          </p>
+        </div>
+
+        <!-- 1. Tabla Comparativa de Presentaciones: 250g vs 500g -->
+        <div class="comparison-block">
+          <h3 class="comparison-subheading">Presentaciones: Frescura Individual vs. Hogar & Barista</h3>
+          <div class="comparison-grid">
+            <!-- Tarjeta 250g -->
+            <article class="comparison-card" data-product="xochiapam-250">
+              <div class="card-badge">Edición Frescura</div>
+              <div class="card-header">
+                <h4 class="card-title">250 g</h4>
+                <p class="card-tagline">Edición Frescura Individual</p>
+                <div class="card-price">
+                  <span class="price-currency">$</span>
+                  <span class="price-amount">160</span>
+                  <span class="price-suffix">MXN</span>
+                </div>
+              </div>
+              <ul class="comparison-specs" role="list">
+                <li class="spec-item">
+                  <span class="spec-label">Rendimiento</span>
+                  <span class="spec-value">~16 tazas (15g c/u)</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Ritmo ideal</span>
+                  <span class="spec-value">1 a 2 semanas de consumo</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Conservación</span>
+                  <span class="spec-value">Frescura máxima constante</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Perfil de uso</span>
+                  <span class="spec-value">Individual o degustación</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Empaque</span>
+                  <span class="spec-value">Bolsa hermética con válvula</span>
+                </li>
+              </ul>
+              <div class="card-action">
+                <a href="#tienda" class="btn-comparison" data-weight="250">Elegir 250 g</a>
+              </div>
+            </article>
+
+            <!-- Tarjeta 500g (Destacada) -->
+            <article class="comparison-card card-featured" data-product="xochiapam-500">
+              <div class="card-badge badge-popular">Más Popular · Mayor Valor</div>
+              <div class="card-header">
+                <h4 class="card-title">500 g</h4>
+                <p class="card-tagline">Edición Hogar & Barista</p>
+                <div class="card-price">
+                  <span class="price-currency">$</span>
+                  <span class="price-amount">290</span>
+                  <span class="price-suffix">MXN</span>
+                  <span class="price-savings">Ahorras $30</span>
+                </div>
+              </div>
+              <ul class="comparison-specs" role="list">
+                <li class="spec-item">
+                  <span class="spec-label">Rendimiento</span>
+                  <span class="spec-value">~32 tazas (15g c/u)</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Ritmo ideal</span>
+                  <span class="spec-value">3 a 4 semanas para hogar o pareja</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Conservación</span>
+                  <span class="spec-value">Cierre zipper resellable + válvula</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Perfil de uso</span>
+                  <span class="spec-value">Hogares, oficinas y baristas</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-label">Empaque</span>
+                  <span class="spec-value">Bolsa tricapa con sello hermético</span>
+                </li>
+              </ul>
+              <div class="card-action">
+                <a href="#tienda" class="btn-comparison btn-featured" data-weight="500">Elegir 500 g</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- 2. Guía Interactiva de Molienda con Pestañas Táctiles -->
+        <div class="grind-guide-block">
+          <div class="grind-guide-header">
+            <span class="section-tag">Guía de Extracción</span>
+            <h3 class="comparison-subheading">Calibra tu molienda con precisión artesanal</h3>
+            <p class="grind-guide-intro">
+              Cada método de extracción requiere una granulometría específica para liberar la riqueza sensorial de San Pedro Sochiapam sin sobreextraer.
+            </p>
+          </div>
+
+          <!-- Selector de Pestañas Táctiles Accesible (role="tablist") -->
+          <div class="grind-tabs-wrapper">
+            <div class="grind-tabs" role="tablist" aria-label="Opciones de molienda de café">
+              <button type="button" role="tab" class="grind-tab-pill is-active" id="tab-grano" aria-selected="true" aria-controls="grind-panel" tabindex="0" data-grind-id="grano">
+                <span class="tab-icon" aria-hidden="true">🫘</span>
+                <span class="tab-title">Grano Entero</span>
+                <span class="tab-sub">Moler al momento</span>
+              </button>
+              <button type="button" role="tab" class="grind-tab-pill" id="tab-medio" aria-selected="false" aria-controls="grind-panel" tabindex="-1" data-grind-id="medio">
+                <span class="tab-icon" aria-hidden="true">☕</span>
+                <span class="tab-title">Molienda Media</span>
+                <span class="tab-sub">Filtro y Prensa</span>
+              </button>
+              <button type="button" role="tab" class="grind-tab-pill" id="tab-fino" aria-selected="false" aria-controls="grind-panel" tabindex="-1" data-grind-id="fino">
+                <span class="tab-icon" aria-hidden="true">✨</span>
+                <span class="tab-title">Molienda Fina</span>
+                <span class="tab-sub">Espresso e Italiana</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Panel de Detalles Reactivo (role="tabpanel") -->
+          <div class="grind-detail-panel" id="grind-panel" role="tabpanel" aria-labelledby="tab-grano">
+            <div class="grind-panel-grid">
+              <div class="grind-panel-main">
+                <div class="grind-badge-row">
+                  <span class="badge-pill" id="grind-granulometry">Granulometría: En Grano Entero</span>
+                  <span class="ratio-badge" id="grind-ratio">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <span id="grind-ratio-text">Ratio: 1 g café : 15 ml agua</span>
+                  </span>
+                </div>
+                <h4 class="grind-detail-title" id="grind-title">En Grano Entero — Para moler al momento</h4>
+                <p class="grind-detail-recommendation" id="grind-recommendation">
+                  Recomendado para entusiastas con molino manual o automático.
+                </p>
+                <div class="grind-methods-section">
+                  <span class="methods-label">Métodos recomendados:</span>
+                  <div class="methods-tags" id="grind-methods">
+                    <span class="method-tag">Espresso profesional</span>
+                    <span class="method-tag">Chemex</span>
+                    <span class="method-tag">V60 Pour-over</span>
+                    <span class="method-tag">AeroPress</span>
+                  </div>
+                </div>
+              </div>
+              <div class="grind-panel-side">
+                <div class="taste-card">
+                  <div class="taste-card-header">
+                    <span class="taste-icon" aria-hidden="true">🍯</span>
+                    <span class="taste-heading">Perfil en Taza</span>
+                  </div>
+                  <p class="taste-description" id="grind-taste">
+                    Máxima explosión aromática, notas vivas y mayor tiempo de conservación de aceites esenciales.
+                  </p>
+                  <div class="origin-note">
+                    <span class="note-dot" aria-hidden="true"></span>
+                    <span>Tueste medio equilibrado de San Pedro Sochiapam</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script type="module" src="js/comparison.js"></script>
 </body>
 </html>
