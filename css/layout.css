@@ -577,7 +577,54 @@
 .origins-posters-col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
+}
+
+.origins-landscape-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(74, 33, 19, 0.08);
+}
+
+.origins-sierra-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.origins-landscape-frame:hover .origins-sierra-img {
+  transform: scale(1.02);
+}
+
+.origins-sierra-caption {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background: linear-gradient(to top, rgba(74, 33, 19, 0.9) 0%, rgba(74, 33, 19, 0.4) 65%, transparent 100%);
+  padding: 1.25rem 1.25rem 0.85rem;
+  color: var(--color-marfil);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.origins-sierra-caption strong {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-crema);
+}
+
+.origins-sierra-caption span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-marfil);
+  opacity: 0.92;
 }
 
 .brand-poster-terracota {
@@ -674,7 +721,7 @@
 
 .ensemble-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: var(--space-xl);
   align-items: stretch;
 }
@@ -704,45 +751,128 @@
   color: var(--color-cacao-muted);
 }
 
-.ensemble-insert-card {
-  background-color: var(--color-marfil);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+.ensemble-interactive-col {
   display: flex;
   flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Tarjeta Flippable 3D del Inserto de Agradecimiento */
+.ensemble-flip-card-wrap {
+  perspective: 1000px;
+  width: 100%;
+}
+
+.ensemble-flip-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 5;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+}
+
+.ensemble-flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.ensemble-flip-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 4px 14px rgba(74, 33, 19, 0.08);
+}
+
+.ensemble-flip-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ensemble-flip-face--back {
+  transform: rotateY(180deg);
+}
+
+.ensemble-flip-controls {
+  display: flex;
   justify-content: space-between;
-  text-align: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.btn-flip-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: var(--color-marfil);
+  color: var(--color-cacao);
+  border: 1px solid var(--color-cacao-rule);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-flip-card:hover {
+  background-color: var(--color-terracota);
+  color: var(--color-marfil);
+  border-color: var(--color-terracota);
+}
+
+.ensemble-flip-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-terracota);
+}
+
+/* Sello Circular Adhesivo */
+.ensemble-seal-card {
+  background-color: var(--color-marfil);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
   align-items: center;
 }
 
-.ensemble-insert-tag {
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-terracota);
-  background-color: var(--color-crema);
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-full);
+.ensemble-seal-img {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
-.ensemble-insert-title {
-  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+.ensemble-seal-card:hover .ensemble-seal-img {
+  transform: rotate(15deg) scale(1.05);
+}
+
+.ensemble-seal-text strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
   color: var(--color-cacao);
-  max-width: 22ch;
-  margin-block: var(--space-md);
+  margin-bottom: 0.2rem;
 }
 
-.ensemble-insert-symbol {
-  width: 96px;
-  height: auto;
-  margin-block: var(--space-md);
+.ensemble-seal-text p {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--color-cacao-muted);
 }
-
-.ensemble-insert-tip {
-  font-size: 1.05rem;
-  color: var(--color-cacao);
-  max-width: 30ch;
   padding: var(--space-md);
   background-color: var(--color-crema);
   border-radius: var(--radius-md);

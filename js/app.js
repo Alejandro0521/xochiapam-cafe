@@ -28,8 +28,8 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
   const cards = container.querySelectorAll('.boutique-card');
   cards.forEach(card => {
     const qtyInput = card.querySelector('.qty-input');
-    const stepBtns = card.querySelectorAll ? card.querySelectorAll('.btn-qty-step') : [];
-    const addBtn = card.querySelector('.btn-add-to-cart');
+    const stepBtns = card.querySelectorAll ? (card.querySelectorAll('.btn-qty-step').length ? card.querySelectorAll('.btn-qty-step') : card.querySelectorAll('.stepper-btn')) : [];
+    const addBtn = card.querySelector('.btn-add-to-cart') || card.querySelector('.btn-add-cart');
 
     // Stepper buttons
     if (stepBtns && typeof stepBtns.forEach === 'function') {
@@ -39,10 +39,28 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
             if (!qtyInput) return;
             const currentVal = parseInt(qtyInput.value, 10) || 1;
             const action = btn.dataset.action;
-            if (action === 'increase') {
+            if (action === 'increase' || action === 'increment') {
               qtyInput.value = Math.min(99, currentVal + 1);
-            } else if (action === 'decrease') {
+            } else if (action === 'decrease' || action === 'decrement') {
               qtyInput.value = Math.max(1, currentVal - 1);
+            }
+          });
+        }
+      });
+    }
+
+    // Brewer quick buttons helper inside boutique card
+    const brewerBtns = card.querySelectorAll ? card.querySelectorAll('.btn-brewer[data-grind]') : [];
+    if (brewerBtns && typeof brewerBtns.forEach === 'function') {
+      brewerBtns.forEach(bBtn => {
+        if (bBtn && typeof bBtn.addEventListener === 'function') {
+          bBtn.addEventListener('click', () => {
+            const targetGrind = bBtn.dataset.grind;
+            const targetRadio = card.querySelector(`input[type="radio"][value="${targetGrind}"]`);
+            if (targetRadio) {
+              targetRadio.checked = true;
+              brewerBtns.forEach(b => b.classList.remove('is-active'));
+              bBtn.classList.add('is-active');
             }
           });
         }
@@ -66,7 +84,7 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
       addBtn.addEventListener('click', (e) => {
         if (e && typeof e.preventDefault === 'function') e.preventDefault();
 
-        const productId = addBtn.dataset.productId;
+        const productId = (addBtn.dataset && (addBtn.dataset.productId || addBtn.dataset.addToCart)) || (card.dataset ? card.dataset.product : null);
         const product = PRODUCTS.find(p => p.id === productId);
         if (!product) return;
 
@@ -122,6 +140,39 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
 }
 
 /**
+ * Initializes the 3D flippable stationery card in the ensemble section.
+ * @param {ParentNode} [container=document]
+ */
+export function setupFlipCard(container = (typeof document !== 'undefined' ? document : null)) {
+  if (!container) return;
+
+  const card = container.querySelector('.ensemble-flip-card');
+  const btn = container.querySelector('#btn-flip-card');
+
+  const toggleFlip = () => {
+    if (!card) return;
+    const isFlipped = card.classList.toggle('is-flipped');
+    if (btn) {
+      btn.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
+      const textSpan = btn.querySelector('span');
+      if (textSpan) {
+        textSpan.textContent = isFlipped ? 'Voltear al frente ↺' : 'Voltear al reverso ↺';
+      }
+    }
+  };
+
+  if (card && typeof card.addEventListener === 'function') {
+    card.addEventListener('click', toggleFlip);
+  }
+  if (btn && typeof btn.addEventListener === 'function') {
+    btn.addEventListener('click', (e) => {
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+      toggleFlip();
+    });
+  }
+}
+
+/**
  * Main application initializer.
  * @param {ParentNode} [container=document]
  * @returns {{ cart: Cart, drawer: CartDrawer }}
@@ -154,6 +205,9 @@ export function initApp(container = (typeof document !== 'undefined' ? document 
 
   // Initialize Comparison Guide
   initComparison(container);
+
+  // Setup 3D Flip Card in Mesa section
+  setupFlipCard(container);
 
   // Set current year in footer
   const yearEl = container.querySelector('#current-year');

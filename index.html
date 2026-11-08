@@ -215,8 +215,16 @@
             </div>
           </div>
 
-          <!-- Carteles Editoriales de Marca (Recreación Fiel de 03-redes) -->
+          <!-- Carteles Editoriales de Marca y Fotografía de Origen -->
           <div class="origins-posters-col">
+            <figure class="origins-landscape-frame">
+              <img src="assets/images/origen-sochiapam-sierra.jpg" alt="Cafetales de altura en la sierra de San Pedro Sochiapam, Oaxaca" class="origins-sierra-img" width="600" height="375" loading="lazy">
+              <figcaption class="origins-sierra-caption">
+                <strong>San Pedro Sochiapam, Sierra de Oaxaca</strong>
+                <span>Café bajo sombra entre las nubes</span>
+              </figcaption>
+            </figure>
+
             <aside class="brand-poster-terracota" aria-label="Cartel de origen Xochiapam">
               <div class="poster-top-pad">
                 <img src="assets/logos/horizontal-blanco.svg" alt="Xochiapam Café en crema" class="poster-logo-crema" width="175" height="44" loading="lazy">
@@ -238,14 +246,6 @@
                 </div>
               </div>
             </aside>
-
-            <div class="brand-poster-crema">
-              <div class="poster-crema-quote">
-                “Haz una pausa.<br>Prepara tu café.”
-                <span>Tu café de cada día · Xochiapam</span>
-              </div>
-              <img src="assets/logos/simbolo-color.svg" alt="Símbolo Xochiapam" width="64" height="64" loading="lazy">
-            </div>
           </div>
         </div>
       </div>
@@ -461,6 +461,16 @@
                 </div>
               </div>
             </div>
+
+            <!-- Comparativa fotográfica real de texturas de grano y molienda -->
+            <figure class="grind-tactile-comparison">
+              <img src="assets/images/granos-molienda-textura.jpg" alt="Comparativa fotográfica real: grano entero arábica, molienda media balanceada y molienda fina para espresso" class="grind-tactile-img" width="880" height="260" loading="lazy">
+              <figcaption class="grind-tactile-caption">
+                <span>1. En Grano Entero</span>
+                <span>2. Molienda Media (Ideal casa)</span>
+                <span>3. Molienda Fina</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -489,25 +499,40 @@
 
         <div class="ensemble-grid">
           <figure class="ensemble-showcase-photo">
-            <img src="assets/images/concepto-seleccionado.png" alt="Presentación del sistema visual Xochiapam Casa con bolsas de 250 g y 500 g, paleta terracota, crema y cacao" width="900" height="630" loading="lazy">
+            <img src="assets/images/ritual-taza-madera.jpg" alt="Café Xochiapam preparado en taza de barro artesanal con bolsa en papel crema y granos tostados en mesa rústica" width="900" height="675" loading="lazy">
             <figcaption class="ensemble-photo-caption">
-              <span>Sistema visual Xochiapam · Ruta Casa</span>
+              <span>El ritual de la mañana · Xochiapam</span>
               <span>San Pedro Sochiapam, Oaxaca</span>
             </figcaption>
           </figure>
 
-          <!-- Recreación en Vivo del Inserto de Agradecimiento (tarjeta-agradecimiento.svg) -->
-          <aside class="ensemble-insert-card" aria-label="Tarjeta de agradecimiento y conservación">
-            <span class="ensemble-insert-tag">Inserto incluido en tu pedido</span>
-            <h3 class="ensemble-insert-title">
-              Gracias por compartir tu mesa con Xochiapam.
-            </h3>
-            <img src="assets/logos/simbolo-color.svg" alt="Símbolo de la taza y el amanecer" class="ensemble-insert-symbol" width="96" height="96" loading="lazy">
-            <p class="ensemble-insert-tip">
-              “Conserva bien cerrado en un lugar fresco, seco y lejos de la luz.”
-            </p>
-            <span class="ensemble-insert-motto">Tu café de cada día.</span>
-          </aside>
+          <!-- Tarjeta Flippable 3D interactiva + Sello circular adhesivo -->
+          <div class="ensemble-interactive-col">
+            <div class="ensemble-flip-card-wrap">
+              <div class="ensemble-flip-card" role="button" tabindex="0" aria-label="Voltear tarjeta de agradecimiento en 3D">
+                <div class="ensemble-flip-face ensemble-flip-face--front">
+                  <img src="assets/images/tarjeta-frente.svg" alt="Tarjeta oficial Xochiapam frente: Gracias por compartir tu mesa" width="900" height="500" loading="lazy">
+                </div>
+                <div class="ensemble-flip-face ensemble-flip-face--back">
+                  <img src="assets/images/tarjeta-reverso.svg" alt="Tarjeta oficial Xochiapam reverso: San Pedro Sochiapam, Oaxaca" width="900" height="500" loading="lazy">
+                </div>
+              </div>
+              <div class="ensemble-flip-controls">
+                <span class="ensemble-flip-tag">Inserto físico en cada pedido</span>
+                <button type="button" class="btn-flip-card" id="btn-flip-card" aria-pressed="false">
+                  <span>Voltear al reverso ↺</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="ensemble-seal-card">
+              <img src="assets/images/adhesivo-circular.svg" alt="Sello circular adhesivo Xochiapam Café" class="ensemble-seal-img" width="76" height="76" loading="lazy">
+              <div class="ensemble-seal-text">
+                <strong>Sello adhesivo de cierre</strong>
+                <p>Cada paquete incluye este sello circular para volver a plegar la bolsa y conservar la frescura del grano en tu alacena.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -551,6 +576,18 @@
 
               <fieldset class="config-fieldset">
                 <legend class="config-legend">1. Elige el tipo de molienda:</legend>
+
+                <!-- Selector rápido por cafetera -->
+                <div class="quick-brewer-picker">
+                  <span class="brewer-picker-title">¿Qué cafetera tienes en casa?</span>
+                  <div class="brewer-buttons-grid">
+                    <button type="button" class="btn-brewer is-active" data-grind="medio" aria-label="Molienda media para cafetera de filtro o prensa">☕ Filtro / Prensa</button>
+                    <button type="button" class="btn-brewer" data-grind="fino" aria-label="Molienda fina para cafetera moka o espresso">♨️ Moka Italiana</button>
+                    <button type="button" class="btn-brewer" data-grind="medio" aria-label="Molienda media para café de olla">🫖 Café de Olla</button>
+                    <button type="button" class="btn-brewer" data-grind="grano" aria-label="En grano entero para molino en casa">⚙️ Molino Propio</button>
+                  </div>
+                </div>
+
                 <div class="grind-pills-group" role="radiogroup" aria-label="Molienda para bolsa de 250 g">
                   <label class="grind-pill-label">
                     <input type="radio" name="grind-250" value="medio" checked>
@@ -606,6 +643,18 @@
 
               <fieldset class="config-fieldset">
                 <legend class="config-legend">1. Elige el tipo de molienda:</legend>
+
+                <!-- Selector rápido por cafetera -->
+                <div class="quick-brewer-picker">
+                  <span class="brewer-picker-title">¿Qué cafetera tienes en casa?</span>
+                  <div class="brewer-buttons-grid">
+                    <button type="button" class="btn-brewer is-active" data-grind="medio" aria-label="Molienda media para cafetera de filtro o prensa">☕ Filtro / Prensa</button>
+                    <button type="button" class="btn-brewer" data-grind="fino" aria-label="Molienda fina para cafetera moka o espresso">♨️ Moka Italiana</button>
+                    <button type="button" class="btn-brewer" data-grind="medio" aria-label="Molienda media para café de olla">🫖 Café de Olla</button>
+                    <button type="button" class="btn-brewer" data-grind="grano" aria-label="En grano entero para molino en casa">⚙️ Molino Propio</button>
+                  </div>
+                </div>
+
                 <div class="grind-pills-group" role="radiogroup" aria-label="Molienda para bolsa de 500 g">
                   <label class="grind-pill-label">
                     <input type="radio" name="grind-500" value="medio" checked>

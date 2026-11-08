@@ -488,7 +488,118 @@
 }
 
 /* ==========================================================================
-   CAPÍTULO 04: BOUTIQUE Y CONFIGURADOR DE PEDIDO (#tienda)
+   SELECTOR RÁPIDO POR CAFETERA EN TIENDA
+   ========================================================================== */
+.quick-brewer-picker {
+  margin-top: var(--space-sm);
+  padding: 0.65rem 0.85rem;
+  background: rgba(74, 33, 19, 0.05);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+}
+
+.boutique-card--500 .quick-brewer-picker {
+  background: rgba(243, 227, 202, 0.12);
+}
+
+.brewer-picker-title {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+  opacity: 0.85;
+}
+
+.brewer-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.btn-brewer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-cacao-rule);
+  background: var(--color-crema);
+  color: var(--color-cacao);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.boutique-card--500 .btn-brewer {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-crema);
+  border-color: rgba(243, 227, 202, 0.25);
+}
+
+.btn-brewer:hover,
+.btn-brewer.is-active {
+  background-color: var(--color-terracota);
+  color: var(--color-marfil);
+  border-color: var(--color-terracota);
+}
+
+.boutique-card--500 .btn-brewer.is-active {
+  background-color: var(--color-crema);
+  color: var(--color-cacao);
+  border-color: var(--color-crema);
+}
+
+/* ==========================================================================
+   COMPARATIVA VISUAL DE TEXTURAS DE MOLIENDA
+   ========================================================================== */
+.grind-tactile-comparison {
+  margin-top: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-cacao-rule);
+}
+
+.grind-tactile-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.grind-tactile-caption {
+  background-color: var(--color-crema);
+  padding: 0.65rem var(--space-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-cacao);
+  border-top: 1px solid var(--color-cacao-rule);
+}
+
+/* Sutil animación de vapor en la taza */
+@keyframes steamFloat {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.3; }
+  50% { transform: translateY(-4px) scaleX(1.1); opacity: 0.7; }
+  100% { transform: translateY(-8px) scaleX(1); opacity: 0; }
+}
+
+.cup-steam-icon {
+  display: inline-block;
+  animation: steamFloat 3.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cup-steam-icon {
+    animation: none;
+  }
+}
    Las tarjetas respetan el Color-Blocking Crema (250g) y Terracota (500g)
    ========================================================================== */
 .section-boutique {
