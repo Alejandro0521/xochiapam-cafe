@@ -1,617 +1,419 @@
 /* ==========================================================================
-   XOCHIAPAM — SISTEMA EDITORIAL Y MAQUETACIÓN (Edición 01 · Ruta Casa)
-   Inspirado en BUNA, La Cabra y la Guía de Identidad Visual Xochiapam.
-   Regla de Oro: Cero sombras, cero degradados, plasta pura de color.
+   XOCHIAPAM — ARQUITECTURA EDITORIAL & FULL-BLEED COLOR-BLOCKING
+   Diseñado bajo los principios de frontend-design (Anthropic) y ui-ux-pro-max:
+   - Cero plantillas de tarjetas SaaS redondeadas idénticas
+   - Bloques arquitectónicos a sangre (100vw 50/50 splits)
+   - Retícula asimétrica con filetes estructurales de 1px en Cacao (#4A2113)
+   - Cero emojis: únicamente tipografía, ondas maestras y vectores oficiales
    ========================================================================== */
 
 .container {
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+  padding-inline: var(--container-pad);
 }
 
-/* Skip Link Accesible */
 .skip-link {
   position: absolute;
-  top: -100px;
-  left: var(--space-md);
-  background-color: var(--color-terracota);
-  color: var(--color-marfil);
-  padding: 0.75rem 1.25rem;
-  font-weight: 700;
-  border-radius: var(--radius-sm);
-  z-index: 1000;
-  transition: top 0.2s ease;
+  top: -120px;
+  left: 1rem;
+  z-index: 999;
+  background-color: var(--color-cacao);
+  color: var(--color-crema);
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-heading);
+  transition: top 0.15s ease;
 }
 
 .skip-link:focus {
-  top: var(--space-sm);
+  top: 0.75rem;
 }
 
 /* ==========================================================================
-   SISTEMA DE FOLIO EDITORIAL (Idéntico al Manual de Marca PDF Págs. 01-13)
+   CABECERA EDITORIAL FIJA (SIN NUMERACIÓN FALSA NI ADORNOS GENÉRICOS)
    ========================================================================== */
-.editorial-folio {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  padding-bottom: 0.75rem;
-  margin-bottom: var(--space-xl);
-  border-bottom: 1px solid var(--color-cacao-rule);
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-cacao);
-}
-
-.editorial-folio--light {
-  border-bottom-color: var(--color-crema-rule);
-  color: var(--color-crema);
-}
-
-.folio-brand {
-  white-space: nowrap;
-}
-
-.folio-section {
-  text-align: center;
-  opacity: 0.85;
-}
-
-.folio-number {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  color: var(--color-terracota);
-}
-
-.editorial-folio--light .folio-number {
-  color: var(--color-crema);
-}
-
-/* ==========================================================================
-   BARRA SUPERIOR Y HEADER EDITORIAL
-   ========================================================================== */
-.top-origin-bar {
-  background-color: var(--color-cacao);
-  color: var(--color-crema);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding-block: 0.55rem;
-  border-bottom: 1px solid rgba(243, 227, 202, 0.12);
-}
-
-.top-origin-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-}
-
-.top-origin-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.top-origin-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--color-terracota);
-  display: inline-block;
-}
-
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 90;
   background-color: var(--color-marfil);
-  border-bottom: 1px solid var(--color-cacao-rule);
+  border-bottom: 1px solid var(--color-cacao);
 }
 
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 82px;
-  gap: var(--space-md);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+  min-height: 74px;
+  max-width: 100%;
+  padding-inline: var(--container-pad);
 }
 
-.brand-link {
+.brand-logo-link {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  padding-right: var(--space-lg);
+  border-right: 1px solid var(--color-cacao-rule);
 }
 
-.brand-logo {
-  height: 46px;
+.brand-logo-img {
+  height: 42px;
   width: auto;
 }
 
-.site-nav {
+.main-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  justify-content: center;
+  gap: clamp(1.5rem, 3.2vw, 3rem);
+  padding-inline: var(--space-lg);
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: clamp(1rem, 2.2vw, 2.25rem);
-}
-
-.nav-links a {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
+.nav-link {
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   color: var(--color-cacao);
-  padding-block: 0.35rem;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  padding-block: 0.4rem;
+  position: relative;
+  transition: color 0.15s ease;
 }
 
-.nav-links a .nav-idx {
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  color: var(--color-terracota);
-}
-
-.nav-links a:hover {
-  color: var(--color-terracota);
-  border-bottom-color: var(--color-terracota);
-}
-
-/* Botón de Bolsa (Plasta Terracota Pura, Cero Sombra) */
-.cart-button-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
   background-color: var(--color-terracota);
-  color: var(--color-marfil);
-  padding: 0.7rem 1.25rem;
-  border-radius: var(--radius-full);
-  font-weight: 700;
-  font-size: 0.92rem;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-}
-
-.cart-button-trigger:hover {
-  background-color: var(--color-cacao);
-  color: var(--color-crema);
-}
-
-.cart-badge {
-  background-color: var(--color-crema);
-  color: var(--color-cacao);
-  border-radius: var(--radius-full);
-  padding: 0.1rem 0.55rem;
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  min-width: 24px;
-  text-align: center;
+  transform: scaleX(0);
+  transform-origin: left center;
   transition: transform 0.2s ease;
 }
 
-.cart-badge.has-items {
-  background-color: var(--color-marfil);
+.nav-link:hover {
   color: var(--color-terracota);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  padding-left: var(--space-lg);
+  border-left: 1px solid var(--color-cacao-rule);
+}
+
+.cart-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: var(--color-cacao);
+  color: var(--color-crema);
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.cart-trigger-btn:hover {
+  background-color: var(--color-terracota);
+  color: var(--color-marfil);
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding-inline: 0.4rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-crema);
+  color: var(--color-cacao);
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  line-height: 1;
+}
+
+.cart-badge.has-items {
+  background-color: var(--color-terracota);
+  color: var(--color-marfil);
 }
 
 /* ==========================================================================
-   1. HERO EDITORIAL — "TU CAFÉ DE CADA DÍA"
+   HERO FULL-BLEED 50/50 SPLIT ARQUITECTÓNICO (#hero)
+   Izquierda: Marfil + Tipografía Monumental + Onda Maestra Terracota
+   Derecha: Fotografía a Sangre (50vw) + Sello Circular en el Eje Central
    ========================================================================== */
 .hero-section {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid var(--color-cacao);
   background-color: var(--color-marfil);
-  padding-top: var(--space-lg);
-  padding-bottom: var(--space-2xl);
+  overflow: hidden;
+}
+
+.hero-split-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(600px, calc(100vh - 75px), 820px);
   position: relative;
 }
 
-.hero-editorial-grid {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: clamp(2rem, 4vw, 3.75rem);
-  align-items: stretch;
-}
-
-.hero-copy-col {
+/* Columna Izquierda del Hero */
+.hero-left-pane {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-block: var(--space-xs);
+  background-color: var(--color-marfil);
+  border-right: 1px solid var(--color-cacao);
+  position: relative;
+  z-index: 2;
 }
 
-.hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+.hero-left-content {
+  padding: clamp(2.5rem, 5.5vw, 5rem) clamp(1.75rem, 5vw, 4.5rem) var(--space-xl);
+}
+
+.hero-origin-tag {
+  display: inline-block;
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.92rem;
   color: var(--color-terracota);
   margin-bottom: var(--space-md);
-}
-
-.hero-kicker-line {
-  width: 36px;
-  height: 3px;
-  background-color: var(--color-terracota);
-  border-radius: 2px;
-  display: inline-block;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--color-terracota);
 }
 
 .hero-title {
-  font-size: clamp(3.1rem, 6.2vw, 5.4rem);
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 5.6vw, 5.25rem);
   line-height: 0.98;
   color: var(--color-cacao);
-  margin-bottom: var(--space-md);
-  letter-spacing: -0.025em;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
 }
 
-.hero-title em {
-  font-style: normal;
+.hero-subtitle-display {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+  line-height: 1.08;
   color: var(--color-terracota);
-  display: block;
+  margin-bottom: var(--space-lg);
 }
 
 .hero-lead {
-  font-size: clamp(1.12rem, 1.6vw, 1.35rem);
-  line-height: 1.5;
+  font-size: clamp(1.08rem, 1.35vw, 1.25rem);
+  line-height: 1.55;
   color: var(--color-cacao);
-  margin-bottom: var(--space-lg);
-  max-width: 48ch;
+  max-width: 46ch;
+  margin-bottom: var(--space-xl);
 }
 
-/* Tarjeta Roja/Terracota del Manual (Pág. 01) integrada en el Hero */
-.hero-manifesto-block {
-  background-color: var(--color-crema);
-  border-radius: var(--radius-md);
-  padding: var(--space-md) var(--space-lg);
-  margin-bottom: var(--space-lg);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-md);
-  align-items: center;
-}
-
-.hero-manifesto-symbol {
-  width: 64px;
-  height: 64px;
-  flex-shrink: 0;
-}
-
-.hero-manifesto-text strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  color: var(--color-cacao);
-  margin-bottom: 0.2rem;
-}
-
-.hero-manifesto-text p {
-  font-size: 0.96rem;
-  color: var(--color-cacao-muted);
-}
-
-.hero-actions {
+.hero-cta-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
   background-color: var(--color-terracota);
   color: var(--color-marfil);
-  padding: 1rem 2rem;
+  padding: 0.95rem 2rem;
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
-  font-size: 1.08rem;
-  letter-spacing: 0.01em;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-size: 1.06rem;
+  border: 2px solid var(--color-terracota);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-primary:hover {
   background-color: var(--color-cacao);
+  border-color: var(--color-cacao);
   color: var(--color-crema);
-  transform: translateY(-2px);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--color-crema);
+  background-color: transparent;
   color: var(--color-cacao);
-  padding: 1rem 1.85rem;
+  padding: 0.95rem 1.8rem;
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
-  font-size: 1.05rem;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-size: 1.04rem;
+  border: 2px solid var(--color-cacao);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-crema-deep);
-  transform: translateY(-2px);
-}
-
-/* Metadatos de pie de Hero (2 tamaños · 1 lenguaje) */
-.hero-quick-specs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--color-cacao-rule);
-}
-
-.quick-spec-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.quick-spec-label {
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--color-terracota);
-}
-
-.quick-spec-val {
-  font-family: var(--font-heading);
-  font-size: 1.08rem;
+  background-color: var(--color-crema);
   color: var(--color-cacao);
 }
 
-/* Columna Derecha del Hero: Escenario Fotográfico + Sello Adhesivo + Onda */
-.hero-stage-col {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+/* Tabla arquitectónica rápida de presentaciones en el Hero */
+.hero-presentations-ledger {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--color-cacao);
+  border-bottom: 1px solid var(--color-cacao);
 }
 
-.hero-poster-card {
-  position: relative;
-  background-color: var(--color-crema);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.hero-ledger-cell {
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  gap: 0.15rem;
 }
 
-.hero-photo-wrap {
-  position: relative;
-  padding: var(--space-md) var(--space-md) var(--space-sm);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.hero-ledger-cell:first-child {
+  padding-right: var(--space-md);
+  border-right: 1px solid var(--color-cacao-rule);
 }
 
-.hero-main-photo {
+.hero-ledger-cell:last-child {
+  padding-left: var(--space-md);
+}
+
+.hero-ledger-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-cacao);
+}
+
+.hero-ledger-desc {
+  font-size: 0.92rem;
+  color: var(--color-cacao-muted);
+}
+
+/* Cierre de Onda Maestra Terracota al pie de la columna izquierda */
+.hero-left-wave-band {
   width: 100%;
-  flex: 1;
-  min-height: 360px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  object-position: 62% center;
-}
-
-/* Sello Circular Oficial (adhesivo-circular.svg) flotante sobre el encuadre */
-.hero-floating-seal {
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: clamp(110px, 12vw, 152px);
-  height: clamp(110px, 12vw, 152px);
-  z-index: 5;
-  border-radius: 50%;
-  transition: transform 0.4s ease;
-  animation: slowRotate 28s linear infinite;
-}
-
-@keyframes slowRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.hero-poster-Wave-footer {
-  position: relative;
-  margin-top: -1.5rem;
+  margin-top: auto;
 }
 
 .hero-wave-svg {
   width: 100%;
-  height: 56px;
+  height: 54px;
   display: block;
 }
 
-.hero-wave-caption {
+.hero-wave-bar {
   background-color: var(--color-terracota);
   color: var(--color-crema);
-  padding: 0.85rem var(--space-lg) 1.5rem;
+  padding: 1rem clamp(1.75rem, 5vw, 4.5rem) 1.35rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-sm);
+  gap: var(--space-md);
   flex-wrap: wrap;
 }
 
-.hero-wave-caption strong {
+.hero-wave-bar strong {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: var(--color-crema);
 }
 
-.hero-wave-caption span {
+.hero-wave-bar span {
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-crema);
-  opacity: 0.92;
 }
 
-/* ==========================================================================
-   CINTA EDITORIAL EN MOVIMIENTO (TACTILE RIBBON)
-   ========================================================================== */
-.brand-ribbon {
-  background-color: var(--color-cacao);
-  color: var(--color-crema);
-  padding-block: 1.05rem;
+/* Columna Derecha del Hero: Fotografía a Sangre + Sello Oficial en el Eje */
+.hero-right-pane {
+  position: relative;
+  background-color: var(--color-crema);
+  min-height: 520px;
   overflow: hidden;
-  border-block: 1px solid var(--color-cacao);
-  white-space: nowrap;
 }
 
-.brand-ribbon-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 2.5rem;
-  animation: ribbonScroll 32s linear infinite;
+.hero-bleed-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  display: block;
 }
 
-.brand-ribbon:hover .brand-ribbon-track {
-  animation-play-state: paused;
-}
-
-.ribbon-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  font-family: var(--font-heading);
-  font-size: 1.08rem;
-  letter-spacing: 0.03em;
-  color: var(--color-crema);
-}
-
-.ribbon-sun {
-  color: var(--color-terracota);
-  font-size: 1.2rem;
-}
-
-@keyframes ribbonScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Sello Circular Oficial a caballo sobre el eje del Hero */
+.hero-axis-seal {
+  position: absolute;
+  top: 2.25rem;
+  left: 2.25rem;
+  width: clamp(108px, 10vw, 140px);
+  height: clamp(108px, 10vw, 140px);
+  z-index: 5;
+  border-radius: 50%;
 }
 
 /* ==========================================================================
-   2. CAPÍTULO 01: CONCEPTO, VOZ Y ORIGEN (#origen)
-   Basado literalmente en Pág. 02 y Pág. 10 del Manual de Marca
+   SECCIÓN DE ORIGEN Y VOZ DE MARCA (#origen)
+   Composición arquitectónica de revista impresa (Sin listas 01/02/03 falsas)
    ========================================================================== */
 .section-origins {
   background-color: var(--color-marfil);
-  padding-block: var(--space-2xl);
+  border-bottom: 1px solid var(--color-cacao);
 }
 
-.origins-editorial-layout {
+.origins-top-spread {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2.5rem, 5vw, 5rem);
-  align-items: start;
+  grid-template-columns: 7fr 5fr;
+  border-bottom: 1px solid var(--color-cacao);
 }
 
-.origins-manifesto-title {
-  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
-  color: var(--color-cacao);
-  margin-bottom: var(--space-md);
-}
-
-.origins-manifesto-intro {
-  font-size: clamp(1.1rem, 1.5vw, 1.28rem);
-  color: var(--color-cacao);
-  margin-bottom: var(--space-xl);
-  line-height: 1.6;
-}
-
-/* Lista Numerada 01, 02, 03 (Idéntica a Pág. 02 del PDF) */
-.voice-pillars-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--color-cacao-rule);
-}
-
-.voice-pillar-row {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: var(--space-md);
-  padding-block: var(--space-lg);
-  border-bottom: 1px solid var(--color-cacao-rule);
-  align-items: baseline;
-}
-
-.voice-pillar-num {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--color-terracota);
-  line-height: 1;
-}
-
-.voice-pillar-body h3 {
-  font-size: 1.65rem;
-  color: var(--color-cacao);
-  margin-bottom: 0.45rem;
-}
-
-.voice-pillar-body p {
-  font-size: 1.05rem;
-  color: var(--color-cacao-muted);
-  line-height: 1.55;
-}
-
-/* Columna Derecha de Origen: Cartel Terracota + Cartel Pausa (Pág. 10 del PDF) */
-.origins-posters-col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.origins-landscape-frame {
+.origins-sierra-stage {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-right: 1px solid var(--color-cacao);
+  background-color: var(--color-cacao);
+  min-height: 460px;
   overflow: hidden;
-  box-shadow: 0 4px 18px rgba(74, 33, 19, 0.08);
 }
 
 .origins-sierra-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
-}
-
-.origins-landscape-frame:hover .origins-sierra-img {
-  transform: scale(1.02);
 }
 
 .origins-sierra-caption {
   position: absolute;
   bottom: 0;
-  inset-inline: 0;
-  background: linear-gradient(to top, rgba(74, 33, 19, 0.9) 0%, rgba(74, 33, 19, 0.4) 65%, transparent 100%);
-  padding: 1.25rem 1.25rem 0.85rem;
-  color: var(--color-marfil);
+  left: 0;
+  right: 0;
+  background-color: rgba(74, 33, 19, 0.92);
+  color: var(--color-crema);
+  padding: 0.95rem var(--container-pad);
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  gap: 0.5rem;
+  align-items: center;
+  gap: var(--space-sm);
   flex-wrap: wrap;
+  font-size: 0.9rem;
 }
 
 .origins-sierra-caption strong {
@@ -620,146 +422,174 @@
   color: var(--color-crema);
 }
 
-.origins-sierra-caption span {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-marfil);
-  opacity: 0.92;
-}
-
-.brand-poster-terracota {
+/* Bloque Monolítico Terracota (Pág. 10 del Manual: publicacion-origen.svg) */
+.origins-terracota-slab {
   background-color: var(--color-terracota);
   color: var(--color-crema);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 440px;
 }
 
-.poster-top-pad {
-  padding: var(--space-xl) var(--space-xl) var(--space-lg);
+.slab-content {
+  padding: clamp(2.25rem, 4.5vw, 4rem);
 }
 
-.poster-logo-crema {
-  height: 44px;
+.slab-brand-mark {
+  height: 42px;
   width: auto;
   margin-bottom: var(--space-xl);
 }
 
-.poster-statement {
+.slab-heading {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 3.8vw, 3.3rem);
-  line-height: 1.04;
+  font-size: clamp(2.4rem, 3.8vw, 3.5rem);
+  line-height: 1.02;
   color: var(--color-crema);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
-.poster-sub {
-  font-size: 1.1rem;
+.slab-lead {
+  font-size: 1.12rem;
+  line-height: 1.55;
   color: var(--color-crema);
-  opacity: 0.92;
+  max-width: 38ch;
 }
 
-.poster-wave-bottom {
+.slab-wave-footer {
   width: 100%;
 }
 
-.poster-wave-Bottom-svg {
+.slab-wave-svg {
   width: 100%;
-  height: 54px;
+  height: 52px;
   display: block;
 }
 
-.poster-wave-crema-bar {
+.slab-crema-strip {
   background-color: var(--color-crema);
   color: var(--color-cacao);
-  padding: 1rem var(--space-xl) 1.5rem;
+  padding: 1rem clamp(2.25rem, 4.5vw, 4rem) 1.35rem;
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Segundo Bloque en Crema: "Haz una pausa. Prepara tu café." */
-.brand-poster-crema {
-  background-color: var(--color-crema);
-  color: var(--color-cacao);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg) var(--space-xl);
+/* Manifiesto en 3 columnas editoriales divididas por filetes de 1px */
+.origins-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.origin-pillar-col {
+  padding: clamp(2.25rem, 4vw, 3.5rem) clamp(1.5rem, 3.2vw, 3rem);
+  border-right: 1px solid var(--color-cacao-rule);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
   gap: var(--space-md);
 }
 
-.poster-crema-quote {
+.origin-pillar-col:last-child {
+  border-right: none;
+}
+
+.origin-pillar-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.origin-pillar-col h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.55rem, 2.5vw, 2rem);
-  line-height: 1.12;
+  font-size: 1.55rem;
   color: var(--color-cacao);
+  margin-bottom: 0.5rem;
 }
 
-.poster-crema-quote span {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--color-terracota);
-  margin-top: 0.45rem;
-}
-
-/* ==========================================================================
-   SECCIÓN DE DETALLES QUE HACEN CONJUNTO (Pág. 11 y 12 del Manual)
-   ========================================================================== */
-.section-ensemble {
-  background-color: var(--color-crema);
-  padding-block: var(--space-2xl);
-}
-
-.ensemble-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-xl);
-  align-items: stretch;
-}
-
-.ensemble-showcase-photo {
-  background-color: var(--color-marfil);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.ensemble-showcase-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-}
-
-.ensemble-photo-caption {
-  padding-top: var(--space-sm);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.88rem;
-  font-weight: 700;
+.origin-pillar-col p {
+  font-size: 1.02rem;
+  line-height: 1.6;
   color: var(--color-cacao-muted);
 }
 
-.ensemble-interactive-col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+/* ==========================================================================
+   SECCIÓN DE DETALLES QUE HACEN CONJUNTO (#mesa)
+   Retícula Asimétrica: Ritual en Mesa + Papelería Interactiva Real
+   ========================================================================== */
+.section-ensemble {
+  background-color: var(--color-crema);
+  border-top: 1px solid var(--color-cacao);
+  border-bottom: 1px solid var(--color-cacao);
 }
 
-/* Tarjeta Flippable 3D del Inserto de Agradecimiento */
+.ensemble-header-bar {
+  padding: clamp(2.5rem, 5vw, 4rem) var(--container-pad) var(--space-xl);
+  border-bottom: 1px solid var(--color-cacao-rule);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-xl);
+  align-items: end;
+}
+
+.ensemble-headline {
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  color: var(--color-cacao);
+}
+
+.ensemble-lead {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--color-cacao);
+}
+
+.ensemble-split-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.ensemble-photo-pane {
+  border-right: 1px solid var(--color-cacao);
+  background-color: var(--color-cacao);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ensemble-photo-pane img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+.ensemble-photo-caption {
+  background-color: var(--color-marfil);
+  color: var(--color-cacao);
+  padding: 1rem var(--container-pad);
+  border-top: 1px solid var(--color-cacao);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.ensemble-stationery-pane {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background-color: var(--color-marfil);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+/* Tarjeta Física 3D Interactiva (tarjeta-frente.svg / tarjeta-reverso.svg) */
 .ensemble-flip-card-wrap {
-  perspective: 1000px;
+  perspective: 1200px;
   width: 100%;
 }
 
@@ -768,9 +598,9 @@
   width: 100%;
   aspect-ratio: 9 / 5;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
   cursor: pointer;
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-cacao);
 }
 
 .ensemble-flip-card.is-flipped {
@@ -784,10 +614,7 @@
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: var(--radius-md);
   overflow: hidden;
-  display: flex;
-  box-shadow: 0 4px 14px rgba(74, 33, 19, 0.08);
 }
 
 .ensemble-flip-face img {
@@ -805,22 +632,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: var(--space-sm);
+  gap: var(--space-sm);
+}
+
+.ensemble-flip-caption {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-cacao);
 }
 
 .btn-flip-card {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background-color: var(--color-marfil);
+  gap: 0.5rem;
+  background-color: var(--color-crema);
   color: var(--color-cacao);
-  border: 1px solid var(--color-cacao-rule);
-  padding: 0.45rem 1rem;
+  border: 1px solid var(--color-cacao);
+  padding: 0.5rem 1.1rem;
   border-radius: var(--radius-full);
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-flip-card:hover {
@@ -829,117 +663,74 @@
   border-color: var(--color-terracota);
 }
 
-.ensemble-flip-tag {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-terracota);
-}
-
-/* Sello Circular Adhesivo */
-.ensemble-seal-card {
-  background-color: var(--color-marfil);
-  border-radius: var(--radius-md);
-  padding: var(--space-md) var(--space-lg);
+/* Ficha del Sello Adhesivo Circular */
+.ensemble-seal-row {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-cacao-rule);
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 84px 1fr;
   gap: var(--space-md);
   align-items: center;
 }
 
 .ensemble-seal-img {
-  width: 76px;
-  height: 76px;
-  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.ensemble-seal-card:hover .ensemble-seal-img {
-  transform: rotate(15deg) scale(1.05);
 }
 
 .ensemble-seal-text strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1.12rem;
+  font-size: 1.2rem;
   color: var(--color-cacao);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .ensemble-seal-text p {
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--color-cacao-muted);
-}
-  padding: var(--space-md);
-  background-color: var(--color-crema);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-md);
-}
-
-.ensemble-insert-motto {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  color: var(--color-terracota);
 }
 
 /* ==========================================================================
-   FOOTER INSTITUCIONAL (Plasta Cacao con Onda Superior Terracota)
+   PIE DE PÁGINA INSTITUCIONAL EN PLASTA CACAO (#4A2113)
    ========================================================================== */
 .site-footer {
   background-color: var(--color-cacao);
   color: var(--color-crema);
-  margin-top: auto;
-  position: relative;
-}
-
-.footer-top-wave {
-  background-color: var(--color-marfil);
-  line-height: 0;
-}
-
-.footer-top-wave svg {
-  width: 100%;
-  height: 56px;
-  display: block;
-}
-
-.footer-main {
+  border-top: 1px solid var(--color-cacao);
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-xl);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 0.8fr 1fr;
+  grid-template-columns: 1.4fr 1.1fr 0.9fr 1.2fr;
   gap: var(--space-xl);
   padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--color-crema-rule);
 }
 
-.footer-brand-box {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.footer-symbol-badge {
+.footer-logo-lockup {
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--space-md);
 }
 
-.footer-symbol-frame {
+.footer-symbol-box {
+  width: 52px;
+  height: 52px;
   background-color: var(--color-crema);
-  padding: 0.6rem;
   border-radius: var(--radius-sm);
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem;
 }
 
-.footer-brand-name {
+.footer-wordmark {
   font-family: var(--font-heading);
   font-size: 1.85rem;
   color: var(--color-crema);
@@ -950,77 +741,90 @@
   font-family: var(--font-heading);
   font-size: 1.35rem;
   color: var(--color-crema);
+  margin-bottom: 0.25rem;
 }
 
 .footer-support {
-  font-weight: 700;
-  color: var(--color-terracota);
-  background-color: var(--color-crema);
   display: inline-block;
-  width: fit-content;
-  padding: 0.2rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-}
-
-.footer-description {
+  font-weight: 700;
   font-size: 0.95rem;
-  color: var(--color-crema);
-  opacity: 0.86;
-}
-
-.footer-heading {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
   color: var(--color-crema);
   margin-bottom: var(--space-md);
 }
 
-.footer-trace-list,
+.footer-desc {
+  font-size: 0.95rem;
+  color: var(--color-crema);
+  opacity: 0.85;
+  max-width: 34ch;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-crema);
+  margin-bottom: var(--space-md);
+}
+
+.footer-trace-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-trace-item strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-crema);
+  opacity: 0.72;
+}
+
+.footer-trace-item span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-crema);
+}
+
 .footer-links-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  font-size: 0.94rem;
-}
-
-.footer-trace-list li strong {
-  color: var(--color-crema);
-  display: block;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  opacity: 0.7;
+  gap: 0.65rem;
 }
 
 .footer-links-list a {
+  font-size: 0.96rem;
+  font-weight: 600;
   color: var(--color-crema);
-  opacity: 0.88;
-  font-weight: 700;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  transition: opacity 0.15s ease;
 }
 
 .footer-links-list a:hover {
-  opacity: 1;
+  opacity: 0.75;
   text-decoration: underline;
 }
 
-.footer-whatsapp-cta {
+.footer-cta-text {
+  font-size: 0.95rem;
+  color: var(--color-crema);
+  opacity: 0.9;
+  margin-bottom: var(--space-md);
+}
+
+.btn-footer-wa {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   background-color: var(--color-terracota);
   color: var(--color-marfil);
-  padding: 0.85rem 1.4rem;
+  padding: 0.85rem 1.5rem;
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
-  font-size: 0.98rem;
-  margin-top: var(--space-sm);
-  transition: background-color 0.2s ease;
+  font-size: 0.96rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.footer-whatsapp-cta:hover {
+.btn-footer-wa:hover {
   background-color: var(--color-crema);
   color: var(--color-cacao);
 }
@@ -1028,79 +832,74 @@
 .footer-bottom {
   padding-top: var(--space-lg);
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   font-size: 0.86rem;
   color: var(--color-crema);
-  opacity: 0.8;
+  opacity: 0.78;
 }
 
 /* ==========================================================================
-   MEDIA QUERIES RESPONSIVAS (360px a 1440px+)
+   RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-editorial-grid,
-  .origins-editorial-layout,
-  .ensemble-grid {
+  .hero-split-stage,
+  .origins-top-spread,
+  .ensemble-header-bar,
+  .ensemble-split-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-floating-seal {
-    top: 12px;
-    right: 12px;
-    width: 96px;
-    height: 96px;
+  .hero-left-pane,
+  .origins-sierra-stage,
+  .ensemble-photo-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao);
+  }
+
+  .origins-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .origin-pillar-col {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao-rule);
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .top-origin-inner {
-    justify-content: center;
-    text-align: center;
-  }
-  .top-origin-right {
+  .main-nav {
     display: none;
   }
 
-  .nav-links {
-    display: none;
+  .header-inner {
+    grid-template-columns: 1fr auto;
   }
 
-  .editorial-folio {
-    flex-wrap: wrap;
-    font-size: 0.72rem;
+  .brand-logo-link,
+  .header-actions {
+    border: none;
+    padding-inline: 0;
   }
 
-  .hero-quick-specs {
-    grid-template-columns: 1fr;
-    gap: var(--space-xs);
-  }
-
-  .voice-pillar-row {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-  }
-
+  .hero-presentations-ledger,
   .footer-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 480px) {
-  .hero-actions {
-    flex-direction: column;
+  .hero-ledger-cell:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao-rule);
+    padding-right: 0;
   }
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-  }
-  .cart-button-trigger .cart-btn-label {
-    display: none;
+
+  .hero-ledger-cell:last-child {
+    padding-left: 0;
   }
 }

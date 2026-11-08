@@ -57,7 +57,8 @@
   --radius-full: 9999px;
 
   /* Ancho Editorial */
-  --container-max: 1320px;
+  --container-max: 1360px;
+  --container-pad: clamp(1.5rem, 5vw, 4.5rem);
 }
 
 /* Reset Editorial Limpio */

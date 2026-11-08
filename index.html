@@ -1,536 +1,535 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Xochiapam — Café de San Pedro Sochiapam, Oaxaca. Tu café de cada día, de Oaxaca a tu taza. Presentaciones de 250 g y 500 g.">
-  <meta name="theme-color" content="#FFFAF3">
-  <!-- Open Graph / Redes Sociales y WhatsApp -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Xochiapam — Tu café de cada día | San Pedro Sochiapam, Oaxaca">
-  <meta property="og:description" content="Para los hogares de todos los días. Práctico, cercano y fácil de preparar. De Oaxaca a tu taza.">
-  <meta property="og:image" content="assets/images/visualizacion-empaque.png">
   <title>Xochiapam — Tu café de cada día | San Pedro Sochiapam, Oaxaca</title>
+  <meta name="description" content="Café Xochiapam de San Pedro Sochiapam, Oaxaca. Para los hogares de todos los días: práctico, cercano y fácil de preparar. Presentaciones de 250 g en bolsa crema y 500 g en bolsa terracota.">
+  <meta name="theme-color" content="#4A2113">
+
   <link rel="icon" type="image/svg+xml" href="assets/logos/simbolo-color.svg">
+
+  <!-- Hojas de estilo modulares -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <a href="#hero" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- Cintillo Superior de Origen -->
-  <div class="top-origin-bar" role="region" aria-label="Origen del café">
-    <div class="container top-origin-inner">
-      <span class="top-origin-location">
-        <span class="top-origin-dot" aria-hidden="true"></span>
-        Origen: San Pedro Sochiapam, Oaxaca
-      </span>
-      <span class="top-origin-right">Edición 01 · 250 g Prueba y Entrada · 500 g Recompra</span>
-    </div>
-  </div>
+  <!-- Enlace de salto directo para accesibilidad -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- Header Editorial Fijo -->
+  <!-- ======================================================================
+       CABECERA FIJA DE MARCA (SIN ADORNOS NI NUMERACIÓN ARTIFICIAL)
+       ====================================================================== -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a href="#hero" class="brand-link" aria-label="Xochiapam — Ir al inicio">
-        <img src="assets/logos/horizontal-color.svg" alt="Xochiapam Café" class="brand-logo" width="185" height="46">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo-link" aria-label="Xochiapam Café — Inicio">
+        <img src="assets/logos/horizontal-color.svg" alt="Xochiapam Café" class="brand-logo-img" width="184" height="44">
       </a>
 
-      <nav class="site-nav" aria-label="Navegación principal">
-        <ul class="nav-links">
-          <li><a href="#origen"><span class="nav-idx">01</span> Concepto y Origen</a></li>
-          <li><a href="#comparativa"><span class="nav-idx">02</span> 250 g vs 500 g</a></li>
-          <li><a href="#mesa"><span class="nav-idx">03</span> La Mesa</a></li>
-          <li><a href="#tienda"><span class="nav-idx">04</span> Pedir Café</a></li>
-        </ul>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#origen" class="nav-link">Origen y Voz</a>
+        <a href="#comparativa" class="nav-link">250 g y 500 g</a>
+        <a href="#mesa" class="nav-link">En tu Mesa</a>
+        <a href="#tienda" class="nav-link">Pedir Café</a>
+      </nav>
 
-        <button type="button" class="cart-button-trigger" id="cart-open-btn" aria-label="Abrir bolsa de pedido" aria-haspopup="dialog" aria-controls="cart-drawer">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <div class="header-actions">
+        <button
+          type="button"
+          id="cart-open-btn"
+          class="cart-trigger-btn"
+          aria-controls="cart-drawer"
+          aria-haspopup="dialog"
+          aria-label="Abrir bolsa de pedido"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="cart-btn-label">Mi Pedido</span>
-          <span class="cart-badge" id="cart-counter">0</span>
+          <span>Mi Pedido</span>
+          <span id="cart-counter" class="cart-badge" aria-live="polite">0</span>
         </button>
-      </nav>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- ====================================================================
-         HERO EDITORIAL — "TU CAFÉ DE CADA DÍA"
-         ==================================================================== -->
-    <section id="hero" class="hero-section" aria-labelledby="hero-main-heading">
-      <div class="container">
-        <div class="editorial-folio">
-          <span class="folio-brand">XOCHIAPAM / CASA</span>
-          <span class="folio-section">IDENTIDAD Y CAFÉ COTIDIANO</span>
-          <span class="folio-number">01</span>
-        </div>
-
-        <div class="hero-editorial-grid">
-          <!-- Columna Izquierda: Tipografía y Voz -->
-          <div class="hero-copy-col">
-            <div>
-              <div class="hero-kicker">
-                <span class="hero-kicker-line" aria-hidden="true"></span>
-                <span>San Pedro Sochiapam, Oaxaca</span>
-              </div>
-
-              <h1 id="hero-main-heading" class="hero-title">
-                Tu café de cada día.
-                <em>De Oaxaca a tu taza.</em>
-              </h1>
-
-              <p class="hero-lead">
-                Para los hogares de todos los días. Práctico, cercano y fácil de preparar. Una marca cálida y sencilla nacida para acompañar tu mesa cada mañana sin complicaciones.
-              </p>
-
-              <div class="hero-manifesto-block">
-                <img src="assets/logos/simbolo-color.svg" alt="Símbolo de la taza y el amanecer de Xochiapam" class="hero-manifesto-symbol" width="64" height="64">
-                <div class="hero-manifesto-text">
-                  <strong>La taza y el amanecer</strong>
-                  <p>Expresan cercanía, pausa y comienzo. Hablamos como quien comparte una taza: claro, amable y sin tecnicismos innecesarios.</p>
-                </div>
-              </div>
-
-              <div class="hero-actions">
-                <a href="#tienda" class="btn-primary">
-                  <span>Pedir café para casa</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-                <a href="#comparativa" class="btn-secondary">
-                  <span>Comparar 250 g y 500 g</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="hero-quick-specs">
-              <div class="quick-spec-item">
-                <span class="quick-spec-label">Origen documentado</span>
-                <span class="quick-spec-val">San Pedro Sochiapam</span>
-              </div>
-              <div class="quick-spec-item">
-                <span class="quick-spec-label">Bolsa 250 g · Crema</span>
-                <span class="quick-spec-val">Prueba y entrada · $160</span>
-              </div>
-              <div class="quick-spec-item">
-                <span class="quick-spec-label">Bolsa 500 g · Terracota</span>
-                <span class="quick-spec-val">Recompra en casa · $290</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Escenario Fotográfico + Sello Circular + Onda Maestra -->
-          <div class="hero-stage-col">
-            <img src="assets/images/adhesivo-circular.svg" alt="Sello circular de Xochiapam Café, San Pedro Sochiapam, Oaxaca" class="hero-floating-seal" width="144" height="144">
-
-            <div class="hero-poster-card">
-              <div class="hero-photo-wrap">
-                <img src="assets/images/visualizacion-empaque.png" alt="Bolsas de Café Xochiapam de 250 g en color crema y 500 g en terracota junto a una taza de cerámica en luz de mañana" class="hero-main-photo" width="760" height="570" loading="eager">
-              </div>
-
-              <div class="hero-poster-Wave-footer">
-                <!-- Onda Maestra exacta extraída de publicacion-bienvenida.svg -->
-                <svg class="hero-wave-svg" viewBox="0 0 1080 180" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0 70 C400 -20 700 175 1080 35 V180 H0 Z" fill="#B54325"></path>
-                </svg>
-                <div class="hero-wave-caption">
-                  <strong>Haz una pausa. Prepara tu café.</strong>
-                  <span>San Pedro Sochiapam · Oaxaca</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main id="main-content">
 
     <!-- ====================================================================
-         CINTA EDITORIAL DE MARCA
+         HERO FULL-BLEED 50/50 SPLIT ARQUITECTÓNICO (#hero)
          ==================================================================== -->
-    <div class="brand-ribbon" aria-hidden="true">
-      <div class="brand-ribbon-track">
-        <span class="ribbon-item"><span class="ribbon-sun">☀</span> TU CAFÉ DE CADA DÍA</span>
-        <span class="ribbon-item">— SAN PEDRO SOCHIAPAM, OAXACA —</span>
-        <span class="ribbon-item"><span class="ribbon-sun">☀</span> DE OAXACA A TU TAZA</span>
-        <span class="ribbon-item">— 250 G PRUEBA Y ENTRADA —</span>
-        <span class="ribbon-item"><span class="ribbon-sun">☀</span> 500 G RECOMPRA EN CASA</span>
-        <span class="ribbon-item">— UN MOMENTO PARA COMPARTIR —</span>
-        <span class="ribbon-item"><span class="ribbon-sun">☀</span> TU CAFÉ DE CADA DÍA</span>
-        <span class="ribbon-item">— SAN PEDRO SOCHIAPAM, OAXACA —</span>
-        <span class="ribbon-item"><span class="ribbon-sun">☀</span> DE OAXACA A TU TAZA</span>
-        <span class="ribbon-item">— 250 G PRUEBA Y ENTRADA —</span>
-        <span class="ribbon-item"><span class="ribbon-sun">☀</span> 500 G RECOMPRA EN CASA</span>
-        <span class="ribbon-item">— UN MOMENTO PARA COMPARTIR —</span>
-      </div>
-    </div>
+    <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-split-stage">
+        <!-- Mitad Izquierda: Tipografía Monumental + Tabla Rápida + Onda Terracota -->
+        <div class="hero-left-pane">
+          <div class="hero-left-content">
+            <span class="hero-origin-tag">San Pedro Sochiapam, Oaxaca</span>
 
-    <!-- ====================================================================
-         CAPÍTULO 01: CONCEPTO, VOZ Y ORIGEN (#origen)
-         ==================================================================== -->
-    <section id="origen" class="section-origins" aria-labelledby="origins-heading">
-      <div class="container">
-        <div class="editorial-folio">
-          <span class="folio-brand">XOCHIAPAM / CONCEPTO Y VOZ</span>
-          <span class="folio-section">SAN PEDRO SOCHIAPAM, OAXACA</span>
-          <span class="folio-number">02</span>
-        </div>
-
-        <div class="origins-editorial-layout">
-          <div>
-            <h2 id="origins-heading" class="origins-manifesto-title">
-              El café cabe en lo cotidiano.
-            </h2>
-            <p class="origins-manifesto-intro">
-              En Xochiapam creemos que un buen café de Oaxaca no necesita palabras rebuscadas para disfrutarse. Viene de <strong>San Pedro Sochiapam</strong> directo a tu cocina: pensado para el ritual real de cada mañana, ya sea en cafetera eléctrica, prensa francesa o al fuego de la estufa.
+            <h1 id="hero-heading" class="hero-title">
+              Tu café de cada día.
+            </h1>
+            <p class="hero-subtitle-display">
+              De Oaxaca a tu taza.
             </p>
 
-            <div class="voice-pillars-list">
-              <article class="voice-pillar-row">
-                <span class="voice-pillar-num">01</span>
-                <div class="voice-pillar-body">
-                  <h3>Cálida y cercana</h3>
-                  <p>Hablamos como quien comparte una taza en la mesa de casa: sencillo, amable y concreto. El símbolo de la taza y el sol naciente celebra esa primera pausa del día.</p>
-                </div>
-              </article>
+            <p class="hero-lead">
+              Para los hogares de todos los días. Práctico, cercano y fácil de preparar: una marca cálida y sencilla pensada para acompañar la mesa de tu casa cada mañana sin complicaciones.
+            </p>
 
-              <article class="voice-pillar-row">
-                <span class="voice-pillar-num">02</span>
-                <div class="voice-pillar-body">
-                  <h3>Clara y sin poses</h3>
-                  <p>Explicamos qué vendemos y cómo elegirlo sin tecnicismos innecesarios. Dos tamaños claros y la molienda lista para la cafetera que ya tienes en casa.</p>
-                </div>
-              </article>
+            <div class="hero-cta-group">
+              <a href="#tienda" class="btn-primary">Pedir café para casa</a>
+              <a href="#comparativa" class="btn-secondary">Comparar 250 g y 500 g</a>
+            </div>
 
-              <article class="voice-pillar-row">
-                <span class="voice-pillar-num">03</span>
-                <div class="voice-pillar-body">
-                  <h3>Raíz en San Pedro Sochiapam</h3>
-                  <p>Café orgullosamente originario de San Pedro Sochiapam, en la sierra de Oaxaca. Empacado con cuidado para conservar su frescura y aroma en tu alacena.</p>
-                </div>
-              </article>
+            <div class="hero-presentations-ledger">
+              <div class="hero-ledger-cell">
+                <strong class="hero-ledger-title">Bolsa Crema 250 g — $160 MXN</strong>
+                <span class="hero-ledger-desc">Para probar por primera vez o tomar una taza al día (~16 tazas).</span>
+              </div>
+              <div class="hero-ledger-cell">
+                <strong class="hero-ledger-title">Bolsa Terracota 500 g — $290 MXN</strong>
+                <span class="hero-ledger-desc">Para recompra en casa y cafeteras compartidas (~32 tazas).</span>
+              </div>
             </div>
           </div>
 
-          <!-- Carteles Editoriales de Marca y Fotografía de Origen -->
-          <div class="origins-posters-col">
-            <figure class="origins-landscape-frame">
-              <img src="assets/images/origen-sochiapam-sierra.jpg" alt="Cafetales de altura en la sierra de San Pedro Sochiapam, Oaxaca" class="origins-sierra-img" width="600" height="375" loading="lazy">
-              <figcaption class="origins-sierra-caption">
-                <strong>San Pedro Sochiapam, Sierra de Oaxaca</strong>
-                <span>Café bajo sombra entre las nubes</span>
-              </figcaption>
-            </figure>
-
-            <aside class="brand-poster-terracota" aria-label="Cartel de origen Xochiapam">
-              <div class="poster-top-pad">
-                <img src="assets/logos/horizontal-blanco.svg" alt="Xochiapam Café en crema" class="poster-logo-crema" width="175" height="44" loading="lazy">
-                <p class="poster-statement">
-                  De Oaxaca<br>a tu taza.
-                </p>
-                <p class="poster-sub">
-                  Un momento para compartir todos los días.
-                </p>
-              </div>
-
-              <div class="poster-wave-bottom">
-                <svg class="poster-wave-Bottom-svg" viewBox="0 0 1080 160" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0 65 C400 -15 700 160 1080 25 V160 H0 Z" fill="#F3E3CA"></path>
-                </svg>
-                <div class="poster-wave-crema-bar">
-                  <span>San Pedro Sochiapam, Oaxaca</span>
-                  <span>100% Café Oaxaqueño</span>
-                </div>
-              </div>
-            </aside>
+          <div class="hero-left-wave-band">
+            <svg class="hero-wave-svg" viewBox="0 0 1080 140" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 55 C380 -15 700 135 1080 25 V140 H0 Z" fill="#B54325"></path>
+            </svg>
+            <div class="hero-wave-bar">
+              <strong>Haz una pausa. Prepara tu café.</strong>
+              <span>San Pedro Sochiapam, Oaxaca</span>
+            </div>
           </div>
+        </div>
+
+        <!-- Mitad Derecha: Fotografía a Sangre + Sello Oficial -->
+        <div class="hero-right-pane">
+          <img
+            src="assets/images/adhesivo-circular.svg"
+            alt="Sello circular oficial de Xochiapam Café, San Pedro Sochiapam, Oaxaca"
+            class="hero-axis-seal"
+            width="136"
+            height="136"
+          >
+          <img
+            src="assets/images/visualizacion-empaque.png"
+            alt="Bolsas de Café Xochiapam de 250 g en crema y 500 g en terracota junto a una taza servida sobre mesa de madera"
+            class="hero-bleed-photo"
+            width="960"
+            height="720"
+            loading="eager"
+          >
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         CAPÍTULO 02: EMPAQUE Y COMPARATIVA DUAL (#comparativa)
+         ORIGEN Y VOZ DE MARCA (#origen)
+         Panorama de la Sierra + Bloque Monolítico Terracota + 3 Columnas
+         ==================================================================== -->
+    <section id="origen" class="section-origins" aria-labelledby="origins-heading">
+      <div class="origins-top-spread">
+        <figure class="origins-sierra-stage">
+          <img
+            src="assets/images/origen-sochiapam-sierra.jpg"
+            alt="Montañas y cafetales bajo sombra en San Pedro Sochiapam, Sierra de Oaxaca"
+            class="origins-sierra-img"
+            width="960"
+            height="600"
+            loading="lazy"
+          >
+          <figcaption class="origins-sierra-caption">
+            <strong>San Pedro Sochiapam, Sierra de Oaxaca</strong>
+            <span>Origen de nuestro café para casa</span>
+          </figcaption>
+        </figure>
+
+        <div class="origins-terracota-slab">
+          <div class="slab-content">
+            <img
+              src="assets/logos/horizontal-blanco.svg"
+              alt="Xochiapam Café en color crema"
+              class="slab-brand-mark"
+              width="176"
+              height="44"
+              loading="lazy"
+            >
+            <h2 id="origins-heading" class="slab-heading">
+              El café cabe en lo cotidiano.
+            </h2>
+            <p class="slab-lead">
+              En Xochiapam hablamos como quien comparte una taza en la cocina: sencillo, amable y concreto. Nuestro café viene de San Pedro Sochiapam, Oaxaca, listo para la cafetera que ya usas todos los días.
+            </p>
+          </div>
+
+          <div class="slab-wave-footer">
+            <svg class="slab-wave-svg" viewBox="0 0 1080 140" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 55 C400 -15 700 135 1080 25 V140 H0 Z" fill="#F3E3CA"></path>
+            </svg>
+            <div class="slab-crema-strip">
+              <span>De Oaxaca a tu taza</span>
+              <span>San Pedro Sochiapam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tres Pilares de Identidad (Sin numeración artificial) -->
+      <div class="origins-pillars-grid">
+        <article class="origin-pillar-col">
+          <img
+            src="assets/logos/simbolo-color.svg"
+            alt="Símbolo de la taza y el amanecer de Xochiapam"
+            class="origin-pillar-icon"
+            width="48"
+            height="48"
+            loading="lazy"
+          >
+          <div>
+            <h3>La taza y el amanecer</h3>
+            <p>Nuestro símbolo une la taza humeante con el sol que sale entre las montañas. Expresa cercanía, pausa y el comienzo de cada mañana en casa.</p>
+          </div>
+        </article>
+
+        <article class="origin-pillar-col">
+          <svg class="origin-pillar-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="6" y="10" width="36" height="28" stroke="#4A2113" stroke-width="2.5"></rect>
+            <path d="M6 28 C16 22 32 34 42 26" stroke="#B54325" stroke-width="3"></path>
+          </svg>
+          <div>
+            <h3>Claro y sin tecnicismos</h3>
+            <p>Explicamos qué se vende y cómo elegirlo sin palabras rebuscadas. Dos tamaños bien diferenciados por color y tres puntos de molienda para tu cafetera.</p>
+          </div>
+        </article>
+
+        <article class="origin-pillar-col">
+          <svg class="origin-pillar-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M6 38 L18 16 L28 30 L34 22 L42 38 Z" stroke="#4A2113" stroke-width="2.5" stroke-linejoin="round"></path>
+            <circle cx="34" cy="13" r="4" fill="#B54325"></circle>
+          </svg>
+          <div>
+            <h3>Raíz en San Pedro Sochiapam</h3>
+            <p>Café originario del municipio de San Pedro Sochiapam, en Oaxaca. Empacado en bolsas con cierre y sello para conservar su aroma en tu alacena.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         EMPAQUE Y COMPARATIVA FULL-BLEED 50/50 (#comparativa)
          "Dos tamaños. Un mismo lenguaje." (Pág. 09 del Manual)
          ==================================================================== -->
     <section id="comparativa" class="section-comparison" aria-labelledby="comparison-heading">
-      <div class="container">
-        <div class="editorial-folio">
-          <span class="folio-brand">XOCHIAPAM / EMPAQUE Y ELECCIÓN</span>
-          <span class="folio-section">250 G PRUEBA Y ENTRADA · 500 G RECOMPRA</span>
-          <span class="folio-number">03</span>
-        </div>
+      <div class="comparison-header-bar">
+        <h2 id="comparison-heading" class="comparison-headline">
+          Dos tamaños.<br>Un mismo lenguaje.
+        </h2>
+        <p class="comparison-lead">
+          Ambas bolsas contienen el mismo café de San Pedro Sochiapam, Oaxaca. La presentación de <strong>250 g en bolsa crema</strong> está pensada como entrada y consumo individual; la de <strong>500 g en bolsa terracota</strong> está hecha para la recompra en casa.
+        </p>
+      </div>
 
-        <div class="comparison-intro-grid">
-          <h2 id="comparison-heading" class="comparison-headline">
-            Dos tamaños.<br>Un mismo lenguaje.
-          </h2>
-          <p class="comparison-lead">
-            Es exactamente el mismo café de San Pedro Sochiapam. La diferencia está en tu ritmo en casa: <strong>250 g en bolsa crema</strong> para probar o tomar de forma individual, y <strong>500 g en bolsa terracota</strong> para compartir y ahorrar en la recompra.
-          </p>
-        </div>
+      <!-- Duelo Arquitectónico 50/50 a Sangre: Crema (250g) | Terracota (500g) -->
+      <div class="dual-packaging-split">
+        <!-- MITAD IZQUIERDA: 250 g CREMA CON ONDA TERRACOTA -->
+        <article class="pack-world pack-world--crema" id="world-250">
+          <div class="pack-world-inner">
+            <header class="pack-world-header">
+              <span class="pack-role-tag">Prueba y entrada</span>
+              <span class="pack-price-pill">$160 MXN</span>
+            </header>
 
-        <!-- Duelo Visual: Crema (250g) vs Terracota (500g) -->
-        <div class="dual-packaging-split">
-          <!-- MUNDO 250g: CREMA CON ONDA TERRACOTA -->
-          <article class="pack-world pack-world--crema" id="world-250">
-            <div class="pack-world-inner">
-              <header class="pack-world-header">
-                <span class="pack-role-tag">250 g / Prueba y entrada</span>
-                <span class="pack-price-pill">$160 MXN</span>
-              </header>
+            <div class="pack-body-grid">
+              <img
+                src="assets/images/frontal-250g.svg"
+                alt="Etiqueta oficial frontal de 250 g en color crema con onda terracota"
+                class="pack-label-artwork"
+                width="195"
+                height="281"
+                loading="lazy"
+              >
 
-              <div class="pack-body-grid">
-                <img src="assets/images/frontal-250g.svg" alt="Etiqueta oficial frontal de 250 g en color crema con onda terracota" class="pack-label-artwork" width="185" height="267" loading="lazy">
-
-                <div>
-                  <h3 class="pack-title">Bolsa de 250 g</h3>
-                  <p class="pack-subtitle">
-                    Ideal si vas a conocer Xochiapam por primera vez o si en casa solo una persona toma café por las mañanas.
-                  </p>
-
-                  <dl class="pack-specs-dl">
-                    <div class="pack-spec-row">
-                      <dt>Rendimiento real</dt>
-                      <dd>~16 tazas bien servidas</dd>
-                    </div>
-                    <div class="pack-spec-row">
-                      <dt>Ritmo sugerido</dt>
-                      <dd>1 a 2 semanas (consumo individual)</dd>
-                    </div>
-                    <div class="pack-spec-row">
-                      <dt>Identidad de bolsa</dt>
-                      <dd>Crema con onda Terracota</dd>
-                    </div>
-                    <div class="pack-spec-row">
-                      <dt>Costo por taza</dt>
-                      <dd>~$10.00 MXN por taza</dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-            </div>
-
-            <div class="pack-wave-footer">
-              <!-- Onda Maestra exacta de frontal-250g.svg -->
-              <svg class="pack-wave-svg" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 30 C280 115 600 -25 900 15 V120 H0 Z" fill="#B54325"></path>
-              </svg>
-              <div class="pack-wave-cta-bar">
-                <div class="pack-weight-stamp">
-                  <small>CONT. NET.</small>
-                  250 g
-                </div>
-                <a href="#tienda" class="btn-comparison" data-weight="250">
-                  <span>Elegir 250 g</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- MUNDO 500g: TERRACOTA CON ONDA CREMA -->
-          <article class="pack-world pack-world--terracota" id="world-500">
-            <div class="pack-world-inner">
-              <header class="pack-world-header">
-                <span class="pack-role-tag">500 g / Recompra y hogar</span>
-                <span class="pack-price-pill">$290 MXN</span>
-              </header>
-
-              <div class="pack-body-grid">
-                <img src="assets/images/frontal-500g.svg" alt="Etiqueta oficial frontal de 500 g en color terracota con onda crema" class="pack-label-artwork" width="185" height="267" loading="lazy">
-
-                <div>
-                  <h3 class="pack-title">Bolsa de 500 g</h3>
-                  <p class="pack-subtitle">
-                    Pensada para quienes ya adoptaron Xochiapam como su café de diario, hogares de dos o más personas y cafeteras familiares.
-                  </p>
-
-                  <dl class="pack-specs-dl">
-                    <div class="pack-spec-row">
-                      <dt>Rendimiento real</dt>
-                      <dd>~32 tazas generosas</dd>
-                    </div>
-                    <div class="pack-spec-row">
-                      <dt>Ritmo sugerido</dt>
-                      <dd>Hogar, pareja o sobremesa</dd>
-                    </div>
-                    <div class="pack-spec-row">
-                      <dt>Identidad de bolsa</dt>
-                      <dd>Terracota con onda Crema</dd>
-                    </div>
-                    <div class="pack-spec-row">
-                      <dt>Ahorro directo</dt>
-                      <dd>~$9.06 / taza (Ahorras $30 MXN)</dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-            </div>
-
-            <div class="pack-wave-footer">
-              <!-- Onda Maestra exacta de frontal-500g.svg -->
-              <svg class="pack-wave-svg" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 30 C280 115 600 -25 900 15 V120 H0 Z" fill="#F3E3CA"></path>
-              </svg>
-              <div class="pack-wave-cta-bar">
-                <div class="pack-weight-stamp">
-                  <small>CONT. NET.</small>
-                  500 g
-                </div>
-                <a href="#tienda" class="btn-comparison" data-weight="500">
-                  <span>Elegir 500 g</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Calculadora Interactiva de Ritmo en Casa -->
-        <div class="household-matcher" aria-label="Calculadora rápida de tamaño según tu consumo">
-          <div class="matcher-question">
-            <h3>¿Cuántas tazas se preparan al día en tu casa?</h3>
-            <p>Toca tu ritmo cotidiano y te decimos cuál bolsa se adapta mejor a tu mesa.</p>
-          </div>
-          <div class="matcher-controls">
-            <div class="matcher-pills" role="group" aria-label="Tazas por día">
-              <button type="button" class="matcher-pill is-active" data-ritmo="individual" aria-pressed="true">1 taza al día</button>
-              <button type="button" class="matcher-pill" data-ritmo="pareja" aria-pressed="false">2 a 3 tazas al día</button>
-              <button type="button" class="matcher-pill" data-ritmo="familia" aria-pressed="false">4+ tazas en familia</button>
-            </div>
-            <div class="matcher-verdict" aria-live="polite">
-              <span id="matcher-verdict-text">Te recomendamos la bolsa de 250 g (Crema): te durará ~16 días con café recién abierto.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Guía Clara de Molienda (Sin tecnicismos innecesarios) -->
-        <div class="grind-guide-block">
-          <div class="grind-guide-top">
-            <div class="grind-guide-heading">
-              <h3>¿Cómo elegir tu molienda?</h3>
-              <p>Dinos en qué preparas tu café en casa y nosotros te lo enviamos con el punto exacto.</p>
-            </div>
-
-            <div class="grind-tablist" role="tablist" aria-label="Opciones de molienda">
-              <button type="button" role="tab" id="tab-medio" class="grind-tab is-active" aria-selected="true" aria-controls="grind-panel" tabindex="0" data-grind-id="medio">
-                Molienda Media
-              </button>
-              <button type="button" role="tab" id="tab-fino" class="grind-tab" aria-selected="false" aria-controls="grind-panel" tabindex="-1" data-grind-id="fino">
-                Molienda Fina
-              </button>
-              <button type="button" role="tab" id="tab-grano" class="grind-tab" aria-selected="false" aria-controls="grind-panel" tabindex="-1" data-grind-id="grano">
-                En Grano Entero
-              </button>
-            </div>
-          </div>
-
-          <div id="grind-panel" class="grind-tabpanel" role="tabpanel" aria-labelledby="tab-medio">
-            <div class="grind-panel-grid">
               <div>
-                <span class="grind-panel-badge" id="grind-badge">Cafetera de filtro, prensa o jarra</span>
-                <h4 class="grind-panel-title" id="grind-title">Molienda Media</h4>
-                <p class="grind-panel-recommendation" id="grind-recommendation">
-                  Textura equilibrada como arena fina, lista para preparar tu café de cada mañana sin complicaciones.
-                </p>
-                <p class="grind-panel-taste" id="grind-taste">
-                  Taza limpia, amable y constante todos los días. El punto exacto para la mayoría de cafeteras de casa.
+                <h3 class="pack-title">Bolsa de 250 g</h3>
+                <p class="pack-subtitle">
+                  Para conocer Xochiapam por primera vez o para hogares donde una sola persona prepara su taza cada mañana.
                 </p>
 
-                <p class="grind-methods-label">Cafeteras recomendadas en casa:</p>
-                <ul class="grind-methods-list" id="grind-methods">
-                  <li class="method-tag">Cafetera eléctrica de filtro</li>
-                  <li class="method-tag">Prensa Francesa</li>
-                  <li class="method-tag">Cafetera de goteo / V60</li>
-                  <li class="method-tag">Café de olla</li>
-                </ul>
-              </div>
-
-              <div class="grind-recipe-box">
-                <h5>Medida práctica en casa</h5>
-                <div class="recipe-stat">
-                  <span class="recipe-stat-label">En cuchara de cocina</span>
-                  <span class="recipe-stat-value" id="grind-spoons-text">1 ½ cucharadas soperas colmadas por taza (14 g)</span>
-                </div>
-                <div class="recipe-stat">
-                  <span class="recipe-stat-label">Proporción de agua</span>
-                  <span class="recipe-stat-value" id="grind-ratio-text">1 g café : 14-16 ml agua</span>
-                </div>
+                <dl class="pack-specs-dl">
+                  <div class="pack-spec-row">
+                    <dt>Rendimiento aproximado</dt>
+                    <dd>~16 tazas</dd>
+                  </div>
+                  <div class="pack-spec-row">
+                    <dt>Ritmo en casa</dt>
+                    <dd>1 a 2 semanas (individual)</dd>
+                  </div>
+                  <div class="pack-spec-row">
+                    <dt>Color de empaque</dt>
+                    <dd>Crema con onda Terracota</dd>
+                  </div>
+                  <div class="pack-spec-row">
+                    <dt>Precio por taza</dt>
+                    <dd>~$10.00 MXN</dd>
+                  </div>
+                </dl>
               </div>
             </div>
+          </div>
 
-            <!-- Comparativa fotográfica real de texturas de grano y molienda -->
-            <figure class="grind-tactile-comparison">
-              <img src="assets/images/granos-molienda-textura.jpg" alt="Comparativa fotográfica real: grano entero arábica, molienda media balanceada y molienda fina para espresso" class="grind-tactile-img" width="880" height="260" loading="lazy">
-              <figcaption class="grind-tactile-caption">
-                <span>1. En Grano Entero</span>
-                <span>2. Molienda Media (Ideal casa)</span>
-                <span>3. Molienda Fina</span>
-              </figcaption>
-            </figure>
+          <div class="pack-wave-footer">
+            <svg class="pack-wave-svg" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 30 C280 115 600 -25 900 15 V120 H0 Z" fill="#B54325"></path>
+            </svg>
+            <div class="pack-wave-cta-bar">
+              <div class="pack-weight-stamp">
+                <small>CONT. NET.</small>
+                250 g
+              </div>
+              <a href="#tienda" class="btn-comparison" data-weight="250">
+                Elegir bolsa de 250 g
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- MITAD DERECHA: 500 g TERRACOTA CON ONDA CREMA -->
+        <article class="pack-world pack-world--terracota" id="world-500">
+          <div class="pack-world-inner">
+            <header class="pack-world-header">
+              <span class="pack-role-tag">Recompra y hogar</span>
+              <span class="pack-price-pill">$290 MXN</span>
+            </header>
+
+            <div class="pack-body-grid">
+              <img
+                src="assets/images/frontal-500g.svg"
+                alt="Etiqueta oficial frontal de 500 g en color terracota con onda crema"
+                class="pack-label-artwork"
+                width="195"
+                height="281"
+                loading="lazy"
+              >
+
+              <div>
+                <h3 class="pack-title">Bolsa de 500 g</h3>
+                <p class="pack-subtitle">
+                  Para quienes ya tienen a Xochiapam en su cocina de diario, parejas o familias que preparan jarra completa.
+                </p>
+
+                <dl class="pack-specs-dl">
+                  <div class="pack-spec-row">
+                    <dt>Rendimiento aproximado</dt>
+                    <dd>~32 tazas</dd>
+                  </div>
+                  <div class="pack-spec-row">
+                    <dt>Ritmo en casa</dt>
+                    <dd>Pareja, familia o sobremesa</dd>
+                  </div>
+                  <div class="pack-spec-row">
+                    <dt>Color de empaque</dt>
+                    <dd>Terracota con onda Crema</dd>
+                  </div>
+                  <div class="pack-spec-row">
+                    <dt>Ahorro en recompra</dt>
+                    <dd>~$9.06 / taza (Ahorras $30 MXN)</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="pack-wave-footer">
+            <svg class="pack-wave-svg" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 30 C280 115 600 -25 900 15 V120 H0 Z" fill="#F3E3CA"></path>
+            </svg>
+            <div class="pack-wave-cta-bar">
+              <div class="pack-weight-stamp">
+                <small>CONT. NET.</small>
+                500 g
+              </div>
+              <a href="#tienda" class="btn-comparison" data-weight="500">
+                Elegir bolsa de 500 g
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Calculadora Interactiva de Ritmo en Casa -->
+      <div class="household-matcher" aria-label="Calculadora de presentación según consumo diario">
+        <div class="matcher-question">
+          <h3>¿Cuántas tazas se preparan al día en tu casa?</h3>
+          <p>Selecciona tu ritmo cotidiano para ver cuál bolsa te conviene llevar.</p>
+        </div>
+        <div class="matcher-controls">
+          <div class="matcher-pills" role="group" aria-label="Tazas preparadas por día">
+            <button type="button" class="matcher-pill is-active" data-ritmo="individual" aria-pressed="true">1 taza al día</button>
+            <button type="button" class="matcher-pill" data-ritmo="pareja" aria-pressed="false">2 a 3 tazas al día</button>
+            <button type="button" class="matcher-pill" data-ritmo="familia" aria-pressed="false">4 o más tazas</button>
+          </div>
+          <div class="matcher-verdict" aria-live="polite">
+            <span id="matcher-verdict-text">Te recomendamos la bolsa de 250 g (Crema): te durará ~16 días con café recién abierto.</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ====================================================================
-         CAPÍTULO 03: DETALLES QUE HACEN CONJUNTO (#mesa)
-         (Págs. 11 y 12 del Manual de Marca)
-         ==================================================================== -->
-    <section id="mesa" class="section-ensemble" aria-labelledby="ensemble-heading">
-      <div class="container">
-        <div class="editorial-folio">
-          <span class="folio-brand">XOCHIAPAM / APLICACIONES</span>
-          <span class="folio-section">DETALLES QUE HACEN CONJUNTO</span>
-          <span class="folio-number">04</span>
+      <!-- Guía Táctil de Molienda con Escenario Macro Fotográfico -->
+      <div class="grind-guide-block">
+        <div class="grind-guide-top">
+          <div class="grind-guide-heading">
+            <h3>Guía práctica de molienda</h3>
+            <p>Elige el grosor según la cafetera que usas en tu cocina.</p>
+          </div>
+
+          <div class="grind-tablist" role="tablist" aria-label="Opciones de molienda">
+            <button type="button" role="tab" id="tab-medio" class="grind-tab is-active" aria-selected="true" aria-controls="grind-panel" tabindex="0" data-grind-id="medio">
+              Molienda Media
+            </button>
+            <button type="button" role="tab" id="tab-fino" class="grind-tab" aria-selected="false" aria-controls="grind-panel" tabindex="-1" data-grind-id="fino">
+              Molienda Fina
+            </button>
+            <button type="button" role="tab" id="tab-grano" class="grind-tab" aria-selected="false" aria-controls="grind-panel" tabindex="-1" data-grind-id="grano">
+              En Grano Entero
+            </button>
+          </div>
         </div>
 
-        <div class="comparison-intro-grid">
-          <h2 id="ensemble-heading" class="comparison-headline">
-            Detalles que hacen conjunto en tu mesa.
-          </h2>
-          <p class="comparison-lead">
-            Cada paquete de Xochiapam lleva nuestro sello circular de cierre y la tarjeta de conservación para que el café mantenga su aroma desde el primer hasta el último día.
-          </p>
-        </div>
+        <div id="grind-panel" class="grind-tabpanel" role="tabpanel" aria-labelledby="tab-medio">
+          <div class="grind-panel-info">
+            <div>
+              <span class="grind-panel-badge" id="grind-badge">Cafetera de filtro, prensa o jarra</span>
+              <h4 class="grind-panel-title" id="grind-title">Molienda Media</h4>
+              <p class="grind-panel-recommendation" id="grind-recommendation">
+                Textura equilibrada como arena fina, lista para preparar tu café de cada mañana sin complicaciones.
+              </p>
+              <p class="grind-panel-taste" id="grind-taste">
+                Taza limpia, amable y constante todos los días. El punto exacto para la mayoría de cafeteras de casa.
+              </p>
 
-        <div class="ensemble-grid">
-          <figure class="ensemble-showcase-photo">
-            <img src="assets/images/ritual-taza-madera.jpg" alt="Café Xochiapam preparado en taza de barro artesanal con bolsa en papel crema y granos tostados en mesa rústica" width="900" height="675" loading="lazy">
-            <figcaption class="ensemble-photo-caption">
-              <span>El ritual de la mañana · Xochiapam</span>
-              <span>San Pedro Sochiapam, Oaxaca</span>
+              <p class="grind-methods-label">Cafeteras recomendadas en casa:</p>
+              <ul class="grind-methods-list" id="grind-methods">
+                <li class="method-tag">Cafetera eléctrica de filtro</li>
+                <li class="method-tag">Prensa Francesa</li>
+                <li class="method-tag">Cafetera de goteo / V60</li>
+                <li class="method-tag">Café de olla</li>
+              </ul>
+            </div>
+
+            <div class="grind-recipe-row">
+              <div>
+                <span class="recipe-stat-label">Medida en cuchara de cocina</span>
+                <span class="recipe-stat-value" id="grind-spoons-text">1 ½ cucharadas soperas colmadas por taza (14 g)</span>
+              </div>
+              <div>
+                <span class="recipe-stat-label">Proporción de agua</span>
+                <span class="recipe-stat-value" id="grind-ratio-text">1 g café : 14-16 ml agua</span>
+              </div>
+            </div>
+          </div>
+
+          <figure class="grind-tactile-stage" id="grind-photo-stage" data-active-grind="medio">
+            <div class="grind-tactile-img-wrap">
+              <img
+                src="assets/images/granos-molienda-textura.jpg"
+                alt="Comparativa macro sobre madera: grano entero tostado, molienda media y molienda fina"
+                class="grind-tactile-img"
+                width="680"
+                height="420"
+                loading="lazy"
+              >
+            </div>
+            <figcaption class="grind-tactile-zones">
+              <span class="grind-zone-item" data-zone="grano">Grano Entero</span>
+              <span class="grind-zone-item" data-zone="medio">Molienda Media</span>
+              <span class="grind-zone-item" data-zone="fino">Molienda Fina</span>
             </figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
 
-          <!-- Tarjeta Flippable 3D interactiva + Sello circular adhesivo -->
-          <div class="ensemble-interactive-col">
-            <div class="ensemble-flip-card-wrap">
-              <div class="ensemble-flip-card" role="button" tabindex="0" aria-label="Voltear tarjeta de agradecimiento en 3D">
-                <div class="ensemble-flip-face ensemble-flip-face--front">
-                  <img src="assets/images/tarjeta-frente.svg" alt="Tarjeta oficial Xochiapam frente: Gracias por compartir tu mesa" width="900" height="500" loading="lazy">
-                </div>
-                <div class="ensemble-flip-face ensemble-flip-face--back">
-                  <img src="assets/images/tarjeta-reverso.svg" alt="Tarjeta oficial Xochiapam reverso: San Pedro Sochiapam, Oaxaca" width="900" height="500" loading="lazy">
-                </div>
+    <!-- ====================================================================
+         DETALLES QUE HACEN CONJUNTO EN TU MESA (#mesa)
+         ==================================================================== -->
+    <section id="mesa" class="section-ensemble" aria-labelledby="ensemble-heading">
+      <div class="ensemble-header-bar">
+        <h2 id="ensemble-heading" class="ensemble-headline">
+          Detalles que hacen conjunto en tu mesa.
+        </h2>
+        <p class="ensemble-lead">
+          Cada pedido de Xochiapam incluye nuestra tarjeta impresa con recomendaciones de cuidado y el sello circular adhesivo para volver a cerrar tu bolsa después de cada mañana.
+        </p>
+      </div>
+
+      <div class="ensemble-split-grid">
+        <figure class="ensemble-photo-pane">
+          <img
+            src="assets/images/ritual-taza-madera.jpg"
+            alt="Taza de cerámica artesanal con café recién servido junto a una bolsa de Xochiapam sobre mesa de madera"
+            width="900"
+            height="675"
+            loading="lazy"
+          >
+          <figcaption class="ensemble-photo-caption">
+            <span>Mesa de mañana con Xochiapam</span>
+            <span>San Pedro Sochiapam, Oaxaca</span>
+          </figcaption>
+        </figure>
+
+        <div class="ensemble-stationery-pane">
+          <div class="ensemble-flip-card-wrap">
+            <div class="ensemble-flip-card" role="button" tabindex="0" aria-label="Girar tarjeta de agradecimiento para ver frente y reverso">
+              <div class="ensemble-flip-face ensemble-flip-face--front">
+                <img
+                  src="assets/images/tarjeta-frente.svg"
+                  alt="Frente de la tarjeta Xochiapam: Tu café de cada día"
+                  width="900"
+                  height="500"
+                  loading="lazy"
+                >
               </div>
-              <div class="ensemble-flip-controls">
-                <span class="ensemble-flip-tag">Inserto físico en cada pedido</span>
-                <button type="button" class="btn-flip-card" id="btn-flip-card" aria-pressed="false">
-                  <span>Voltear al reverso ↺</span>
-                </button>
+              <div class="ensemble-flip-face ensemble-flip-face--back">
+                <img
+                  src="assets/images/tarjeta-reverso.svg"
+                  alt="Reverso de la tarjeta Xochiapam: San Pedro Sochiapam, Oaxaca"
+                  width="900"
+                  height="500"
+                  loading="lazy"
+                >
               </div>
             </div>
+            <div class="ensemble-flip-controls">
+              <span class="ensemble-flip-caption">Tarjeta incluida dentro de tu paquete</span>
+              <button type="button" class="btn-flip-card" id="btn-flip-card" aria-pressed="false">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="17 1 21 5 17 9"></polyline>
+                  <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                  <polyline points="7 23 3 19 7 15"></polyline>
+                  <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                </svg>
+                <span>Ver reverso de la tarjeta</span>
+              </button>
+            </div>
+          </div>
 
-            <div class="ensemble-seal-card">
-              <img src="assets/images/adhesivo-circular.svg" alt="Sello circular adhesivo Xochiapam Café" class="ensemble-seal-img" width="76" height="76" loading="lazy">
-              <div class="ensemble-seal-text">
-                <strong>Sello adhesivo de cierre</strong>
-                <p>Cada paquete incluye este sello circular para volver a plegar la bolsa y conservar la frescura del grano en tu alacena.</p>
-              </div>
+          <div class="ensemble-seal-row">
+            <img
+              src="assets/images/adhesivo-circular.svg"
+              alt="Sello circular adhesivo Xochiapam Café"
+              class="ensemble-seal-img"
+              width="84"
+              height="84"
+              loading="lazy"
+            >
+            <div class="ensemble-seal-text">
+              <strong>Conserva bien cerrado en un lugar fresco y seco</strong>
+              <p>El sello circular acompaña cada bolsa para mantenerla bien plegada y lejos de la luz directa en tu cocina.</p>
             </div>
           </div>
         </div>
@@ -538,330 +537,347 @@
     </section>
 
     <!-- ====================================================================
-         CAPÍTULO 04: BOUTIQUE Y CONFIGURADOR DE PEDIDO (#tienda)
+         MOSTRADOR DE PEDIDO DIRECTO (#tienda)
          ==================================================================== -->
     <section id="tienda" class="section-boutique" aria-labelledby="boutique-heading">
-      <div class="container">
-        <div class="editorial-folio">
-          <span class="folio-brand">XOCHIAPAM / PEDIDO DIRECTO</span>
-          <span class="folio-section">ELIGE TAMAÑO Y MOLIENDA</span>
-          <span class="folio-number">05</span>
-        </div>
+      <div class="boutique-header-bar">
+        <h2 id="boutique-heading" class="boutique-title">
+          Lleva Xochiapam a tu casa.
+        </h2>
+        <p class="boutique-subtitle">
+          Elige tu bolsa de <strong>250 g</strong> o <strong>500 g</strong>, selecciona la molienda para tu cafetera y envía tu pedido directo por WhatsApp.
+        </p>
+      </div>
 
-        <div class="boutique-header-split">
-          <h2 id="boutique-heading" class="boutique-title">
-            Lleva Xochiapam a tu casa.
-          </h2>
-          <p class="boutique-subtitle">
-            Selecciona tu presentación de <strong>250 g</strong> o <strong>500 g</strong>, indica cómo lo quieres molido y envía tu pedido directo por WhatsApp sin registros complicados.
-          </p>
-        </div>
-
-        <div class="boutique-grid">
-          <!-- TARJETA 1: 250g (PLASTA CREMA) -->
-          <article class="boutique-card boutique-card--250" data-product="xochiapam-250">
-            <div class="boutique-card-body">
-              <div class="boutique-card-top">
-                <img src="assets/images/frontal-250g.png" alt="Bolsa de Café Xochiapam 250 g en color crema" class="boutique-pack-img" width="140" height="202" loading="lazy">
-                <div>
-                  <span class="boutique-badge">250 g · Prueba y entrada</span>
-                  <h3 class="boutique-product-title">Xochiapam 250 g</h3>
-                  <p class="boutique-product-meta">San Pedro Sochiapam, Oaxaca · ~16 tazas</p>
-                  <div class="boutique-price-row">
-                    <span class="boutique-price">$160</span>
-                    <span class="boutique-currency">MXN</span>
-                  </div>
+      <div class="boutique-grid">
+        <!-- MOSTRADOR 250 g (CREMA) -->
+        <article class="boutique-card boutique-card--250" data-product="xochiapam-250">
+          <div class="boutique-card-body">
+            <div class="boutique-card-top">
+              <img
+                src="assets/images/frontal-250g.svg"
+                alt="Bolsa de Café Xochiapam 250 g en color crema"
+                class="boutique-pack-img"
+                width="148"
+                height="213"
+                loading="lazy"
+              >
+              <div>
+                <span class="boutique-badge">Prueba y entrada</span>
+                <h3 class="boutique-product-title">Xochiapam 250 g</h3>
+                <p class="boutique-product-meta">San Pedro Sochiapam, Oaxaca — ~16 tazas</p>
+                <div class="boutique-price-row">
+                  <span class="boutique-price">$160</span>
+                  <span class="boutique-currency">MXN</span>
                 </div>
-              </div>
-
-              <fieldset class="config-fieldset">
-                <legend class="config-legend">1. Elige el tipo de molienda:</legend>
-
-                <!-- Selector rápido por cafetera -->
-                <div class="quick-brewer-picker">
-                  <span class="brewer-picker-title">¿Qué cafetera tienes en casa?</span>
-                  <div class="brewer-buttons-grid">
-                    <button type="button" class="btn-brewer is-active" data-grind="medio" aria-label="Molienda media para cafetera de filtro o prensa">☕ Filtro / Prensa</button>
-                    <button type="button" class="btn-brewer" data-grind="fino" aria-label="Molienda fina para cafetera moka o espresso">♨️ Moka Italiana</button>
-                    <button type="button" class="btn-brewer" data-grind="medio" aria-label="Molienda media para café de olla">🫖 Café de Olla</button>
-                    <button type="button" class="btn-brewer" data-grind="grano" aria-label="En grano entero para molino en casa">⚙️ Molino Propio</button>
-                  </div>
-                </div>
-
-                <div class="grind-pills-group" role="radiogroup" aria-label="Molienda para bolsa de 250 g">
-                  <label class="grind-pill-label">
-                    <input type="radio" name="grind-250" value="medio" checked>
-                    <span class="grind-pill-box">Molido Medio</span>
-                  </label>
-                  <label class="grind-pill-label">
-                    <input type="radio" name="grind-250" value="fino">
-                    <span class="grind-pill-box">Molido Fino</span>
-                  </label>
-                  <label class="grind-pill-label">
-                    <input type="radio" name="grind-250" value="grano">
-                    <span class="grind-pill-box">En Grano</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              <div class="boutique-action-row">
-                <div class="qty-stepper" role="group" aria-label="Cantidad de bolsas de 250 g">
-                  <button type="button" class="stepper-btn" data-action="decrement" aria-label="Disminuir cantidad">−</button>
-                  <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="Cantidad de bolsas de 250 g">
-                  <button type="button" class="stepper-btn" data-action="increment" aria-label="Aumentar cantidad">+</button>
-                </div>
-
-                <button type="button" class="btn-add-cart" data-add-to-cart="xochiapam-250">
-                  <span>Agregar 250 g a mi pedido</span>
-                  <span aria-hidden="true">+</span>
-                </button>
               </div>
             </div>
 
-            <div class="pack-wave-footer">
-              <svg class="pack-wave-svg" viewBox="0 0 900 90" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 25 C280 95 600 -15 900 15 V90 H0 Z" fill="#B54325"></path>
-              </svg>
-            </div>
-          </article>
+            <fieldset class="config-fieldset">
+              <legend class="config-legend">Elige el punto de molienda:</legend>
 
-          <!-- TARJETA 2: 500g (PLASTA TERRACOTA) -->
-          <article class="boutique-card boutique-card--500" data-product="xochiapam-500">
-            <div class="boutique-card-body">
-              <div class="boutique-card-top">
-                <img src="assets/images/frontal-500g.png" alt="Bolsa de Café Xochiapam 500 g en color terracota" class="boutique-pack-img" width="140" height="202" loading="lazy">
-                <div>
-                  <span class="boutique-badge">500 g · Recompra y hogar</span>
-                  <h3 class="boutique-product-title">Xochiapam 500 g</h3>
-                  <p class="boutique-product-meta">San Pedro Sochiapam, Oaxaca · ~32 tazas</p>
-                  <div class="boutique-price-row">
-                    <span class="boutique-price">$290</span>
-                    <span class="boutique-currency">MXN · Ahorras $30</span>
-                  </div>
+              <div class="quick-brewer-picker">
+                <span class="brewer-picker-title">Selecciona según tu cafetera en casa:</span>
+                <div class="brewer-buttons-grid">
+                  <button type="button" class="btn-brewer is-active" data-grind="medio" aria-label="Molienda media para cafetera de filtro o prensa">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                    </svg>
+                    <span>Filtro o Prensa</span>
+                  </button>
+                  <button type="button" class="btn-brewer" data-grind="fino" aria-label="Molienda fina para cafetera moka o espresso">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="7 2 17 2 15 11 9 11 7 2"></polygon>
+                      <polygon points="9 11 15 11 18 22 6 22 9 11"></polygon>
+                    </svg>
+                    <span>Moka o Espresso</span>
+                  </button>
+                  <button type="button" class="btn-brewer" data-grind="medio" aria-label="Molienda media para café de olla">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 7h14l-1.5 13a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 7Z"></path>
+                      <line x1="3" y1="7" x2="21" y2="7"></line>
+                    </svg>
+                    <span>Café de Olla</span>
+                  </button>
+                  <button type="button" class="btn-brewer" data-grind="grano" aria-label="En grano entero para molino propio">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <ellipse cx="12" cy="12" rx="8" ry="5" transform="rotate(-30 12 12)"></ellipse>
+                      <path d="M7 15c3-2 7-4 10-6"></path>
+                    </svg>
+                    <span>Tengo Molino</span>
+                  </button>
                 </div>
               </div>
 
-              <fieldset class="config-fieldset">
-                <legend class="config-legend">1. Elige el tipo de molienda:</legend>
-
-                <!-- Selector rápido por cafetera -->
-                <div class="quick-brewer-picker">
-                  <span class="brewer-picker-title">¿Qué cafetera tienes en casa?</span>
-                  <div class="brewer-buttons-grid">
-                    <button type="button" class="btn-brewer is-active" data-grind="medio" aria-label="Molienda media para cafetera de filtro o prensa">☕ Filtro / Prensa</button>
-                    <button type="button" class="btn-brewer" data-grind="fino" aria-label="Molienda fina para cafetera moka o espresso">♨️ Moka Italiana</button>
-                    <button type="button" class="btn-brewer" data-grind="medio" aria-label="Molienda media para café de olla">🫖 Café de Olla</button>
-                    <button type="button" class="btn-brewer" data-grind="grano" aria-label="En grano entero para molino en casa">⚙️ Molino Propio</button>
-                  </div>
-                </div>
-
-                <div class="grind-pills-group" role="radiogroup" aria-label="Molienda para bolsa de 500 g">
-                  <label class="grind-pill-label">
-                    <input type="radio" name="grind-500" value="medio" checked>
-                    <span class="grind-pill-box">Molido Medio</span>
-                  </label>
-                  <label class="grind-pill-label">
-                    <input type="radio" name="grind-500" value="fino">
-                    <span class="grind-pill-box">Molido Fino</span>
-                  </label>
-                  <label class="grind-pill-label">
-                    <input type="radio" name="grind-500" value="grano">
-                    <span class="grind-pill-box">En Grano</span>
-                  </label>
-                </div>
-              </fieldset>
-
-              <div class="boutique-action-row">
-                <div class="qty-stepper" role="group" aria-label="Cantidad de bolsas de 500 g">
-                  <button type="button" class="stepper-btn" data-action="decrement" aria-label="Disminuir cantidad">−</button>
-                  <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="Cantidad de bolsas de 500 g">
-                  <button type="button" class="stepper-btn" data-action="increment" aria-label="Aumentar cantidad">+</button>
-                </div>
-
-                <button type="button" class="btn-add-cart" data-add-to-cart="xochiapam-500">
-                  <span>Agregar 500 g a mi pedido</span>
-                  <span aria-hidden="true">+</span>
-                </button>
+              <div class="grind-pills-group" role="radiogroup" aria-label="Molienda para bolsa de 250 g">
+                <label class="grind-pill-label">
+                  <input type="radio" name="grind-250" value="medio" checked>
+                  <span class="grind-pill-box">Molido Medio</span>
+                </label>
+                <label class="grind-pill-label">
+                  <input type="radio" name="grind-250" value="fino">
+                  <span class="grind-pill-box">Molido Fino</span>
+                </label>
+                <label class="grind-pill-label">
+                  <input type="radio" name="grind-250" value="grano">
+                  <span class="grind-pill-box">En Grano</span>
+                </label>
               </div>
-            </div>
+            </fieldset>
 
-            <div class="pack-wave-footer">
-              <svg class="pack-wave-svg" viewBox="0 0 900 90" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 25 C280 95 600 -15 900 15 V90 H0 Z" fill="#F3E3CA"></path>
-              </svg>
-            </div>
-          </article>
-        </div>
+            <div class="boutique-action-row">
+              <div class="qty-stepper" role="group" aria-label="Cantidad de bolsas de 250 g">
+                <button type="button" class="btn-qty-step" data-action="decrease" aria-label="Disminuir cantidad">-</button>
+                <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="Cantidad de bolsas de 250 g">
+                <button type="button" class="btn-qty-step" data-action="increase" aria-label="Aumentar cantidad">+</button>
+              </div>
 
-        <!-- Franja de Confianza Cotidiana -->
-        <div class="boutique-reassurance-strip">
-          <div class="reassurance-item">
-            <span class="reassurance-num">01</span>
-            <div>
-              <strong>Trato directo por WhatsApp</strong>
-              <p>Armas tu pedido aquí y confirmas entrega y pago platicando directamente con nosotros.</p>
+              <button type="button" class="btn-add-to-cart" data-product-id="xochiapam-250">
+                <span>Agregar 250 g al pedido</span>
+              </button>
             </div>
           </div>
-          <div class="reassurance-item">
-            <span class="reassurance-num">02</span>
-            <div>
-              <strong>Molido según tu cafetera</strong>
-              <p>Elige grano entero, molienda media para cafetera/prensa o fina para Moka/espresso.</p>
+
+          <div class="pack-wave-footer">
+            <svg class="pack-wave-svg" viewBox="0 0 900 90" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 25 C280 95 600 -15 900 15 V90 H0 Z" fill="#B54325"></path>
+            </svg>
+          </div>
+        </article>
+
+        <!-- MOSTRADOR 500 g (TERRACOTA) -->
+        <article class="boutique-card boutique-card--500" data-product="xochiapam-500">
+          <div class="boutique-card-body">
+            <div class="boutique-card-top">
+              <img
+                src="assets/images/frontal-500g.svg"
+                alt="Bolsa de Café Xochiapam 500 g en color terracota"
+                class="boutique-pack-img"
+                width="148"
+                height="213"
+                loading="lazy"
+              >
+              <div>
+                <span class="boutique-badge">Recompra en casa</span>
+                <h3 class="boutique-product-title">Xochiapam 500 g</h3>
+                <p class="boutique-product-meta">San Pedro Sochiapam, Oaxaca — ~32 tazas</p>
+                <div class="boutique-price-row">
+                  <span class="boutique-price">$290</span>
+                  <span class="boutique-currency">MXN (Ahorras $30)</span>
+                </div>
+              </div>
+            </div>
+
+            <fieldset class="config-fieldset">
+              <legend class="config-legend">Elige el punto de molienda:</legend>
+
+              <div class="quick-brewer-picker">
+                <span class="brewer-picker-title">Selecciona según tu cafetera en casa:</span>
+                <div class="brewer-buttons-grid">
+                  <button type="button" class="btn-brewer is-active" data-grind="medio" aria-label="Molienda media para cafetera de filtro o prensa">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                    </svg>
+                    <span>Filtro o Prensa</span>
+                  </button>
+                  <button type="button" class="btn-brewer" data-grind="fino" aria-label="Molienda fina para cafetera moka o espresso">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="7 2 17 2 15 11 9 11 7 2"></polygon>
+                      <polygon points="9 11 15 11 18 22 6 22 9 11"></polygon>
+                    </svg>
+                    <span>Moka o Espresso</span>
+                  </button>
+                  <button type="button" class="btn-brewer" data-grind="medio" aria-label="Molienda media para café de olla">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 7h14l-1.5 13a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 7Z"></path>
+                      <line x1="3" y1="7" x2="21" y2="7"></line>
+                    </svg>
+                    <span>Café de Olla</span>
+                  </button>
+                  <button type="button" class="btn-brewer" data-grind="grano" aria-label="En grano entero para molino propio">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <ellipse cx="12" cy="12" rx="8" ry="5" transform="rotate(-30 12 12)"></ellipse>
+                      <path d="M7 15c3-2 7-4 10-6"></path>
+                    </svg>
+                    <span>Tengo Molino</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="grind-pills-group" role="radiogroup" aria-label="Molienda para bolsa de 500 g">
+                <label class="grind-pill-label">
+                  <input type="radio" name="grind-500" value="medio" checked>
+                  <span class="grind-pill-box">Molido Medio</span>
+                </label>
+                <label class="grind-pill-label">
+                  <input type="radio" name="grind-500" value="fino">
+                  <span class="grind-pill-box">Molido Fino</span>
+                </label>
+                <label class="grind-pill-label">
+                  <input type="radio" name="grind-500" value="grano">
+                  <span class="grind-pill-box">En Grano</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="boutique-action-row">
+              <div class="qty-stepper" role="group" aria-label="Cantidad de bolsas de 500 g">
+                <button type="button" class="btn-qty-step" data-action="decrease" aria-label="Disminuir cantidad">-</button>
+                <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="Cantidad de bolsas de 500 g">
+                <button type="button" class="btn-qty-step" data-action="increase" aria-label="Aumentar cantidad">+</button>
+              </div>
+
+              <button type="button" class="btn-add-to-cart" data-product-id="xochiapam-500">
+                <span>Agregar 500 g al pedido</span>
+              </button>
             </div>
           </div>
-          <div class="reassurance-item">
-            <span class="reassurance-num">03</span>
-            <div>
-              <strong>De Oaxaca a tu puerta</strong>
-              <p>Entregas en Oaxaca y envíos a todo México bien cerrados y protegidos de la luz.</p>
-            </div>
+
+          <div class="pack-wave-footer">
+            <svg class="pack-wave-svg" viewBox="0 0 900 90" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 25 C280 95 600 -15 900 15 V90 H0 Z" fill="#F3E3CA"></path>
+            </svg>
           </div>
-        </div>
+        </article>
       </div>
     </section>
+
   </main>
 
   <!-- ======================================================================
-       FOOTER INSTITUCIONAL
+       CAJÓN LATERAL NATIVO DE PEDIDO (<dialog id="cart-drawer">)
        ====================================================================== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-top-wave" aria-hidden="true">
-      <svg viewBox="0 0 1080 120" preserveAspectRatio="none">
-        <path d="M0 45 C400 -20 700 125 1080 20 V120 H0 Z" fill="#4A2113"></path>
-      </svg>
-    </div>
+  <dialog
+    id="cart-drawer"
+    class="cart-drawer"
+    aria-labelledby="drawer-title"
+    aria-describedby="drawer-desc"
+  >
+    <div class="drawer-layout">
+      <header class="drawer-header">
+        <div class="drawer-title-group">
+          <h2 id="drawer-title">Tu Pedido Xochiapam</h2>
+          <p id="drawer-desc" class="drawer-subtitle">San Pedro Sochiapam, Oaxaca</p>
+        </div>
+        <button type="button" id="cart-close-btn" class="drawer-close-btn" aria-label="Cerrar ventana de pedido">
+          &times;
+        </button>
+      </header>
 
-    <div class="container footer-main">
-      <div class="editorial-folio editorial-folio--light">
-        <span class="folio-brand">XOCHIAPAM / CAFÉ DE OAXACA</span>
-        <span class="folio-section">TU CAFÉ DE CADA DÍA</span>
-        <span class="folio-number">ED. 01</span>
+      <div class="drawer-body">
+        <div id="cart-items-container" aria-live="polite"></div>
+
+        <div class="customer-form-box">
+          <h3>Datos para tu entrega (opcional)</h3>
+          <div class="form-field">
+            <label for="customer-name">Tu nombre</label>
+            <input type="text" id="customer-name" class="form-input" placeholder="Ej. Elena Morales" autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="customer-city">Ciudad o colonia</label>
+            <input type="text" id="customer-city" class="form-input" placeholder="Ej. Oaxaca de Juárez, Centro">
+          </div>
+          <div class="form-field">
+            <label for="customer-notes">Notas para tu pedido</label>
+            <input type="text" id="customer-notes" class="form-input" placeholder="Ej. Entregar por la tarde">
+          </div>
+        </div>
       </div>
 
+      <footer class="drawer-footer">
+        <div id="cart-toast" class="cart-toast" role="status" aria-live="polite" hidden></div>
+
+        <div class="subtotal-row">
+          <span class="subtotal-label">Total estimado</span>
+          <strong id="cart-subtotal" class="subtotal-amount">$0 MXN</strong>
+        </div>
+
+        <button type="button" id="btn-whatsapp-checkout" class="btn-whatsapp-checkout">
+          <span>Enviar pedido por WhatsApp</span>
+        </button>
+
+        <button type="button" id="btn-copy-order" class="btn-copy-order">
+          Copiar resumen del pedido
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- ======================================================================
+       PIE DE PÁGINA INSTITUCIONAL EN CACAO (#4A2113)
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand-box">
-          <div class="footer-symbol-badge">
-            <span class="footer-symbol-frame">
-              <img src="assets/logos/simbolo-color.svg" alt="Símbolo Xochiapam" width="38" height="38" loading="lazy">
+        <div>
+          <div class="footer-logo-lockup">
+            <span class="footer-symbol-box">
+              <img src="assets/logos/simbolo-color.svg" alt="Símbolo Xochiapam" width="36" height="36" loading="lazy">
             </span>
-            <span class="footer-brand-name">xochiapam</span>
+            <span class="footer-wordmark">xochiapam</span>
           </div>
           <p class="footer-motto">Tu café de cada día.</p>
           <span class="footer-support">De Oaxaca a tu taza</span>
-          <p class="footer-description">
+          <p class="footer-desc">
             Para los hogares de todos los días. Práctico, cercano y fácil de preparar.
           </p>
         </div>
 
         <div>
           <h3 class="footer-heading">Origen y Trazabilidad</h3>
-          <ul class="footer-trace-list">
-            <li>
+          <div class="footer-trace-list">
+            <div class="footer-trace-item">
               <strong>Municipio de origen</strong>
-              San Pedro Sochiapam, Sierra de Oaxaca, México
-            </li>
-            <li>
+              <span>San Pedro Sochiapam, Sierra de Oaxaca, México</span>
+            </div>
+            <div class="footer-trace-item">
               <strong>Presentaciones</strong>
-              250 g (Prueba y entrada) · 500 g (Recompra)
-            </li>
-            <li>
+              <span>250 g (Bolsa Crema) y 500 g (Bolsa Terracota)</span>
+            </div>
+            <div class="footer-trace-item">
               <strong>Conservación</strong>
-              Mantener bien cerrado en un lugar fresco, seco y lejos de la luz.
-            </li>
-          </ul>
+              <span>Mantener bien cerrado en un lugar fresco, seco y lejos de la luz.</span>
+            </div>
+          </div>
         </div>
 
         <div>
-          <h3 class="footer-heading">Recorrido</h3>
+          <h3 class="footer-heading">Navegación</h3>
           <ul class="footer-links-list">
             <li><a href="#hero">Inicio</a></li>
-            <li><a href="#origen">Concepto y Origen</a></li>
-            <li><a href="#comparativa">250 g vs 500 g y Molienda</a></li>
-            <li><a href="#mesa">Detalles de Marca</a></li>
+            <li><a href="#origen">Origen y Voz</a></li>
+            <li><a href="#comparativa">250 g y 500 g</a></li>
+            <li><a href="#mesa">En tu Mesa</a></li>
             <li><a href="#tienda">Pedir Café</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer-heading">Pedidos Directos</h3>
-          <p class="footer-description">
-            ¿Dudas sobre cuál molienda elegir o envíos a tu ciudad? Escríbenos por WhatsApp.
+          <p class="footer-cta-text">
+            ¿Dudas sobre cuál molienda elegir o envíos a tu ciudad? Escríbenos directo por WhatsApp.
           </p>
-          <a href="https://wa.me/5219511234567?text=Hola%20Xochiapam%2C%20me%20gustar%C3%ADa%20pedir%20caf%C3%A9%20para%20casa" target="_blank" rel="noopener noreferrer" class="footer-whatsapp-cta">
+          <a
+            href="https://wa.me/5219511234567?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20Caf%C3%A9%20Xochiapam"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-footer-wa"
+          >
             <span>Escribir por WhatsApp</span>
-            <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; <span id="current-year">2026</span> Xochiapam Café · San Pedro Sochiapam, Oaxaca. Todos los derechos reservados.</p>
-        <p>Identidad Visual: Ruta Casa · Edición 01</p>
+        <p>&copy; <span id="current-year">2026</span> Xochiapam Café — San Pedro Sochiapam, Oaxaca. Todos los derechos reservados.</p>
+        <p>Dirección creativa Casa</p>
       </div>
     </div>
   </footer>
 
-  <!-- ======================================================================
-       BOLSA DE PEDIDOS — DRAWER NATIVO <dialog id="cart-drawer">
-       ====================================================================== -->
-  <dialog id="cart-drawer" class="cart-drawer" aria-labelledby="drawer-title" aria-describedby="drawer-desc">
-    <header class="drawer-header">
-      <div class="drawer-title-group">
-        <img src="assets/logos/simbolo-color.svg" alt="" class="drawer-symbol" width="34" height="34" aria-hidden="true">
-        <div>
-          <h2 id="drawer-title" class="drawer-title">Tu Pedido Xochiapam</h2>
-          <p id="drawer-desc" class="drawer-subtitle">De San Pedro Sochiapam a tu mesa</p>
-        </div>
-      </div>
-      <button type="button" class="drawer-close-btn" id="cart-close-btn" aria-label="Cerrar bolsa de pedido">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </header>
-
-    <div class="drawer-body">
-      <div class="cart-items-container" id="cart-items-container" aria-live="polite"></div>
-
-      <div class="cart-summary">
-        <div class="summary-row">
-          <span>Total estimado</span>
-          <strong class="cart-subtotal-amount" id="cart-subtotal">$0 MXN</strong>
-        </div>
-        <p class="summary-shipping-note">
-          Gracias por compartir tu mesa con Xochiapam. Confirmaremos el envío contigo en WhatsApp.
-        </p>
-      </div>
-
-      <div class="cart-customer-fields">
-        <label class="form-label" for="customer-name">
-          <span>Tu nombre:</span>
-          <input type="text" id="customer-name" class="cart-input" placeholder="Ej. Ana García" autocomplete="name">
-        </label>
-        <label class="form-label" for="customer-city">
-          <span>Ciudad o municipio de entrega:</span>
-          <input type="text" id="customer-city" class="cart-input" placeholder="Ej. Oaxaca Centro, CDMX, Puebla..." autocomplete="address-level2">
-        </label>
-        <label class="form-label" for="customer-notes">
-          <span>Notas opcionales:</span>
-          <input type="text" id="customer-notes" class="cart-input" placeholder="Ej. Cafetera que usas o indicaciones">
-        </label>
-      </div>
-    </div>
-
-    <footer class="drawer-footer">
-      <button type="button" class="btn-checkout-whatsapp" id="btn-whatsapp-checkout">
-        <span>Enviar pedido por WhatsApp</span>
-        <span aria-hidden="true">→</span>
-      </button>
-      <button type="button" class="btn-copy-order" id="btn-copy-order">
-        <span>Copiar resumen del pedido</span>
-      </button>
-      <div class="cart-toast" id="cart-toast" role="status" aria-live="polite" hidden></div>
-    </footer>
-  </dialog>
-
+  <!-- Bundle JS sin dependencias (compatible con file:// y servidor HTTP) -->
   <script defer src="js/bundle.js"></script>
 </body>
 </html>

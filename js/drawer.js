@@ -334,10 +334,10 @@ export class CartDrawer {
     if (items.length === 0) {
       itemsContainer.innerHTML = `
         <div class="cart-empty-state">
-          <div class="empty-icon" aria-hidden="true">☕</div>
+          <img src="assets/logos/simbolo-color.svg" alt="" class="empty-brand-symbol" width="52" height="52" aria-hidden="true">
           <p class="empty-title">Tu bolsa está vacía</p>
-          <p class="empty-desc">Descubre la frescura y calidez de San Pedro Sochiapam, Oaxaca. Elige tu presentación para comenzar tu pedido.</p>
-          <button type="button" class="btn-secondary btn-sm" id="btn-browse-tienda">Explorar la Tienda</button>
+          <p class="empty-desc">Elige una bolsa de 250 g o 500 g y el punto de molienda para tu cafetera.</p>
+          <button type="button" class="btn-secondary btn-sm" id="btn-browse-tienda">Elegir café</button>
         </div>
       `;
       return;

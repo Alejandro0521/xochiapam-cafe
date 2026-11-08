@@ -156,7 +156,7 @@ export function setupFlipCard(container = (typeof document !== 'undefined' ? doc
       btn.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
       const textSpan = btn.querySelector('span');
       if (textSpan) {
-        textSpan.textContent = isFlipped ? 'Voltear al frente ↺' : 'Voltear al reverso ↺';
+        textSpan.textContent = isFlipped ? 'Ver frente de la tarjeta' : 'Ver reverso de la tarjeta';
       }
     }
   };

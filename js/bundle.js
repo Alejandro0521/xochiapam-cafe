@@ -181,27 +181,27 @@ function formatWhatsAppOrder(cart, customer = {}, phone = '5219511234567') {
     return { url: '', rawText: '' };
   }
 
-  let text = `☕ *Nuevo Pedido — Café Xochiapam Casa*\n`;
-  text += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+  let text = `*Nuevo Pedido — Café Xochiapam Casa*\n`;
+  text += `──────────────────────────\n`;
 
   items.forEach(item => {
-    text += `• ${item.quantity}x ${item.name} ${item.presentation} (${item.grindLabel}) — $${item.price * item.quantity} MXN\n`;
+    text += `- ${item.quantity}x ${item.name} ${item.presentation} (${item.grindLabel}) — $${item.price * item.quantity} MXN\n`;
   });
 
-  text += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+  text += `──────────────────────────\n`;
   text += `*Total estimado:* $${total} MXN\n\n`;
 
   if (customer.name && customer.name.trim()) {
-    text += `👤 *Cliente:* ${customer.name.trim()}\n`;
+    text += `*Cliente:* ${customer.name.trim()}\n`;
   }
   if (customer.city && customer.city.trim()) {
-    text += `📍 *Entrega:* ${customer.city.trim()}\n`;
+    text += `*Entrega:* ${customer.city.trim()}\n`;
   }
   if (customer.notes && customer.notes.trim()) {
-    text += `📝 *Notas:* ${customer.notes.trim()}\n`;
+    text += `*Notas:* ${customer.notes.trim()}\n`;
   }
 
-  text += `💬 *Origen:* Pedido web oficial Xochiapam Casa`;
+  text += `*Origen:* Pedido web oficial Xochiapam Casa`;
 
   const encoded = encodeURIComponent(text);
   const cleanPhone = phone.replace(/[^0-9]/g, '');
@@ -269,6 +269,11 @@ function updateGrindPanel(grindId, container = document) {
   const spoonsEl = container.querySelector('#grind-spoons-text');
   if (spoonsEl) {
     spoonsEl.textContent = PRACTICAL_SPOONS[option.id] || PRACTICAL_SPOONS.medio;
+  }
+
+  const photoStage = container.querySelector('#grind-photo-stage');
+  if (photoStage && typeof photoStage.setAttribute === 'function') {
+    photoStage.setAttribute('data-active-grind', option.id);
   }
 
   const methodsContainer = container.querySelector('#grind-methods');
@@ -738,10 +743,10 @@ class CartDrawer {
     if (items.length === 0) {
       itemsContainer.innerHTML = `
         <div class="cart-empty-state">
-          <div class="empty-icon" aria-hidden="true">☕</div>
+          <img src="assets/logos/simbolo-color.svg" alt="" class="empty-brand-symbol" width="52" height="52" aria-hidden="true">
           <p class="empty-title">Tu bolsa está vacía</p>
-          <p class="empty-desc">Descubre la frescura y calidez de San Pedro Sochiapam, Oaxaca. Elige tu presentación para comenzar tu pedido.</p>
-          <button type="button" class="btn-secondary btn-sm" id="btn-browse-tienda">Explorar la Tienda</button>
+          <p class="empty-desc">Elige una bolsa de 250 g o 500 g y el punto de molienda para tu cafetera.</p>
+          <button type="button" class="btn-secondary btn-sm" id="btn-browse-tienda">Elegir café</button>
         </div>
       `;
       return;
@@ -941,7 +946,7 @@ function setupFlipCard(container = (typeof document !== 'undefined' ? document :
       btn.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
       const textSpan = btn.querySelector('span');
       if (textSpan) {
-        textSpan.textContent = isFlipped ? 'Voltear al frente ↺' : 'Voltear al reverso ↺';
+        textSpan.textContent = isFlipped ? 'Ver frente de la tarjeta' : 'Ver reverso de la tarjeta';
       }
     }
   };

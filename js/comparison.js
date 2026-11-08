@@ -60,6 +60,11 @@ export function updateGrindPanel(grindId, container = document) {
     spoonsEl.textContent = PRACTICAL_SPOONS[option.id] || PRACTICAL_SPOONS.medio;
   }
 
+  const photoStage = container.querySelector('#grind-photo-stage');
+  if (photoStage && typeof photoStage.setAttribute === 'function') {
+    photoStage.setAttribute('data-active-grind', option.id);
+  }
+
   const methodsContainer = container.querySelector('#grind-methods');
   if (methodsContainer) {
     methodsContainer.innerHTML = '';
