@@ -21,5 +21,6 @@ test('grind options include grano entero, molienda media and molienda fina', () 
 test('origin facts contain San Pedro Sochiapam, Oaxaca data', () => {
   assert.strictEqual(ORIGIN_FACTS.municipality, 'San Pedro Sochiapam');
   assert.strictEqual(ORIGIN_FACTS.state, 'Oaxaca');
-  assert.ok(ORIGIN_FACTS.altitude.includes('1,400'));
+  assert.strictEqual(ORIGIN_FACTS.tagline, 'Tu café de cada día');
+  assert.strictEqual(ORIGIN_FACTS.support, 'De Oaxaca a tu taza');
 });

@@ -1,15 +1,10 @@
 export const ORIGIN_FACTS = {
-  name: 'Xochiapam Casa',
+  name: 'Xochiapam',
   tagline: 'Tu café de cada día',
   support: 'De Oaxaca a tu taza',
   municipality: 'San Pedro Sochiapam',
   state: 'Oaxaca',
-  country: 'México',
-  altitude: '1,400 a 1,750 msnm',
-  variety: '100% Arábica (Pluma Hidalgo, Typica y Bourbon)',
-  harvest: 'Cosecha manual selectiva',
-  process: 'Lavado artesanal con secado en camas de montaña',
-  roastProfile: 'Tueste medio equilibrado (acidez brillante, notas de cacao y miel)'
+  country: 'México'
 };
 
 export const PRODUCTS = [
@@ -19,11 +14,11 @@ export const PRODUCTS = [
     presentation: '250 g',
     weightGrams: 250,
     price: 160,
-    tagline: 'Edición Frescura Individual',
+    tagline: 'Entrada y prueba — Bolsa Crema',
     servings: '~16 tazas',
-    badge: 'Consumo diario',
-    description: 'Perfecto para quienes buscan frescura absoluta taza tras taza. Rendimiento óptimo para una a dos semanas de café recién preparado.',
-    image: 'assets/images/frontal-250g.png'
+    badge: 'Bolsa Crema',
+    description: 'Para conocer el café o tomar una taza al día siempre recién abierta.',
+    image: 'assets/empaque/frontal-250g.svg'
   },
   {
     id: 'xochiapam-500',
@@ -31,11 +26,11 @@ export const PRODUCTS = [
     presentation: '500 g',
     weightGrams: 500,
     price: 290,
-    tagline: 'Edición Hogar & Barista',
+    tagline: 'Recompra para casa — Bolsa Terracota',
     servings: '~32 tazas',
-    badge: 'Más popular',
-    description: 'La presentación ideal para compartir en casa o disfrutar en la oficina. Mayor valor y suficiente grano para explorar diversos métodos.',
-    image: 'assets/images/frontal-500g.png'
+    badge: 'Bolsa Terracota',
+    description: 'Pensado para quien ya lo hizo parte de su cocina o comparte cafetera todas las mañanas.',
+    image: 'assets/empaque/frontal-500g.svg'
   }
 ];
 
@@ -43,28 +38,28 @@ export const GRIND_OPTIONS = [
   {
     id: 'grano',
     label: 'En Grano Entero',
-    shortDesc: 'Para moler al momento',
-    recommendation: 'Recomendado para entusiastas con molino manual o automático.',
-    idealMethods: ['Espresso profesional', 'Chemex', 'V60 Pour-over', 'AeroPress'],
-    tasteProfile: 'Máxima explosión aromática, notas vivas y mayor tiempo de conservación de aceites esenciales.',
+    shortDesc: 'Para moler en casa',
+    recommendation: 'Ideal si tienes molino en casa y disfrutas moler justo antes de calentar el agua.',
+    idealMethods: ['Molino manual o eléctrico', 'Prensa Francesa', 'Filtro o V60', 'Cafetera Moka'],
+    tasteProfile: 'Conserva su aroma natural por más tiempo dentro de la alacena y te deja ajustar el grosor a tu gusto.',
     waterRatio: '1 g café : 15 ml agua'
   },
   {
     id: 'medio',
     label: 'Molienda Media',
-    shortDesc: 'Calibrado para filtro y prensa',
-    recommendation: 'Textura balanceada tipo sal de mar, perfecta para el uso diario sin complicaciones.',
-    idealMethods: ['Prensa Francesa', 'Cafetera eléctrica de goteo', 'Sifón japonés', 'Cold Brew'],
-    tasteProfile: 'Cuerpo redondo, dulzor prolongado con notas a chocolate amargo y nuez tostada.',
+    shortDesc: 'Cafetera de filtro, prensa o jarra',
+    recommendation: 'Textura equilibrada como arena fina, lista para preparar tu café de cada mañana sin complicaciones.',
+    idealMethods: ['Cafetera eléctrica de filtro', 'Prensa Francesa', 'Cafetera de goteo / V60', 'Café de olla'],
+    tasteProfile: 'Taza limpia, amable y constante todos los días. El punto exacto para la mayoría de cafeteras de casa.',
     waterRatio: '1 g café : 14-16 ml agua'
   },
   {
     id: 'fino',
     label: 'Molienda Fina',
-    shortDesc: 'Calibrado para espresso y moka',
-    recommendation: 'Granulometría fina y uniforme para extracciones a presión.',
-    idealMethods: ['Cafetera Italiana Moka', 'Máquina de espresso casera', 'Café turco'],
-    tasteProfile: 'Extracción densa, crema aterciopelada y sabor profundo con gran intensidad.',
+    shortDesc: 'Moka italiana o máquina de presión',
+    recommendation: 'Molienda más cerrada y suave al tacto, pensada para cafeteras donde el agua pasa rápido con presión.',
+    idealMethods: ['Cafetera Italiana Moka', 'Máquina de espresso casera', 'AeroPress corto'],
+    tasteProfile: 'Taza concentrada y con más cuerpo, ideal para tomar corta o acompañar con leche caliente.',
     waterRatio: '1 g café : 10-12 ml agua'
   }
 ];

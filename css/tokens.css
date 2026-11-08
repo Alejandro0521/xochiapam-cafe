@@ -23,41 +23,44 @@
 }
 
 :root {
-  /* Brand Colors */
+  /* Paleta Oficial Xochiapam (Edición 01 · Guía de Marca)
+     Cero blancos clínicos (#FFF), cero sombras artificiales, cero degradados. */
   --color-terracota: #B54325;
-  --color-terracota-hover: #98341b;
+  --color-terracota-hover: #9B361B;
   --color-crema: #F3E3CA;
-  --color-crema-light: #fbf5eb;
+  --color-crema-deep: #E8D2B0;
   --color-cacao: #4A2113;
-  --color-cacao-soft: #63301f;
+  --color-cacao-muted: rgba(74, 33, 19, 0.76);
+  --color-cacao-rule: rgba(74, 33, 19, 0.22);
+  --color-cacao-rule-strong: rgba(74, 33, 19, 0.45);
   --color-marfil: #FFFAF3;
-  --color-marfil-card: #FFFFFF;
+  --color-crema-rule: rgba(243, 227, 202, 0.28);
 
-  /* Typography */
+  /* Tipografía Oficial */
   --font-heading: "Fredoka", system-ui, -apple-system, sans-serif;
   --font-body: "Nunito", system-ui, -apple-system, sans-serif;
 
-  /* Fluid Spacing Scale */
-  --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
-  --space-sm: clamp(0.5rem, 1vw, 0.75rem);
-  --space-md: clamp(1rem, 2vw, 1.5rem);
-  --space-lg: clamp(1.5rem, 3vw, 2.5rem);
-  --space-xl: clamp(2.5rem, 5vw, 4.5rem);
-  --space-2xl: clamp(4rem, 8vw, 7rem);
+  /* Escala de Espaciado Editorial */
+  --space-2xs: 0.375rem;
+  --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 1.2vw, 1.125rem);
+  --space-md: clamp(1.25rem, 2vw, 1.75rem);
+  --space-lg: clamp(2rem, 3.5vw, 3rem);
+  --space-xl: clamp(3rem, 6vw, 5rem);
+  --space-2xl: clamp(4.5rem, 8vw, 7.5rem);
 
-  /* Radius & Shadows */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  /* Geometría Redondeada del Maestro Vectorial (Sin sombras) */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
   --radius-full: 9999px;
-  --shadow-warm: 0 10px 30px -10px rgba(74, 33, 19, 0.08);
-  --shadow-elevation: 0 20px 40px -15px rgba(74, 33, 19, 0.15);
 
-  /* Layout Max Width */
-  --container-max: 1200px;
+  /* Ancho Editorial */
+  --container-max: 1320px;
 }
 
-/* Global Reset & Base */
+/* Reset Editorial Limpio */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -70,7 +73,9 @@ html {
   color: var(--color-cacao);
   background-color: var(--color-marfil);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -78,12 +83,32 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  background-color: var(--color-marfil);
+  color: var(--color-cacao);
+  position: relative;
+}
+
+/* Textura sutil de papel algodón artesanal (sin imágenes externas) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
+  font-weight: 600;
   color: var(--color-cacao);
-  line-height: 1.2;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+}
+
+p {
+  max-width: 62ch;
 }
 
 a {
@@ -97,9 +122,31 @@ img, svg {
   display: block;
 }
 
-button {
+button, input, select, textarea {
   font-family: inherit;
-  cursor: pointer;
-  border: none;
+  font-size: inherit;
+  color: inherit;
   background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Foco Accesible Nítido */
+:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
