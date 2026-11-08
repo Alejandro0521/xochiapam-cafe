@@ -66,7 +66,7 @@ export class Cart {
 
   updateQty(itemId, newQty) {
     const qty = parseInt(newQty, 10);
-    if (qty <= 0) {
+    if (isNaN(qty) || qty <= 0) {
       this.removeItem(itemId);
       return;
     }
