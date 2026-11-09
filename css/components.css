@@ -1435,6 +1435,80 @@
 }
 
 /* ==========================================================================
+   INDICADOR DISCRETO DE CONEXIÓN OFFLINE / ONLINE (#offline-status-banner)
+   ========================================================================== */
+.offline-status-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(25px);
+  z-index: 180;
+  max-width: 90vw;
+  background-color: var(--color-cacao);
+  color: var(--color-marfil);
+  border: 1px solid var(--color-terracota);
+  border-radius: var(--radius-full);
+  padding: 0.65rem 1.35rem;
+  box-shadow: 0 10px 28px rgba(74, 33, 19, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.offline-status-banner.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.offline-status-banner.is-online {
+  background-color: var(--color-terracota);
+  border-color: var(--color-crema);
+}
+
+.offline-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.offline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-terracota);
+  flex-shrink: 0;
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+.offline-status-banner.is-online .offline-dot {
+  background-color: var(--color-crema);
+  animation: none;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 480px) {
+  .offline-banner-inner {
+    white-space: normal;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================================================
    MODAL NATIVO ACCESIBLE DE POLÍTICAS Y PRIVACIDAD (<dialog id="legal-dialog">)
    ========================================================================== */
 .legal-dialog {

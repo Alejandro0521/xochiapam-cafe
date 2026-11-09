@@ -1109,6 +1109,59 @@ function initLegalDialog(container = (typeof document !== 'undefined' ? document
 }
 
 /**
+ * Registra el Service Worker de forma segura para permitir acceso sin conexión (PWA).
+ * Monitorea además eventos de online/offline para notificar al usuario.
+ * @param {Window} [win=window]
+ */
+function registerServiceWorker(win = (typeof window !== 'undefined' ? window : null)) {
+  if (!win || !win.navigator) return;
+
+  const { navigator, location } = win;
+
+  // Registrar SW únicamente si el navegador lo soporta y estamos en protocolo HTTP(S)
+  if ('serviceWorker' in navigator && location && typeof location.protocol === 'string' && location.protocol.startsWith('http')) {
+    win.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+
+  // Monitor de conectividad
+  const doc = win.document;
+  if (!doc) return;
+
+  const banner = doc.querySelector('#offline-status-banner');
+  const bannerText = doc.querySelector('#offline-banner-text');
+
+  if (banner && bannerText) {
+    const handleOffline = () => {
+      bannerText.textContent = 'Modo sin conexión · Catálogo guardado en tu dispositivo. Tu pedido se enviará por WhatsApp al recuperar señal.';
+      banner.classList.remove('is-online');
+      banner.classList.add('is-offline', 'is-visible');
+      banner.hidden = false;
+    };
+
+    const handleOnline = () => {
+      bannerText.textContent = 'Conexión restablecida.';
+      banner.classList.remove('is-offline');
+      banner.classList.add('is-online');
+      setTimeout(() => {
+        banner.classList.remove('is-visible', 'is-online');
+        banner.hidden = true;
+      }, 3500);
+    };
+
+    if (typeof win.addEventListener === 'function') {
+      win.addEventListener('offline', handleOffline);
+      win.addEventListener('online', handleOnline);
+    }
+
+    if (navigator.onLine === false) {
+      handleOffline();
+    }
+  }
+}
+
+/**
  * Main application initializer.
  * @param {ParentNode} [container=document]
  * @returns {{ cart: Cart, drawer: CartDrawer, legal: ReturnType<typeof initLegalDialog> }}
@@ -1147,6 +1200,11 @@ function initApp(container = (typeof document !== 'undefined' ? document : null)
 
   // Initialize Legal & Privacy Dialog
   const legal = initLegalDialog(container);
+
+  // Register Service Worker and connectivity listeners
+  if (typeof window !== 'undefined') {
+    registerServiceWorker(window);
+  }
 
   // Wire purchase toast action buttons
   const toastEl = container.querySelector('#purchase-toast');
