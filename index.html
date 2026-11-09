@@ -702,6 +702,92 @@
           </div>
         </div>
       </div>
+
+      <!-- ==================================================================
+           GUÍA INTERACTIVA DE PROPORCIÓN PARA TU CAFETERA (#calculadora-proporcion)
+           ================================================================== -->
+      <div class="ratio-calculator-block" id="calculadora-proporcion">
+        <div class="ratio-calc-header">
+          <span class="ratio-calc-eyebrow">Tu medida de cada día</span>
+          <h3 class="ratio-calc-title">Calculadora de Proporción para tu Cafetera</h3>
+          <p class="ratio-calc-subtitle">
+            Sin complicaciones de barista: encuentra la cantidad exacta de café y agua para que tu taza de cada mañana quede balanceada, aromática y consistente.
+          </p>
+        </div>
+
+        <div class="ratio-calc-grid">
+          <!-- Columna Izquierda: Selección de método y tazas -->
+          <div class="ratio-inputs-col">
+            <label class="ratio-field-label" id="label-method">1. Elige tu método de cafetera</label>
+            <div class="ratio-methods-group" role="radiogroup" aria-labelledby="label-method">
+              <button type="button" class="btn-ratio-method is-active" data-method="electrica" role="radio" aria-checked="true">
+                <span class="ratio-method-name">Cafetera eléctrica / Filtro</span>
+                <span class="ratio-method-desc">Proporción 1:16 · Molienda Media</span>
+              </button>
+              <button type="button" class="btn-ratio-method" data-method="prensa" role="radio" aria-checked="false">
+                <span class="ratio-method-name">Prensa Francesa</span>
+                <span class="ratio-method-desc">Proporción 1:15 · Molienda Media-Gruesa</span>
+              </button>
+              <button type="button" class="btn-ratio-method" data-method="moka" role="radio" aria-checked="false">
+                <span class="ratio-method-name">Cafetera Italiana Moka</span>
+                <span class="ratio-method-desc">Canastilla al ras · Molienda Fina</span>
+              </button>
+              <button type="button" class="btn-ratio-method" data-method="taza" role="radio" aria-checked="false">
+                <span class="ratio-method-name">Taza individual rápida</span>
+                <span class="ratio-method-desc">Goteo directo en taza · Proporción 1:15</span>
+              </button>
+            </div>
+
+            <label class="ratio-field-label" id="label-cups" style="margin-top: 1.5rem;">2. ¿Cuántas tazas vas a preparar hoy?</label>
+            <div class="ratio-cups-selector" role="group" aria-labelledby="label-cups">
+              <button type="button" class="btn-ratio-cup is-active" data-cups="1">1 taza</button>
+              <button type="button" class="btn-ratio-cup" data-cups="2">2 tazas</button>
+              <button type="button" class="btn-ratio-cup" data-cups="4">4 tazas</button>
+              <button type="button" class="btn-ratio-cup" data-cups="6">6 tazas</button>
+              <button type="button" class="btn-ratio-cup" data-cups="8">8 tazas</button>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Resultado claro y directo -->
+          <div class="ratio-results-col">
+            <div class="ratio-result-card">
+              <span class="ratio-recipe-tag" id="ratio-recipe-tag">Receta para 1 taza (Cafetera eléctrica / Filtro)</span>
+              
+              <div class="ratio-result-metrics">
+                <div class="metric-box">
+                  <span class="metric-label">Café Xochiapam</span>
+                  <strong class="metric-number" id="calc-coffee-grams">15 g</strong>
+                  <span class="metric-household" id="calc-coffee-spoons">~1.5 cucharadas soperas copeteadas</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-label">Agua caliente</span>
+                  <strong class="metric-number" id="calc-water-ml">240 ml</strong>
+                  <span class="metric-household" id="calc-water-temp">90° a 93°C (temperatura automática o retira 1 min tras hervir)</span>
+                </div>
+              </div>
+
+              <div class="ratio-tips-box">
+                <div class="ratio-tip-item">
+                  <strong>Molienda calibrada:</strong>
+                  <span id="calc-grind-advice">Molienda Media (calibrada para filtro de papel o canastilla)</span>
+                </div>
+                <div class="ratio-tip-item">
+                  <strong>Tiempo sugerido de infusión:</strong>
+                  <span id="calc-time-advice">Ciclo estándar de tu cafetera eléctrica (4 a 5 minutos)</span>
+                </div>
+              </div>
+
+              <a href="#tienda" class="btn-ratio-to-shop" id="btn-ratio-select-grind">
+                <span>Elegir esta molienda en el mostrador</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ====================================================================
@@ -715,6 +801,71 @@
         <p class="boutique-subtitle">
           Elige tu bolsa de <strong>250 g</strong> o <strong>500 g</strong>, selecciona la molienda para tu cafetera y envía tu pedido directo por WhatsApp.
         </p>
+      </div>
+
+      <!-- Placa de Trazabilidad y Frescura de Lote -->
+      <div class="batch-freshness-strip">
+        <div class="batch-strip-item">
+          <span class="batch-label">Lote en curso</span>
+          <strong class="batch-value">Cosecha Sierra de Oaxaca · 1,400 a 1,800 msnm</strong>
+        </div>
+        <div class="batch-strip-item">
+          <span class="batch-label">Tueste artesanal</span>
+          <strong class="batch-value">Lotes semanales · Perfil medio de casa</strong>
+        </div>
+        <div class="batch-strip-item">
+          <span class="batch-label">Empaque activo</span>
+          <strong class="batch-value">Válvula desgasificadora · Sellado bajo pedido</strong>
+        </div>
+        <div class="batch-strip-item">
+          <span class="batch-label">Despacho</span>
+          <strong class="batch-value">24 a 48 h a toda la República Mexicana</strong>
+        </div>
+      </div>
+
+      <!-- Sellos de Confianza y Compromiso Artesanal -->
+      <div class="brand-trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3l4 8 5-5 5 15H2L8 3z"></path>
+            </svg>
+          </div>
+          <h4>100% Arábica de Altura</h4>
+          <p>San Pedro Sochiapam, Oaxaca. Grano cosechado en la sierra bajo sombra de montaña.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h4>Tueste Medio de Casa</h4>
+          <p>Notas a chocolate amargo, frutos secos y piloncillo. Sin amargor quemado ni acidez agresiva.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h4>Molienda al Momento</h4>
+          <p>Mantenemos grano entero o molemos y calibramos tu café minutos antes de sellar tu bolsa.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h4>Garantía de Reposición</h4>
+          <p>Si el paquete sufre daño en el traslado o discrepancia de molienda, reponemos tu café sin costo.</p>
+        </div>
       </div>
 
       <div class="boutique-grid">

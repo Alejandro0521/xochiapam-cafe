@@ -92,3 +92,4 @@ test('registerServiceWorker attaches connectivity listeners and updates mock ban
   assert.strictEqual(mockBanner.classList.contains('is-online'), true);
   assert.strictEqual(mockText.textContent, 'Conexión restablecida.');
 });
+

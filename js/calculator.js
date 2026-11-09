@@ -180,3 +180,4 @@ export function initRatioCalculator(container = (typeof document !== 'undefined'
     getBrewState: () => calculateBrew(activeMethod, activeCups)
   };
 }
+
