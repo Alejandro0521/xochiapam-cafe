@@ -28,3 +28,4 @@ test('index.html contains the 4 visual design identity upgrades with zero emojis
   const emojiRegex = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
   assert.strictEqual(emojiRegex.test(html), false, 'index.html must contain ZERO emojis');
 });
+
