@@ -83,3 +83,4 @@ Una vez que tengas tu dominio registrado (por ejemplo, `xochiapam.us.kg`):
    git push origin main
    ```
 3. En GitHub, dentro de **Settings > Pages > Custom domain**, confirma que aparezca tu dominio y marca la casilla **Enforce HTTPS** (Forzar HTTPS) para que el certificado SSL sea emitido automáticamente.
+
