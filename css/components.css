@@ -1435,6 +1435,209 @@
 }
 
 /* ==========================================================================
+   MODAL NATIVO ACCESIBLE DE POLÍTICAS Y PRIVACIDAD (<dialog id="legal-dialog">)
+   ========================================================================== */
+.legal-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 92%;
+  max-width: 720px;
+  max-height: 86dvh;
+  padding: 0;
+  border: 1px solid var(--color-cacao);
+  background-color: var(--color-marfil);
+  color: var(--color-cacao);
+  box-shadow: 0 16px 48px rgba(74, 33, 19, 0.35);
+  z-index: 220;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.legal-dialog[open].is-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.legal-dialog::backdrop {
+  background-color: rgba(74, 33, 19, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+.legal-dialog-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 86dvh;
+}
+
+.legal-dialog-header {
+  background-color: var(--color-crema);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-cacao);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.legal-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-terracota);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.legal-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-cacao);
+  margin: 0;
+}
+
+.legal-tabs-bar {
+  display: flex;
+  background-color: var(--color-marfil);
+  border-bottom: 1px solid var(--color-cacao);
+}
+
+.legal-tab-btn {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  background-color: transparent;
+  border: none;
+  border-right: 1px solid var(--color-cacao-rule);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--color-cacao);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.legal-tab-btn:last-child {
+  border-right: none;
+}
+
+.legal-tab-btn:hover {
+  background-color: var(--color-crema);
+}
+
+.legal-tab-btn.is-active {
+  background-color: var(--color-terracota);
+  color: var(--color-marfil);
+  font-weight: 700;
+}
+
+.legal-dialog-body {
+  padding: var(--space-lg) clamp(1.2rem, 3.5vw, var(--space-xl));
+  overflow-y: auto;
+  flex: 1;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--color-cacao);
+}
+
+.legal-article h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-cacao);
+  margin-bottom: 0.25rem;
+}
+
+.legal-article .legal-meta {
+  font-size: 0.85rem;
+  color: var(--color-terracota);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.legal-article h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-cacao);
+  margin-top: var(--space-md);
+  margin-bottom: 0.35rem;
+}
+
+.legal-article p {
+  margin-bottom: 0.75rem;
+  color: var(--color-cacao-muted);
+}
+
+.legal-article ul {
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-cacao-muted);
+}
+
+.legal-article li {
+  margin-bottom: 0.35rem;
+}
+
+.legal-article strong {
+  color: var(--color-cacao);
+}
+
+.legal-dialog-footer {
+  background-color: var(--color-crema);
+  border-top: 1px solid var(--color-cacao);
+  padding: 0.75rem var(--space-lg);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-legal-close-action {
+  background-color: var(--color-cacao);
+  color: var(--color-marfil);
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-legal-close-action:hover {
+  background-color: var(--color-terracota);
+}
+
+@media (max-width: 600px) {
+  .legal-dialog {
+    width: 96%;
+    max-height: 92dvh;
+  }
+
+  .legal-dialog-window {
+    max-height: 92dvh;
+  }
+
+  .legal-tabs-bar {
+    flex-direction: column;
+  }
+
+  .legal-tab-btn {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao-rule);
+    padding: 0.7rem 0.85rem;
+    font-size: 0.88rem;
+  }
+
+  .legal-tab-btn:last-child {
+    border-bottom: none;
+  }
+
+  .legal-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==========================================================================
    RESPONSIVE BREAKPOINTS (COMPONENTES)
    ========================================================================== */
 @media (max-width: 1024px) {

@@ -8,6 +8,86 @@
   <meta name="theme-color" content="#4A2113">
 
   <link rel="icon" type="image/svg+xml" href="assets/logos/simbolo-color.svg">
+  <link rel="canonical" href="https://xochiapam.mx/">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Open Graph y Metadatos de Compartido (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:site_name" content="Xochiapam Café">
+  <meta property="og:title" content="Xochiapam — Tu café de cada día | San Pedro Sochiapam, Oaxaca">
+  <meta property="og:description" content="Café de origen oaxaqueño para tu cafetera de diario. San Pedro Sochiapam, Oaxaca. Presentaciones de 250 g y 500 g con molienda personalizada.">
+  <meta property="og:image" content="assets/images/visualizacion-empaque.png">
+  <meta property="og:image:alt" content="Empaques de Café Xochiapam 250 g en bolsa crema y 500 g en bolsa terracota">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xochiapam.mx/">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Tarjetas para Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Xochiapam — Tu café de cada día | San Pedro Sochiapam, Oaxaca">
+  <meta name="twitter:description" content="Café de origen oaxaqueño para tu cafetera de diario. San Pedro Sochiapam, Oaxaca.">
+  <meta name="twitter:image" content="assets/images/visualizacion-empaque.png">
+
+  <!-- Datos Estructurados Schema.org (SEO y Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://xochiapam.mx/#organization",
+        "name": "Xochiapam Café",
+        "url": "https://xochiapam.mx/",
+        "logo": "https://xochiapam.mx/assets/logos/horizontal-color.svg",
+        "description": "Café de origen de San Pedro Sochiapam, Oaxaca para los hogares de todos los días.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Pedro Sochiapam",
+          "addressRegion": "Oaxaca",
+          "addressCountry": "MX"
+        },
+        "sameAs": [
+          "https://wa.me/5219511234567"
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://xochiapam.mx/#producto-250g",
+        "name": "Café Xochiapam 250 g — Bolsa Crema",
+        "image": "https://xochiapam.mx/assets/images/empaque-250g.png",
+        "description": "Café de origen San Pedro Sochiapam, Oaxaca en presentación de 250 g. Ideal para consumo individual o parejas.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Xochiapam"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "160.00",
+          "priceCurrency": "MXN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://xochiapam.mx/#tienda"
+        }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://xochiapam.mx/#producto-500g",
+        "name": "Café Xochiapam 500 g — Bolsa Terracota",
+        "image": "https://xochiapam.mx/assets/images/empaque-500g.png",
+        "description": "Café de origen San Pedro Sochiapam, Oaxaca en presentación de 500 g. La despensa cafetera de la familia.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Xochiapam"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "290.00",
+          "priceCurrency": "MXN",
+          "availability": "https://schema.org/InStock",
+          "url": "https://xochiapam.mx/#tienda"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Hojas de estilo modulares -->
   <link rel="stylesheet" href="css/tokens.css">
@@ -997,6 +1077,150 @@
   </dialog>
 
   <!-- ======================================================================
+       MODAL NATIVO DE POLÍTICAS Y AVISO DE PRIVACIDAD (<dialog id="legal-dialog">)
+       ====================================================================== -->
+  <dialog
+    id="legal-dialog"
+    class="legal-dialog"
+    aria-labelledby="legal-dialog-title"
+    aria-modal="true"
+  >
+    <div class="legal-dialog-window">
+      <header class="legal-dialog-header">
+        <div class="legal-header-text">
+          <span class="legal-eyebrow">Xochiapam Café · San Pedro Sochiapam, Oaxaca</span>
+          <h2 id="legal-dialog-title" class="legal-title">Políticas y Compromisos de Marca</h2>
+        </div>
+        <button type="button" id="legal-close-btn" class="drawer-close-btn" aria-label="Cerrar modal de políticas">
+          &times;
+        </button>
+      </header>
+
+      <nav class="legal-tabs-bar" role="tablist" aria-label="Secciones legales">
+        <button
+          type="button"
+          role="tab"
+          id="tab-btn-privacidad"
+          class="legal-tab-btn is-active"
+          data-tab="privacidad"
+          aria-selected="true"
+          aria-controls="tab-panel-privacidad"
+        >
+          Aviso de Privacidad (LFPDPPP)
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="tab-btn-envios"
+          class="legal-tab-btn"
+          data-tab="envios"
+          aria-selected="false"
+          aria-controls="tab-panel-envios"
+        >
+          Políticas de Envío y Frescura
+        </button>
+      </nav>
+
+      <div class="legal-dialog-body">
+        <!-- Panel 1: Aviso de Privacidad -->
+        <section
+          id="tab-panel-privacidad"
+          role="tabpanel"
+          tabindex="0"
+          aria-labelledby="tab-btn-privacidad"
+          class="legal-tab-panel is-active"
+          data-tab-panel="privacidad"
+        >
+          <div class="legal-article">
+            <h3>Aviso de Privacidad Integral</h3>
+            <p class="legal-meta">En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de los Estados Unidos Mexicanos.</p>
+
+            <h4>1. Identidad y Domicilio del Responsable</h4>
+            <p>
+              Xochiapam Café, con domicilio en San Pedro Sochiapam, Sierra de Oaxaca, México, es responsable del uso, tratamiento y salvaguarda de los datos personales proporcionados voluntariamente por los clientes a través de nuestra plataforma web y canal oficial de mensajería instantánea.
+            </p>
+
+            <h4>2. Datos Personales Recabados</h4>
+            <p>Para la gestión, preparación y entrega de sus pedidos de café en grano o molido, solicitamos únicamente los siguientes datos:</p>
+            <ul>
+              <li>Nombre completo del destinatario.</li>
+              <li>Ciudad, estado, código postal y dirección de entrega.</li>
+              <li>Número de teléfono celular para confirmación vía WhatsApp y coordinación logística.</li>
+              <li>Instrucciones o referencias particulares para la recepción del paquete.</li>
+            </ul>
+
+            <h4>3. Finalidades del Tratamiento</h4>
+            <p>
+              Los datos recabados se destinarán exclusivamente para:
+            </p>
+            <ul>
+              <li>Confirmar la recepción del pedido, molienda seleccionada y costo total.</li>
+              <li>Elaborar las guías de envío con las empresas de paquetería certificadas.</li>
+              <li>Notificar el número de rastreo y dar seguimiento hasta la entrega satisfactoria en su domicilio.</li>
+              <li>Atender consultas sobre el método de preparación idóneo según la cafetera de su hogar.</li>
+            </ul>
+            <p>
+              <strong>Compromiso de no transferencia:</strong> Xochiapam Café no vende, no renta ni transfiere sus datos personales a terceras empresas con propósitos comerciales, publicitarios o de prospección no solicitada.
+            </p>
+
+            <h4>4. Ejercicio de Derechos ARCO</h4>
+            <p>
+              Usted tiene derecho en cualquier momento a ejercer sus derechos de Acceso, Rectificación, Cancelación u Oposición (ARCO) respecto al manejo de su información personal. Para ello, basta con enviar un mensaje a nuestro canal oficial de WhatsApp indicando su solicitud, la cual será procesada en un plazo no mayor a 48 horas hábiles.
+            </p>
+          </div>
+        </section>
+
+        <!-- Panel 2: Políticas de Envío y Frescura -->
+        <section
+          id="tab-panel-envios"
+          role="tabpanel"
+          tabindex="0"
+          aria-labelledby="tab-btn-envios"
+          class="legal-tab-panel"
+          data-tab-panel="envios"
+          hidden
+        >
+          <div class="legal-article">
+            <h3>Políticas de Envío, Tueste y Frescura</h3>
+            <p class="legal-meta">Compromiso de calidad artesanal desde la Sierra de Oaxaca hasta la mesa de su hogar.</p>
+
+            <h4>1. Tiempos de Despacho y Empaque</h4>
+            <p>
+              En Xochiapam Café protegemos la frescura aromática de cada lote. Todo café molido se procesa inmediatamente antes de su empaque en válvula desgasificadora unidireccional. Los pedidos confirmados por WhatsApp se preparan y entregan a paquetería en un lapso de <strong>24 a 48 horas hábiles</strong>.
+            </p>
+
+            <h4>2. Cobertura Nacional y Paqueterías</h4>
+            <p>
+              Realizamos envíos a toda la República Mexicana a través de paqueterías con cobertura certificada (Estafeta, FedEx, DHL o Redpack según la zona geográfica). El tiempo promedio de tránsito terrestre oscila entre 2 y 5 días hábiles dependiendo del código postal de destino.
+            </p>
+
+            <h4>3. Costos de Envío</h4>
+            <p>
+              La cotización del envío se calcula con exactitud según el peso total del pedido y el código postal de entrega, informándose de manera clara y transparente antes de que realice cualquier pago.
+            </p>
+
+            <h4>4. Garantía de Calidad y Reposición</h4>
+            <p>
+              Si el paquete sufre algún percance durante el traslado (daño en el empaque externo o rotura de bolsa) o si la molienda recibida difiere de la especificada en su orden, le solicitamos una fotografía vía WhatsApp dentro de las primeras 48 horas de recibido para realizar la <strong>reposición sin costo adicional</strong> o el reembolso correspondiente.
+            </p>
+
+            <h4>5. Recomendación de Almacenamiento</h4>
+            <p>
+              Para conservar las notas a chocolate amargo, frutos secos y piloncillo en su máxima plenitud, sugerimos mantener el café en su empaque original bien cerrado con ziploc, en un lugar fresco, seco y al resguardo de fuentes directas de luz solar o calor.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="legal-dialog-footer">
+        <button type="button" class="btn-legal-close-action" id="legal-close-btn-footer">
+          Entendido, volver a la página
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- ======================================================================
        PIE DE PÁGINA INSTITUCIONAL EN CACAO (#4A2113)
        ====================================================================== -->
   <footer class="site-footer">
@@ -1064,6 +1288,11 @@
 
       <div class="footer-bottom">
         <p>&copy; <span id="current-year">2026</span> Xochiapam Café — San Pedro Sochiapam, Oaxaca. Todos los derechos reservados.</p>
+        <div class="footer-legal-links">
+          <button type="button" class="btn-legal-trigger" data-legal-tab="privacidad">Aviso de Privacidad</button>
+          <span class="legal-separator" aria-hidden="true">·</span>
+          <button type="button" class="btn-legal-trigger" data-legal-tab="envios">Políticas de Envío y Frescura</button>
+        </div>
         <p>Dirección creativa Casa</p>
       </div>
     </div>

@@ -1004,12 +1004,117 @@ function setupFlipCard(container = (typeof document !== 'undefined' ? document :
 }
 
 /**
+ * Initializes the accessible legal modal dialog (<dialog id="legal-dialog">).
+ * Handles switching between Aviso de Privacidad and Políticas de Envío,
+ * opens to the selected tab when clicking footer triggers,
+ * and handles close actions via close buttons or backdrop click.
+ * @param {ParentNode} [container=document]
+ * @returns {{ open: (tab?: string) => void, close: () => void, switchTab: (tab: string) => void } | null}
+ */
+function initLegalDialog(container = (typeof document !== 'undefined' ? document : null)) {
+  if (!container || typeof container.querySelector !== 'function') return null;
+
+  const dialog = container.querySelector('#legal-dialog');
+  if (!dialog) return null;
+
+  const closeBtn = dialog.querySelector('#legal-close-btn');
+  const footerCloseBtn = dialog.querySelector('#legal-close-btn-footer');
+  const tabBtns = dialog.querySelectorAll ? dialog.querySelectorAll('.legal-tab-btn') : [];
+  const tabPanels = dialog.querySelectorAll ? dialog.querySelectorAll('.legal-tab-panel') : [];
+  const triggers = container.querySelectorAll ? container.querySelectorAll('[data-legal-tab]') : [];
+
+  const switchTab = (tabName) => {
+    tabBtns.forEach(btn => {
+      const isTarget = btn.dataset.tab === tabName;
+      btn.classList.toggle('is-active', isTarget);
+      btn.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+    });
+    tabPanels.forEach(panel => {
+      const isTarget = panel.dataset.tabPanel === tabName;
+      panel.hidden = !isTarget;
+      panel.classList.toggle('is-active', isTarget);
+    });
+  };
+
+  const openDialog = (tabName = 'privacidad') => {
+    switchTab(tabName);
+    if (typeof dialog.showModal === 'function') {
+      try {
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+      } catch (err) {
+        dialog.setAttribute('open', '');
+      }
+    } else {
+      dialog.setAttribute('open', '');
+    }
+    dialog.classList.add('is-open');
+  };
+
+  const closeDialog = () => {
+    dialog.classList.remove('is-open');
+    if (typeof dialog.close === 'function') {
+      try {
+        if (dialog.open) {
+          dialog.close();
+        }
+      } catch (err) {
+        dialog.removeAttribute('open');
+      }
+    } else {
+      dialog.removeAttribute('open');
+    }
+  };
+
+  if (triggers && typeof triggers.forEach === 'function') {
+    triggers.forEach(trigger => {
+      if (trigger && typeof trigger.addEventListener === 'function') {
+        trigger.addEventListener('click', () => {
+          const tab = trigger.dataset.legalTab || 'privacidad';
+          openDialog(tab);
+        });
+      }
+    });
+  }
+
+  if (tabBtns && typeof tabBtns.forEach === 'function') {
+    tabBtns.forEach(btn => {
+      if (btn && typeof btn.addEventListener === 'function') {
+        btn.addEventListener('click', () => {
+          const tab = btn.dataset.tab;
+          if (tab) switchTab(tab);
+        });
+      }
+    });
+  }
+
+  if (closeBtn && typeof closeBtn.addEventListener === 'function') {
+    closeBtn.addEventListener('click', closeDialog);
+  }
+
+  if (footerCloseBtn && typeof footerCloseBtn.addEventListener === 'function') {
+    footerCloseBtn.addEventListener('click', closeDialog);
+  }
+
+  if (typeof dialog.addEventListener === 'function') {
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        closeDialog();
+      }
+    });
+  }
+
+  return { open: openDialog, close: closeDialog, switchTab };
+}
+
+/**
  * Main application initializer.
  * @param {ParentNode} [container=document]
- * @returns {{ cart: Cart, drawer: CartDrawer }}
+ * @returns {{ cart: Cart, drawer: CartDrawer, legal: ReturnType<typeof initLegalDialog> }}
  */
 function initApp(container = (typeof document !== 'undefined' ? document : null)) {
-  if (!container) return { cart: null, drawer: null };
+  if (!container) return { cart: null, drawer: null, legal: null };
 
   const cart = new Cart();
   const drawerEl = container.querySelector('#cart-drawer');
@@ -1040,6 +1145,9 @@ function initApp(container = (typeof document !== 'undefined' ? document : null)
   // Setup 3D Flip Card in Mesa section
   setupFlipCard(container);
 
+  // Initialize Legal & Privacy Dialog
+  const legal = initLegalDialog(container);
+
   // Wire purchase toast action buttons
   const toastEl = container.querySelector('#purchase-toast');
   if (toastEl) {
@@ -1068,7 +1176,7 @@ function initApp(container = (typeof document !== 'undefined' ? document : null)
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  return { cart, drawer };
+  return { cart, drawer, legal };
 }
 
 // Auto-run in browser environment

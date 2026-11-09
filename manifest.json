@@ -1,0 +1,17 @@
+{
+  "name": "Xochiapam Café",
+  "short_name": "Xochiapam",
+  "description": "Café de origen oaxaqueño para tu cafetera de diario. San Pedro Sochiapam, Oaxaca.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFFAF3",
+  "theme_color": "#4A2113",
+  "icons": [
+    {
+      "src": "assets/logos/simbolo-color.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
