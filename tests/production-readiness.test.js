@@ -218,3 +218,4 @@ test('ALL codebase files contain ZERO emojis (strict brand constraint)', () => {
     assert.strictEqual(EMOJI_REGEX.test(content), false, `File ${file} must contain ZERO emojis`);
   });
 });
+
