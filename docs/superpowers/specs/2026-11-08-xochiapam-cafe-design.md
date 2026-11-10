@@ -140,16 +140,16 @@ interface CartItem {
 
 ### 4.3 Formato del Mensaje de WhatsApp
 ```text
-☕ *Nuevo Pedido — Café Xochiapam Casa*
+*Nuevo Pedido — Café Xochiapam Casa*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 • 1x Café 500g (Molienda Media) — $290 MXN
 • 1x Café 250g (En Grano Entero) — $160 MXN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 *Total estimado:* $450 MXN
 
-👤 *Cliente:* [Nombre del cliente]
-📍 *Entrega:* [Ciudad / Dirección]
-💬 *Origen:* Pedido web oficial Xochiapam
+*Cliente:* [Nombre del cliente]
+*Entrega:* [Ciudad / Dirección]
+*Origen:* Pedido web oficial Xochiapam
 ```
 
 ---

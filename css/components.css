@@ -1712,6 +1712,342 @@
 }
 
 /* ==========================================================================
+   GUÍA INTERACTIVA DE PROPORCIÓN PARA TU CAFETERA (#calculadora-proporcion)
+   ========================================================================== */
+.ratio-calculator-block {
+  border-top: 1px solid var(--color-cacao);
+  background-color: var(--color-marfil);
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4.5vw, 3.5rem);
+}
+
+.ratio-calc-header {
+  margin-bottom: var(--space-xl);
+}
+
+.ratio-calc-eyebrow {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-terracota);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.ratio-calc-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+  color: var(--color-cacao);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.ratio-calc-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-cacao-muted);
+  max-width: 62ch;
+}
+
+.ratio-calc-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  align-items: start;
+}
+
+.ratio-field-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-cacao);
+  margin-bottom: 0.75rem;
+}
+
+.ratio-methods-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+.btn-ratio-method {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0.85rem 1.15rem;
+  background-color: var(--color-crema);
+  border: 1px solid var(--color-cacao-rule);
+  border-radius: var(--radius-sm);
+  color: var(--color-cacao);
+  cursor: pointer;
+  min-height: 48px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-ratio-method:hover {
+  border-color: var(--color-cacao);
+}
+
+.btn-ratio-method:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+.btn-ratio-method.is-active {
+  background-color: var(--color-terracota);
+  border-color: var(--color-terracota);
+  color: var(--color-marfil);
+}
+
+.ratio-method-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.ratio-method-desc {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+.ratio-cups-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-ratio-cup {
+  flex: 1;
+  min-width: 60px;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  background-color: var(--color-marfil);
+  border: 1px solid var(--color-cacao-rule);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--color-cacao);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-ratio-cup:hover {
+  border-color: var(--color-cacao);
+  background-color: var(--color-crema);
+}
+
+.btn-ratio-cup:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+.btn-ratio-cup.is-active {
+  background-color: var(--color-cacao);
+  border-color: var(--color-cacao);
+  color: var(--color-marfil);
+}
+
+.ratio-result-card {
+  background-color: var(--color-crema);
+  border: 1px solid var(--color-cacao);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: 0 12px 32px rgba(74, 33, 19, 0.07);
+}
+
+.ratio-recipe-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-marfil);
+  background-color: var(--color-terracota);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.ratio-result-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-cacao-rule);
+}
+
+.metric-box .metric-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-cacao-muted);
+  margin-bottom: 0.25rem;
+}
+
+.metric-box .metric-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: var(--color-cacao);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.metric-box .metric-household {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-terracota);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.ratio-tips-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.ratio-tip-item {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-cacao);
+}
+
+.ratio-tip-item strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-cacao-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-ratio-to-shop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  min-height: 48px;
+  background-color: var(--color-cacao);
+  color: var(--color-marfil);
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-ratio-to-shop:hover {
+  background-color: var(--color-terracota);
+}
+
+.btn-ratio-to-shop:focus-visible {
+  outline: 2px solid var(--color-terracota);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   BANDA DE TRAZABILIDAD Y FRESCURA DE LOTE (.batch-freshness-strip)
+   ========================================================================== */
+.batch-freshness-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--color-crema);
+  border-bottom: 1px solid var(--color-cacao);
+}
+
+.batch-strip-item {
+  padding: 1.15rem 1.35rem;
+  border-right: 1px solid var(--color-cacao-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.batch-strip-item:last-child {
+  border-right: none;
+}
+
+.batch-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-terracota);
+}
+
+.batch-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-cacao);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   SELLOS DE CONFIANZA Y COMPROMISO ARTESANAL (.brand-trust-grid)
+   ========================================================================== */
+.brand-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--color-marfil);
+  border-bottom: 1px solid var(--color-cacao);
+}
+
+.trust-card {
+  padding: 1.75rem 1.35rem;
+  border-right: 1px solid var(--color-cacao-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.trust-card:last-child {
+  border-right: none;
+}
+
+.trust-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-terracota);
+  margin-bottom: 0.35rem;
+}
+
+.trust-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-cacao);
+  margin: 0;
+}
+
+.trust-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-cacao-muted);
+  margin: 0;
+}
+
+/* Paneles del Modal Legal */
+.legal-tab-panel {
+  display: none;
+}
+
+.legal-tab-panel.is-active {
+  display: block;
+}
+
+/* ==========================================================================
    RESPONSIVE BREAKPOINTS (COMPONENTES)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1720,7 +2056,8 @@
   .household-matcher,
   .grind-tabpanel,
   .boutique-header-bar,
-  .boutique-grid {
+  .boutique-grid,
+  .ratio-calc-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1729,6 +2066,23 @@
   .boutique-card--250 {
     border-right: none;
     border-bottom: 1px solid var(--color-cacao);
+  }
+
+  .batch-freshness-strip,
+  .brand-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .batch-strip-item:nth-child(2),
+  .trust-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .batch-strip-item:nth-child(1),
+  .batch-strip-item:nth-child(2),
+  .trust-card:nth-child(1),
+  .trust-card:nth-child(2) {
+    border-bottom: 1px solid var(--color-cacao-rule);
   }
 }
 
@@ -1758,5 +2112,30 @@
   .grind-tab {
     border-right: none;
     border-bottom: 1px solid var(--color-cacao);
+  }
+
+  .batch-freshness-strip,
+  .brand-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .batch-strip-item,
+  .trust-card {
+    border-right: none;
+    border-bottom: 1px solid var(--color-cacao-rule);
+  }
+
+  .batch-strip-item:last-child,
+  .trust-card:last-child {
+    border-bottom: none;
+  }
+
+  .ratio-calculator-block {
+    padding: var(--space-lg) clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .ratio-result-metrics {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }

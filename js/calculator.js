@@ -168,6 +168,14 @@ export function initRatioCalculator(container = (typeof document !== 'undefined'
               radio.dispatchEvent(new Event('change', { bubbles: true }));
             }
           }
+          if (card.classList && typeof card.classList.add === 'function') {
+            card.classList.add('is-highlighted');
+            setTimeout(() => {
+              if (card.classList && typeof card.classList.remove === 'function') {
+                card.classList.remove('is-highlighted');
+              }
+            }, 1400);
+          }
         });
       }
     });

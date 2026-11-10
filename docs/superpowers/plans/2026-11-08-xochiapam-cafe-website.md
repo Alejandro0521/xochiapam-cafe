@@ -555,7 +555,7 @@ export function formatWhatsAppOrder(cart, customer = {}, phone = '5219511234567'
     return { url: '', rawText: '' };
   }
 
-  let text = `☕ *Nuevo Pedido — Café Xochiapam Casa*\n`;
+  let text = `*Nuevo Pedido — Café Xochiapam Casa*\n`;
   text += `━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
 
   items.forEach(item => {
@@ -566,16 +566,16 @@ export function formatWhatsAppOrder(cart, customer = {}, phone = '5219511234567'
   text += `*Total estimado:* $${total} MXN\n\n`;
 
   if (customer.name && customer.name.trim()) {
-    text += `👤 *Cliente:* ${customer.name.trim()}\n`;
+    text += `*Cliente:* ${customer.name.trim()}\n`;
   }
   if (customer.city && customer.city.trim()) {
-    text += `📍 *Entrega:* ${customer.city.trim()}\n`;
+    text += `*Entrega:* ${customer.city.trim()}\n`;
   }
   if (customer.notes && customer.notes.trim()) {
-    text += `📝 *Notas:* ${customer.notes.trim()}\n`;
+    text += `*Notas:* ${customer.notes.trim()}\n`;
   }
 
-  text += `💬 *Origen:* Pedido web oficial Xochiapam Casa`;
+  text += `*Origen:* Pedido web oficial Xochiapam Casa`;
 
   const encoded = encodeURIComponent(text);
   const cleanPhone = phone.replace(/[^0-9]/g, '');

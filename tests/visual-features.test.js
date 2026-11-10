@@ -24,7 +24,13 @@ test('index.html contains the 4 visual design identity upgrades with zero emojis
   assert.ok(html.includes('class="grind-optical-reticle"'), 'Must have .grind-optical-reticle');
   assert.ok(html.includes('class="reticle-lens"'), 'Must have .reticle-lens');
 
-  // 5. Zero emojis check
+  // 5. Domestic ratio calculator, batch freshness strip and brand trust grid
+  assert.ok(html.includes('class="ratio-calculator-block"'), 'Must have .ratio-calculator-block');
+  assert.ok(html.includes('id="calculadora-proporcion"'), 'Must have #calculadora-proporcion');
+  assert.ok(html.includes('class="batch-freshness-strip"'), 'Must have .batch-freshness-strip');
+  assert.ok(html.includes('class="brand-trust-grid"'), 'Must have .brand-trust-grid');
+
+  // 6. Zero emojis check
   const emojiRegex = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
   assert.strictEqual(emojiRegex.test(html), false, 'index.html must contain ZERO emojis');
 });

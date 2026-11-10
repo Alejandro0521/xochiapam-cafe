@@ -1171,6 +1171,17 @@
   .passport-cell:last-child {
     border-bottom: none;
   }
+
+  .hero-right-pane {
+    min-height: clamp(300px, 75vw, 420px);
+  }
+
+  .hero-axis-seal {
+    top: 1rem;
+    left: 1rem;
+    width: 84px;
+    height: 84px;
+  }
 }
 
 @media (max-width: 375px) {

@@ -2,6 +2,7 @@ import { Cart } from './cart.js';
 import { PRODUCTS } from './catalog.js';
 import { CartDrawer, initDrawer } from './drawer.js';
 import { initComparison } from './comparison.js';
+import { initRatioCalculator } from './calculator.js';
 
 /**
  * Updates navigation badge counter with active count.
@@ -61,6 +62,23 @@ export function setupBoutique(cart, drawer, container = (typeof document !== 'un
               targetRadio.checked = true;
               brewerBtns.forEach(b => b.classList.remove('is-active'));
               bBtn.classList.add('is-active');
+            }
+          });
+        }
+      });
+    }
+
+    // Keep brewer buttons synced when radio changes directly or via calculator
+    const cardRadios = card.querySelectorAll ? card.querySelectorAll('input[type="radio"]') : [];
+    if (cardRadios && typeof cardRadios.forEach === 'function') {
+      cardRadios.forEach(radio => {
+        if (radio && typeof radio.addEventListener === 'function') {
+          radio.addEventListener('change', () => {
+            if (radio.checked) {
+              const activeGrind = radio.value;
+              brewerBtns.forEach(b => {
+                b.classList.toggle('is-active', b.dataset.grind === activeGrind);
+              });
             }
           });
         }
@@ -411,6 +429,9 @@ export function initApp(container = (typeof document !== 'undefined' ? document 
   // Initialize Legal & Privacy Dialog
   const legal = initLegalDialog(container);
 
+  // Initialize Interactive Brewing Ratio Calculator
+  const calculator = initRatioCalculator(container);
+
   // Register Service Worker and connectivity listeners
   if (typeof window !== 'undefined') {
     registerServiceWorker(window);
@@ -444,7 +465,7 @@ export function initApp(container = (typeof document !== 'undefined' ? document 
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  return { cart, drawer, legal };
+  return { cart, drawer, legal, calculator };
 }
 
 // Auto-run in browser environment

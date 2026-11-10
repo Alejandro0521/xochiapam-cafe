@@ -11,7 +11,7 @@ test('sw.js exists, defines versioned cache, and contains zero emojis', () => {
 
   assert.strictEqual(EMOJI_REGEX.test(content), false, 'sw.js must contain ZERO emojis');
   assert.ok(content.includes('CACHE_NAME'), 'sw.js must define CACHE_NAME');
-  assert.ok(content.includes('xochiapam-v1'), 'sw.js must use xochiapam-v1 cache name');
+  assert.ok(/xochiapam-v\d+/.test(content), 'sw.js must use versioned cache name (e.g. xochiapam-v2)');
   assert.ok(content.includes('install'), 'sw.js must have install event listener');
   assert.ok(content.includes('activate'), 'sw.js must have activate event listener');
   assert.ok(content.includes('fetch'), 'sw.js must have fetch event listener');
