@@ -64,14 +64,14 @@ test('all referenced local assets in index.html exist on disk', () => {
   const html = fs.readFileSync('index.html', 'utf8');
 
   // Check CSS links
-  const cssMatches = [...html.matchAll(/href="([^"#]+\.css)"/g)].map(m => m[1]);
+  const cssMatches = [...html.matchAll(/href="([^"#?]+\.css)(?:\?[^"]*)?"/g)].map(m => m[1]);
   assert.ok(cssMatches.length >= 3, 'Must reference css files');
   cssMatches.forEach(relPath => {
     assert.ok(fs.existsSync(relPath), `CSS file must exist: ${relPath}`);
   });
 
   // Check JS scripts
-  const jsMatches = [...html.matchAll(/src="([^"]+\.js)"/g)].map(m => m[1]);
+  const jsMatches = [...html.matchAll(/src="([^"?]+\.js)(?:\?[^"]*)?"/g)].map(m => m[1]);
   assert.ok(jsMatches.length >= 1, 'Must reference js files');
   jsMatches.forEach(relPath => {
     assert.ok(fs.existsSync(relPath), `JS file must exist: ${relPath}`);

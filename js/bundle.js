@@ -857,7 +857,7 @@ function setupBoutique(cart, drawer, container = (typeof document !== 'undefined
       });
     }
 
-    // Keep brewer buttons synced when radio changes directly or via calculator
+    // Keep brewer buttons synced when radio changes directly
     const cardRadios = card.querySelectorAll ? card.querySelectorAll('input[type="radio"]') : [];
     if (cardRadios && typeof cardRadios.forEach === 'function') {
       cardRadios.forEach(radio => {
@@ -1179,188 +1179,9 @@ function registerServiceWorker(win = (typeof window !== 'undefined' ? window : n
 }
 
 /**
- * Guía interactiva de proporciones y extracción para cafetera doméstica.
- * Xochiapam Café — San Pedro Sochiapam, Oaxaca
- */
-const BREWING_RECIPES = {
-  electrica: {
-    name: 'Cafetera eléctrica / Filtro',
-    ratio: 16,
-    cupMl: 240,
-    grindId: 'medio',
-    grindName: 'Molienda Media (calibrada para filtro de papel o canastilla)',
-    timeAdvice: 'Ciclo estándar de tu cafetera eléctrica (4 a 5 minutos)',
-    tempAdvice: '90° a 93°C (temperatura automática o retira 1 min tras hervir)'
-  },
-  prensa: {
-    name: 'Prensa Francesa',
-    ratio: 15,
-    cupMl: 220,
-    grindId: 'medio',
-    grindName: 'Molienda Media-Gruesa (mayor cuerpo y retención de sedimentos)',
-    timeAdvice: '4 minutos de infusión antes de bajar el émbolo suavemente',
-    tempAdvice: '92°C (espera 45 segundos después del hervor antes de verter)'
-  },
-  moka: {
-    name: 'Cafetera Italiana Moka',
-    ratio: 10,
-    cupMl: 60,
-    grindId: 'fino',
-    grindName: 'Molienda Fina (sin llegar a polvo talco para no obstruir el filtro)',
-    timeAdvice: 'Fuego medio-bajo; retira de la llama cuando empiece a borbotear',
-    tempAdvice: 'Agua caliente en la base inferior para no sobrecalentar el grano'
-  },
-  taza: {
-    name: 'Taza individual rápida',
-    ratio: 15,
-    cupMl: 250,
-    grindId: 'medio',
-    grindName: 'Molienda Media (goteo directo en filtro cónico de taza)',
-    timeAdvice: '2.5 a 3 minutos vertiendo el agua en círculos pausados',
-    tempAdvice: '91° a 93°C (retira 1 minuto después de hervir)'
-  }
-};
-
-function calculateBrew(methodKey, cupsCount) {
-  const recipe = BREWING_RECIPES[methodKey] || BREWING_RECIPES.electrica;
-  const cups = Math.max(1, parseInt(cupsCount, 10) || 1);
-  const totalWater = recipe.cupMl * cups;
-  const coffeeGrams = Math.round(totalWater / recipe.ratio);
-  const spoons = (coffeeGrams / 10).toFixed(1).replace('.0', '');
-
-  return {
-    methodKey,
-    methodName: recipe.name,
-    cups,
-    totalWater,
-    coffeeGrams,
-    spoonsText: `~${spoons} ${spoons === '1' ? 'cucharada sopera' : 'cucharadas soperas'} copeteadas`,
-    grindId: recipe.grindId,
-    grindName: recipe.grindName,
-    timeAdvice: recipe.timeAdvice,
-    tempAdvice: recipe.tempAdvice
-  };
-}
-
-function initRatioCalculator(container = (typeof document !== 'undefined' ? document : null)) {
-  if (!container || typeof container.querySelector !== 'function') return null;
-
-  const calcEl = container.querySelector('#calculadora-proporcion');
-  if (!calcEl) return null;
-
-  let activeMethod = 'electrica';
-  let activeCups = 1;
-
-  const methodBtns = calcEl.querySelectorAll ? calcEl.querySelectorAll('.btn-ratio-method') : [];
-  const cupBtns = calcEl.querySelectorAll ? calcEl.querySelectorAll('.btn-ratio-cup') : [];
-
-  const recipeTagEl = calcEl.querySelector('#ratio-recipe-tag');
-  const gramsEl = calcEl.querySelector('#calc-coffee-grams');
-  const spoonsEl = calcEl.querySelector('#calc-coffee-spoons');
-  const waterEl = calcEl.querySelector('#calc-water-ml');
-  const waterTempEl = calcEl.querySelector('#calc-water-temp');
-  const grindAdviceEl = calcEl.querySelector('#calc-grind-advice');
-  const timeAdviceEl = calcEl.querySelector('#calc-time-advice');
-  const shopLink = calcEl.querySelector('#btn-ratio-select-grind');
-
-  const updateUI = () => {
-    const res = calculateBrew(activeMethod, activeCups);
-
-    if (recipeTagEl) {
-      recipeTagEl.textContent = `Receta para ${res.cups} ${res.cups === 1 ? 'taza' : 'tazas'} (${res.methodName})`;
-    }
-    if (gramsEl) gramsEl.textContent = `${res.coffeeGrams} g`;
-    if (spoonsEl) spoonsEl.textContent = res.spoonsText;
-    if (waterEl) waterEl.textContent = `${res.totalWater} ml`;
-    if (waterTempEl) waterTempEl.textContent = res.tempAdvice;
-    if (grindAdviceEl) grindAdviceEl.textContent = res.grindName;
-    if (timeAdviceEl) timeAdviceEl.textContent = res.timeAdvice;
-
-    if (methodBtns && typeof methodBtns.forEach === 'function') {
-      methodBtns.forEach(btn => {
-        const isTarget = btn.dataset.method === activeMethod;
-        btn.classList.toggle('is-active', isTarget);
-        btn.setAttribute('aria-checked', isTarget ? 'true' : 'false');
-      });
-    }
-
-    if (cupBtns && typeof cupBtns.forEach === 'function') {
-      cupBtns.forEach(btn => {
-        const isTarget = parseInt(btn.dataset.cups, 10) === activeCups;
-        btn.classList.toggle('is-active', isTarget);
-      });
-    }
-
-    if (shopLink) {
-      shopLink.setAttribute('data-target-grind', res.grindId);
-    }
-  };
-
-  if (methodBtns && typeof methodBtns.forEach === 'function') {
-    methodBtns.forEach(btn => {
-      if (btn && typeof btn.addEventListener === 'function') {
-        btn.addEventListener('click', () => {
-          if (btn.dataset.method) {
-            activeMethod = btn.dataset.method;
-            updateUI();
-          }
-        });
-      }
-    });
-  }
-
-  if (cupBtns && typeof cupBtns.forEach === 'function') {
-    cupBtns.forEach(btn => {
-      if (btn && typeof btn.addEventListener === 'function') {
-        btn.addEventListener('click', () => {
-          const cups = parseInt(btn.dataset.cups, 10);
-          if (cups) {
-            activeCups = cups;
-            updateUI();
-          }
-        });
-      }
-    });
-  }
-
-  if (shopLink && typeof shopLink.addEventListener === 'function') {
-    shopLink.addEventListener('click', () => {
-      const targetGrind = shopLink.getAttribute('data-target-grind') || 'medio';
-      const boutiqueCards = container.querySelectorAll ? container.querySelectorAll('.boutique-card') : [];
-      if (boutiqueCards && typeof boutiqueCards.forEach === 'function') {
-        boutiqueCards.forEach(card => {
-          const radio = card.querySelector ? card.querySelector(`input[type="radio"][value="${targetGrind}"]`) : null;
-          if (radio) {
-            radio.checked = true;
-            if (typeof radio.dispatchEvent === 'function') {
-              radio.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-          }
-          if (card.classList && typeof card.classList.add === 'function') {
-            card.classList.add('is-highlighted');
-            setTimeout(() => {
-              if (card.classList && typeof card.classList.remove === 'function') {
-                card.classList.remove('is-highlighted');
-              }
-            }, 1400);
-          }
-        });
-      }
-    });
-  }
-
-  updateUI();
-  return {
-    setMethod: (m) => { activeMethod = m; updateUI(); },
-    setCups: (c) => { activeCups = c; updateUI(); },
-    getBrewState: () => calculateBrew(activeMethod, activeCups)
-  };
-}
-
-/**
  * Main application initializer.
  * @param {ParentNode} [container=document]
- * @returns {{ cart: Cart, drawer: CartDrawer, legal: ReturnType<typeof initLegalDialog>, calculator: ReturnType<typeof initRatioCalculator> }}
+ * @returns {{ cart: Cart, drawer: CartDrawer, legal: ReturnType<typeof initLegalDialog> }}
  */
 function initApp(container = (typeof document !== 'undefined' ? document : null)) {
   if (!container) return { cart: null, drawer: null, legal: null };
@@ -1397,9 +1218,6 @@ function initApp(container = (typeof document !== 'undefined' ? document : null)
   // Initialize Legal & Privacy Dialog
   const legal = initLegalDialog(container);
 
-  // Initialize Interactive Brewing Ratio Calculator
-  const calculator = initRatioCalculator(container);
-
   // Register Service Worker and connectivity listeners
   if (typeof window !== 'undefined') {
     registerServiceWorker(window);
@@ -1433,7 +1251,7 @@ function initApp(container = (typeof document !== 'undefined' ? document : null)
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  return { cart, drawer, legal, calculator };
+  return { cart, drawer, legal };
 }
 
 // Auto-run in browser environment

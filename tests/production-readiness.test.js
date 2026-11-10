@@ -210,7 +210,6 @@ test('ALL codebase files contain ZERO emojis (strict brand constraint)', () => {
     'js/cart.js',
     'js/drawer.js',
     'js/comparison.js',
-    'js/calculator.js',
     'css/tokens.css',
     'css/layout.css',
     'css/components.css'
