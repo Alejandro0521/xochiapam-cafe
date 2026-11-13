@@ -8,7 +8,7 @@
  * - Recursos estaticos: Cache con revalidacion en segundo plano (Stale-while-revalidate).
  */
 
-const CACHE_NAME = 'xochiapam-v3';
+const CACHE_NAME = 'xochiapam-v4';
 
 const PRECACHE_ASSETS = [
   './',
